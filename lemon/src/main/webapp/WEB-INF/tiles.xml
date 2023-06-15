@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="myapp.homepage"
+		template="/WEB-INF/views/layouts/classic.jsp">
+		
+<!-- 		template>layout위치이자 아래 헤더메뉴바디...를 총칭하는 말-->
+		<put-attribute name="title" value="my shop" />
+			
+			
+		<put-attribute name="header" value="/WEB-INF/views/layouts/header.jsp" />
+		
+
+			
+		<put-attribute name="body" value="" />
+		
+		
+	</definition>
+	<definition name="WILDCARD:*/*" extends="myapp.homepage">
+
+
+	<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>
