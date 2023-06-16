@@ -39,16 +39,53 @@ public class ProductServiceImpl implements ProductService {
 		return map.productHitUpdate(vo);
 	}
 
+
 	@Override
-	public List<ProductVO> productSelectListBuy() {
+	public List<ProductVO> fashionproductSelectListBuy() {
 		// TODO Auto-generated method stub
-		return map.productSelectListBuy();
+		return map.fashionproductSelectListBuy();
 	}
 
 	@Override
-	public List<ProductVO> productSelectListSell() {
+	public List<ProductVO> fashionproductSelectListSell() {
 		// TODO Auto-generated method stub
-		return map.productSelectListSell();
+		return map.fashionproductSelectListSell();
+	}
+
+	@Override
+	public List<ProductVO> livingproductSelectListBuy() {
+		// TODO Auto-generated method stub
+		return map.livingproductSelectListBuy();
+	}
+
+	@Override
+	public List<ProductVO> livingproductSelectListSell() {
+		// TODO Auto-generated method stub
+		return map.livingproductSelectListSell();
+	}
+
+	@Override
+	public List<ProductVO> foodproductSelectListBuy() {
+		// TODO Auto-generated method stub
+		return map.foodproductSelectListBuy();
+	}
+
+	@Override
+	public List<ProductVO> foodproductSelectListSell() {
+		// TODO Auto-generated method stub
+		return map.foodproductSelectListSell();
+	}
+
+	@Override
+	public List<ProductVO> guitarproductSelectListBuy() {
+		// TODO Auto-generated method stub
+		return map.guitarproductSelectListBuy();
+	}
+
+	@Override
+	public List<ProductVO> guitarproductSelectListSell() {
+		// TODO Auto-generated method stub
+		return map.guitarproductSelectListSell();
 	}
 
 	@Override

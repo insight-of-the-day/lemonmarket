@@ -3,9 +3,21 @@ package co.market.lemon.product.service;
 import java.util.List;
 
 public interface ProductService {
-	List<ProductVO> productSelectListBuy();
+	List<ProductVO> fashionproductSelectListBuy();
 	
-	List<ProductVO> productSelectListSell();
+	List<ProductVO> fashionproductSelectListSell();
+	
+	List<ProductVO> livingproductSelectListBuy();
+	
+	List<ProductVO> livingproductSelectListSell();
+	
+	List<ProductVO>	foodproductSelectListBuy();
+	
+	List<ProductVO> foodproductSelectListSell();
+	
+	List<ProductVO> guitarproductSelectListBuy();
+	
+	List<ProductVO> guitarproductSelectListSell();
 
 	ProductVO productSelect(ProductVO vo);
 

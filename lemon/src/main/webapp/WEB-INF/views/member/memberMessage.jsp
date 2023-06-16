@@ -8,8 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script type="text/javascript">
-	alert("${message }")
-</script>
+	<script type="text/javascript">
+		alert("${message }")
+		location.href="main.do";
+	</script>
+
 </body>
 </html>
