@@ -8,13 +8,13 @@ import co.market.lemon.notice.service.NoticeService;
 import co.market.lemon.notice.service.NoticeVO;
 import co.market.lemon.notice.serviceImpl.NoticeServiceImpl;
 
-public class noticeUpdate implements Command {
+public class NoticeUpdate implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		NoticeService ns=new NoticeServiceImpl();
 		NoticeVO vo= new NoticeVO();
-		vo.setNoticeId(Integer.valueOf(request.getParameter("noticeId")));
+		vo.setNoticeId(request.getParameter("noticeId"));
 		vo.setNoticeSubject(request.getParameter("noticeSubject"));
 		vo.setNoticeTitle(request.getParameter("noticeTitle"));
 

@@ -31,20 +31,17 @@ import co.market.lemon.mypage.command.MemberUpdate;
 import co.market.lemon.mypage.command.MemberUpdateForm;
 import co.market.lemon.mypage.command.Mypage;
 import co.market.lemon.mypage.command.SellSelectList;
-import co.market.lemon.notice.command.noticeDelete;
-import co.market.lemon.notice.command.noticeInsert;
-import co.market.lemon.notice.command.noticeInsertForm;
-import co.market.lemon.notice.command.noticeMain;
-import co.market.lemon.notice.command.noticeSelect;
-import co.market.lemon.notice.command.noticeUpdate;
-import co.market.lemon.notice.command.noticeUpdateForm;
-import co.market.lemon.product.command.ProductDelete;
-import co.market.lemon.product.command.ProductDeleteForm;
+import co.market.lemon.notice.command.NoticeDelete;
+import co.market.lemon.notice.command.NoticeInsert;
+import co.market.lemon.notice.command.NoticeInsertForm;
+import co.market.lemon.notice.command.NoticeMain;
+import co.market.lemon.notice.command.NoticeSelect;
+import co.market.lemon.notice.command.NoticeUpdate;
+import co.market.lemon.notice.command.NoticeUpdateForm;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
 import co.market.lemon.product.command.ProductListBuy;
 import co.market.lemon.product.command.ProductListSell;
-
 import co.market.lemon.product.command.ProductSelect;
 import co.market.lemon.product.command.ProductUpdate;
 import co.market.lemon.product.command.ProductUpdateForm;
@@ -72,7 +69,7 @@ public class FrontController extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		//공통부분
+		//공통부분s
 		map.put("/main.do", new MainCommand());
 		map.put("/memberInsertForm.do", new MemberInsertForm());
 		map.put("/memberLoginForm.do", new MemberLoginForm());
@@ -100,9 +97,6 @@ public class FrontController extends HttpServlet {
 
 		map.put("/productUpdateForm.do", new ProductUpdateForm());
 		map.put("/productUpdate.do", new ProductUpdate());
-		map.put("/productDeleteForm.do", new ProductDeleteForm());
-		map.put("/productDelete.do", new ProductDelete());
-	
 
 
 		//송이zone
@@ -117,13 +111,13 @@ public class FrontController extends HttpServlet {
   
 
 		//주현이 영역~~~ notice
-		map.put("/noticeMain.do", new noticeMain());
-		map.put("/noticeInsertForm.do", new noticeInsertForm());
-		map.put("/noticeSelect.do", new noticeSelect());
-		map.put("/noticeUpdate.do", new noticeUpdate());
-		map.put("/noticeDelete", new noticeDelete());
-		map.put("/noticeUpdateForm.do", new noticeUpdateForm());
-		map.put("/noticeInsert.do",new noticeInsert());
+		map.put("/noticeMain.do", new NoticeMain());
+		map.put("/noticeInsertForm.do", new NoticeInsertForm());
+		map.put("/noticeSelect.do", new NoticeSelect());
+		map.put("/noticeUpdate.do", new NoticeUpdate());
+		map.put("/noticeDelete.do", new NoticeDelete());
+		map.put("/noticeUpdateForm.do", new NoticeUpdateForm());
+		map.put("/noticeInsert.do",new NoticeInsert());
 
 
 		//나리zone

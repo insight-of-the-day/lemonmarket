@@ -8,12 +8,18 @@ import co.market.lemon.notice.service.NoticeService;
 import co.market.lemon.notice.service.NoticeVO;
 import co.market.lemon.notice.serviceImpl.NoticeServiceImpl;
 
-public class noticeInsertForm implements Command {
+public class NoticeUpdateForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-
-		return "notice/noticeInsert";
+		NoticeService ns= new NoticeServiceImpl();
+		NoticeVO vo=new NoticeVO();
+		
+		vo.setNoticeId(request.getParameter("noticeId"));
+		vo=ns.noticeSelect(vo);
+		request.setAttribute("notice", vo);
+		System.out.println("sdjkljflawje");
+		return "notice/noticeUpdate";
 	}
 
 }

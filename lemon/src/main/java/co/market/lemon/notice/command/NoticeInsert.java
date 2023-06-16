@@ -8,14 +8,14 @@ import co.market.lemon.notice.service.NoticeService;
 import co.market.lemon.notice.service.NoticeVO;
 import co.market.lemon.notice.serviceImpl.NoticeServiceImpl;
 
-public class noticeInsert implements Command {
+public class NoticeInsert implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		NoticeService ns=new NoticeServiceImpl();
 		NoticeVO vo= new NoticeVO();
 		vo.setNoticeTitle(request.getParameter("noticeTitle"));
-		vo.setNoticeTitle(request.getParameter("noticeTitle"));
+		vo.setNoticeSubject(request.getParameter("noticeSubject"));
 		
 		int n=ns.noticeInsert(vo);
 		if(n>0) {

@@ -8,18 +8,22 @@ import co.market.lemon.notice.service.NoticeService;
 import co.market.lemon.notice.service.NoticeVO;
 import co.market.lemon.notice.serviceImpl.NoticeServiceImpl;
 
-public class noticeUpdateForm implements Command {
+public class NoticeDelete implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		NoticeService ns= new NoticeServiceImpl();
-		NoticeVO vo=new NoticeVO();
+		NoticeService ns = new NoticeServiceImpl();
+		NoticeVO vo = new NoticeVO();
+		vo.setNoticeId(request.getParameter("noticeId"));
 		
-		vo.setNoticeId(Integer.valueOf(request.getParameter("noticeId")));
-		vo=ns.noticeSelect(vo);
-		request.setAttribute("notice", vo);
-		System.out.println("sdjkljflawje");
-		return "notice/noticeUpdate";
+		int n = ns.noticeDelete(vo);
+		if (n != 0) {
+			request.setAttribute("message", "공지사항이 삭제되었습니다.");
+		} else {
+			request.setAttribute("message", "공지사항 삭제에 실패하였습니다.");
+		}
+		
+		return "notice/message";
 	}
 
 }

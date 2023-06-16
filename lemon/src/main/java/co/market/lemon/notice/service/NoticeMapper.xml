@@ -9,16 +9,16 @@
 		select * from notice where notice_id=#{noticeId}
 	</select>
 	
-	<insert id="noticeInsert">
-	insert into notice values
-	(Max(NVL(noticeId,0)+1),#{noticeTitle},#{noticeSubject},SYSDATE )
+	<insert id="noticeInsert" parameterType="co.market.lemon.notice.service.NoticeVO">
+		insert into notice(notice_id,notice_title,notice_subject,notice_wdate)   
+		values((select NVL(Max(notice_Id),0)+1 from notice),#{noticeTitle},#{noticeSubject},SYSDATE)
 	</insert>
 	
-	<update id="noticeUpdate" >
+	<update id="noticeUpdate" parameterType="co.market.lemon.notice.service.NoticeVO">
 		update notice set notice_title=#{noticeTitle}, 
 		notice_subject=#{noticeSubject} where notice_id=#{noticeId}
 	</update>
-	<delete id="noticeDelete">
-	delete notice where notice_id=#{noticeId}
+	<delete id="noticeDelete" parameterType="co.market.lemon.notice.service.NoticeVO">
+	delete from notice where notice_id=#{noticeId}
 	</delete>
 </mapper>

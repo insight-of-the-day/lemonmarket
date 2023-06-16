@@ -8,4 +8,5 @@ public interface NoticeService {
 	int noticeInsert(NoticeVO vo);
 	int noticeUpdate(NoticeVO vo);
 	int noticeDelete(NoticeVO vo);
+
 }
