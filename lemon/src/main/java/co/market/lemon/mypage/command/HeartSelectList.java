@@ -12,24 +12,25 @@ import co.market.lemon.mypage.service.MypageService;
 import co.market.lemon.mypage.service.MypageVO;
 import co.market.lemon.mypage.serviceImpl.MypageServiceImpl;
 
-public class SellSelectList implements Command {
+public class HeartSelectList implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {			
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		MypageVO vo = new MypageVO();
 		HttpSession session = request.getSession();
-		vo.setMemberName((String) session.getAttribute("name"));
-		String memberName = vo.getMemberName();
-
+		vo.setMemberId((String) session.getAttribute("id"));
+		String memberId = vo.getMemberId();
 			
 		MypageService ms = new MypageServiceImpl();
-		List<MypageVO> sellList = new ArrayList<MypageVO>();
+		List<MypageVO> heartList = new ArrayList<MypageVO>();
 
 		
-		sellList = ms.sellSelectList(memberName);
-		request.setAttribute("sellList", sellList);	
+		heartList = ms.heartSelectList(memberId);
+		request.setAttribute("heartList", heartList);
 		
-		return "mypage/sellSelectList";
+		System.out.println(request.getAttribute("heartList"));
+		
+		return "mypage/heartSelectList";
 	}
 
 }

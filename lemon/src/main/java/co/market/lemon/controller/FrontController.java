@@ -19,7 +19,10 @@ import co.market.lemon.adminpage.command.MemberSelect;
 import co.market.lemon.adminpage.command.MemberSelectList;
 import co.market.lemon.command.MainCommand;
 import co.market.lemon.common.Command;
+import co.market.lemon.heart.command.AddHeart;
+import co.market.lemon.heart.command.DeleteHeart;
 import co.market.lemon.member.command.AjaxCheckId;
+import co.market.lemon.member.command.AjaxCheckName;
 import co.market.lemon.member.command.MemberInsert;
 import co.market.lemon.member.command.MemberInsertForm;
 import co.market.lemon.member.command.MemberLogin;
@@ -31,6 +34,7 @@ import co.market.lemon.mypage.command.MemberUpdate;
 import co.market.lemon.mypage.command.MemberUpdateForm;
 import co.market.lemon.mypage.command.Mypage;
 import co.market.lemon.mypage.command.SellSelectList;
+import co.market.lemon.mypage.command.HeartSelectList;
 import co.market.lemon.notice.command.noticeDelete;
 import co.market.lemon.notice.command.noticeInsert;
 import co.market.lemon.notice.command.noticeInsertForm;
@@ -38,8 +42,6 @@ import co.market.lemon.notice.command.noticeMain;
 import co.market.lemon.notice.command.noticeSelect;
 import co.market.lemon.notice.command.noticeUpdate;
 import co.market.lemon.notice.command.noticeUpdateForm;
-import co.market.lemon.product.command.ProductDelete;
-import co.market.lemon.product.command.ProductDeleteForm;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
 import co.market.lemon.product.command.ProductListBuy;
@@ -79,6 +81,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberInsert.do", new MemberInsert());
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/ajaxCheckId.do", new AjaxCheckId());
+		map.put("/ajaxCheckName.do", new AjaxCheckName());
 
 		//상희zone
 		map.put("/memberLogout.do", new MemberLogout());
@@ -100,8 +103,7 @@ public class FrontController extends HttpServlet {
 
 		map.put("/productUpdateForm.do", new ProductUpdateForm());
 		map.put("/productUpdate.do", new ProductUpdate());
-		map.put("/productDeleteForm.do", new ProductDeleteForm());
-		map.put("/productDelete.do", new ProductDelete());
+
 	
 
 
@@ -113,6 +115,11 @@ public class FrontController extends HttpServlet {
 		map.put("/memberDelete.do", new MemberDelete());  //삭제 실행
 		
 		map.put("/sellSelectList.do", new SellSelectList());  //판매 내역
+		map.put("/heartSelectList.do", new HeartSelectList());  //관심 목록
+		
+		
+		map.put("/addHeart.do", new AddHeart());  //찜하기 누르기
+		map.put("/deleteHeart.do", new DeleteHeart());  //찜취소 누르기
 
   
 

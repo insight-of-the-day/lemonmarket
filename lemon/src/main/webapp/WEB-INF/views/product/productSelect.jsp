@@ -54,7 +54,19 @@
 							<h2>${product.productTitle}</h2>
 							<p>
 								<c:if test="${name ne product.productWriter}">
-									<a href="#" class="btn btn-primary btn-outline btn-lg">찜하기</a>
+									<form id="frm" method="post">
+										<input type="hidden" id="productId" name="productId" value="${product.productId }">
+										<c:choose>
+											<c:when test="${heartVal eq 0 }">
+												<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜하기" >
+											</c:when>
+											<c:otherwise>
+												<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜취소" >
+											</c:otherwise>
+										</c:choose>
+									</form>
+															
+									<!-- <a href="clickHeart.do" id="heart" onclick="clickHeart()" class="btn btn-primary btn-outline btn-lg">찜하기</a> -->
 								</c:if>
 								<c:if test="${name eq product.productWriter}">
 									<a href="productUpdateForm.do" class="btn btn-primary btn-outline btn-lg">수정</a>
@@ -162,6 +174,27 @@
 				</div>
 			</div>
 		</div>
+		
+	<script type="text/javascript">	    
+	    let he = document.getElementById("heart");
+	   	he.addEventListener("click", clickHeart);
+		
+		function clickHeart() {
+			let frm = document.getElementById("frm");
+		    if(he.value == "찜하기") {
+				he.value = "찜취소";
+				frm.action="addHeart.do";
+// 		    	location.href = 'ClickHeart.do';
+		    } else {
+		    	he.value ="찜하기";
+		    	frm.action="deleteHeart.do";
+		    }
+		    frm.submit();
+		}
+		
+		
+		
+	</script>
 
 </body>
 </html>

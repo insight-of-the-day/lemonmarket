@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface MypageMapper {
 	//판매 내역
-	List<SellVO> sellSelectList();
+	List<MypageVO> sellSelectList(String name);
 	
-	//찜 목록
-	List<HeartVO> heartSelectList();
+	//관심목록
+	List<MypageVO> heartSelectList(String id);
 	
-	//최근 본 상품
+
 }

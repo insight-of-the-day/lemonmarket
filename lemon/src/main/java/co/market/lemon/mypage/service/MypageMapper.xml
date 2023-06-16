@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="co.market.lemon.mypage.service.MypageMapper">
-	<select id="sellSelectList" parameterType="String" resultType="co.market.lemon.mypage.service.SellVO">
-		SELECT PRODUCT_ID, PRODUCT_WRITER, PRODUCT_CATEGORY, PRODUCT_TITLE, PRODUCT_STATE, PRODUCT_WDATE
+	<select id="sellSelectList" resultType="co.market.lemon.mypage.service.MypageVO" parameterType="String">
+		SELECT PRODUCT_ID, PRODUCT_CATEGORY, PRODUCT_TITLE, PRODUCT_WRITER, PRODUCT_STATE, PRODUCT_WDATE
 		FROM PRODUCT
-		WHERE PRODUCT_WRITER = #{memberName}
+		WHERE PRODUCT_WRITER = #{value}
 		ORDER BY PRODUCT_ID
 	</select>
 	
-	<select id="heartSelectList">
+	<select id="heartSelectList" resultType="co.market.lemon.mypage.service.MypageVO" parameterType="String">
+		SELECT H.PRODUCT_ID, P.PRODUCT_CATEGORY, P.PRODUCT_INFO, P.PRODUCT_TITLE, P.PRODUCT_WRITER, P.PRODUCT_STATE, P.PRODUCT_WDATE
+		FROM HEART H JOIN PRODUCT P ON H.PRODUCT_ID = P.PRODUCT_ID
+		WHERE H.MEMBER_ID = #{value}
+		ORDER BY PRODUCT_ID
 	</select>
+	
+	
 
 </mapper>
