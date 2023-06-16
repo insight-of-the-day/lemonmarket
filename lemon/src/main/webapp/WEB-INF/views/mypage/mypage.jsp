@@ -16,7 +16,8 @@
 				<a href="memberUpdateForm.do">회원정보수정</a>
 			</div>
 			<div><a href="sellSelectList.do">판매내역</a></div>
-			<div><a href="heartSelectList.do">찜목록</a></div>
+			<div><a href="#">구매내역</a></div>
+			<div><a href="heartSelectList.do">관심목록</a></div>
 			<div><a href="#">최근본상품</a></div>	
 		</div>
 	</div>

@@ -21,9 +21,9 @@
 							</td>
 						</tr>
 						<tr>
-							<td>이름</td>
+							<td>별명</td>
 							<td>
-								<input type="text" id="memberName" name="memberName" value="${name}" required="required">
+								<input type="text" id="memberName" name="memberName" value="${name}" disabled>
 							</td>
 						</tr>
 						<tr>

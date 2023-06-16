@@ -52,4 +52,10 @@ public class MemberServiceImpl implements MemberService {
 		return map.memberLogin(vo);
 	}
 
+	@Override
+	public MemberVO memberSelectName(MemberVO vo) {
+		
+		return map.memberSelectName(vo);
+	}
+
 }

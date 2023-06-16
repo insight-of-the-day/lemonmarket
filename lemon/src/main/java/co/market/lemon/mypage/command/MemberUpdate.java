@@ -28,6 +28,11 @@ public class MemberUpdate implements Command {
 		int n = ms.memberUpdate(vo);
 		if(n != 0) {
 			request.setAttribute("message", "회원 정보가 수정되었습니다.");
+			session.setAttribute("id", vo.getMemberId());
+			session.setAttribute("name", vo.getMemberName());
+			session.setAttribute("grade", vo.getMemberGrade());
+			session.setAttribute("pw", vo.getMemberPw());
+			session.setAttribute("tel", vo.getMemberTel());
 		} else {
 			request.setAttribute("message", "회원 정보를 수정하지 못했습니다.");
 		}

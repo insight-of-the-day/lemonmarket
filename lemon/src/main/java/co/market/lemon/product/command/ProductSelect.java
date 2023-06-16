@@ -5,8 +5,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.market.lemon.common.Command;
+import co.market.lemon.heart.service.HeartService;
+import co.market.lemon.heart.service.HeartVO;
+import co.market.lemon.heart.serviceImpl.HeartServiceImpl;
 import co.market.lemon.product.service.ProductService;
 import co.market.lemon.product.service.ProductVO;
 import co.market.lemon.product.serviceImpl.ProductServiceImpl;
@@ -31,8 +35,30 @@ public class ProductSelect implements Command {
 		List<ReplyVO> replyList = new ArrayList<ReplyVO>();
 		replyList = rs.replyList(vo.getProductId());
 		request.setAttribute("replyList", replyList);
+
+		
+		
+		
+		// 찜상태 불러오기
+		HeartService hs = new HeartServiceImpl();
+		HeartVO hvo = new HeartVO();
+		
+		HttpSession session = request.getSession();
+		hvo.setMemberId((String) session.getAttribute("id"));
+		hvo.setProductId(Integer.valueOf(request.getParameter("productId")));
+
+		int heartVal = hs.selectHeart(hvo);
+		request.setAttribute("heartVal", heartVal);
+
+		
+		
+
 	
+
 		return "product/productSelect";
+		
+		
+		
 	}
 
 }

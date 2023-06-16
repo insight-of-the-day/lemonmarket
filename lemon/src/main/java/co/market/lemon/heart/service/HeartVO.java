@@ -1,4 +1,4 @@
-package co.market.lemon.mypage.service;
+package co.market.lemon.heart.service;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,7 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class HeartVO {
-	//찜목록
-	private String memberId;
 	private int productId;
+	private String memberId;
 }
