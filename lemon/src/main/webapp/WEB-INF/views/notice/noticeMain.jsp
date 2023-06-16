@@ -18,7 +18,7 @@
 
 
 
-	<section class="notice">
+	<section class="notice" >
 		<div class="page-title">
 			<div class="container">
 				<h3>공지사항</h3>

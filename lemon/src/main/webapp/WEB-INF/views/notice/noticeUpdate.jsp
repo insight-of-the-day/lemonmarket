@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>공지사항 수정</h1>
+	<h1 align="center">공지사항 수정</h1>
 	<form action="noticeUpdate.do" id="frm" method="post">
 		<table>
 		<tr>

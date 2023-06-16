@@ -11,7 +11,7 @@
 	<table>
 		<thead>
 			<tr>
-				<th><${notice.noticeId }></th>
+				<th>${notice.noticeId }</th>
 				<th>${notice.noticeTitle }</th>
 				<th>${notice.noticeWdate }</th>
 			</tr>
@@ -22,18 +22,28 @@
 			</tr>
 		</tbody>
 	</table>
-	<form id="frm" action="noticeUpdateForm.do" method="post">
-	<input type="hidden" name="noticeId" value="${notice.noticeId }">
-	<c:if test="${grade eq 'A'}">
-	<input type="submit" value="수정">
-	<button type="button" onclick="location.href='noticeDelete.do'">
-	삭제
-	</button>
-	</c:if>
-	
+
+	<form id="frm" method="post">
+		<input type="hidden" name="noticeId" value="${notice.noticeId }">
+		<c:if test="${grade eq 'A'}">
+			<button type="button" onclick="callFunction('E')">수정</button>
+			<button type="button" onclick="callFunction('D')">삭제</button>
+		</c:if>
+
+
 	</form>
-	
-	
-	
+
+	<script type="text/javascript">
+		function callFunction(str) {
+			let frm = document.getElementById("frm");
+			if (str == 'E') {
+				frm.action = "noticeUpdateForm.do";
+			} else {
+				frm.action = "noticeDelete.do";
+			}
+			frm.submit();
+		}
+	</script>
+
 </body>
 </html>

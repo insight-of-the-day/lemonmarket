@@ -9,7 +9,7 @@
 <body>
 	<script type="text/javascript">
 		alert("${message }")
+			location.href="noticeMain.do";
 	</script>
-	<jsp:forward page="noticeMain.do"></jsp:forward>
 </body>
 </html>

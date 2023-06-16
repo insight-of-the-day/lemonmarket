@@ -84,7 +84,7 @@ public class FrontController extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		//공통부분
+		//공통부분s
 		map.put("/main.do", new MainCommand());
 		map.put("/memberInsertForm.do", new MemberInsertForm());
 		map.put("/memberLoginForm.do", new MemberLoginForm());
@@ -120,9 +120,6 @@ public class FrontController extends HttpServlet {
 		map.put("/productUpdateForm.do", new ProductUpdateForm());
 		map.put("/productUpdate.do", new ProductUpdate());
 
-	
-		
-		
 
 
 		//송이zone
@@ -142,13 +139,13 @@ public class FrontController extends HttpServlet {
   
 
 		//주현이 영역~~~ notice
-		map.put("/noticeMain.do", new noticeMain());
-		map.put("/noticeInsertForm.do", new noticeInsertForm());
-		map.put("/noticeSelect.do", new noticeSelect());
-		map.put("/noticeUpdate.do", new noticeUpdate());
-		map.put("/noticeDelete", new noticeDelete());
-		map.put("/noticeUpdateForm.do", new noticeUpdateForm());
-		map.put("/noticeInsert.do",new noticeInsert());
+		map.put("/noticeMain.do", new NoticeMain());
+		map.put("/noticeInsertForm.do", new NoticeInsertForm());
+		map.put("/noticeSelect.do", new NoticeSelect());
+		map.put("/noticeUpdate.do", new NoticeUpdate());
+		map.put("/noticeDelete.do", new NoticeDelete());
+		map.put("/noticeUpdateForm.do", new NoticeUpdateForm());
+		map.put("/noticeInsert.do",new NoticeInsert());
 
 
 		//나리zone
