@@ -17,6 +17,7 @@ import co.market.lemon.adminpage.command.AdminMypage;
 import co.market.lemon.adminpage.command.MemberReportList;
 import co.market.lemon.adminpage.command.MemberSelect;
 import co.market.lemon.adminpage.command.MemberSelectList;
+import co.market.lemon.adminpage.command.ReportSelect;
 import co.market.lemon.command.MainCommand;
 import co.market.lemon.common.Command;
 import co.market.lemon.member.command.AjaxCheckId;
@@ -90,7 +91,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberReportList.do", new MemberReportList());
 		map.put("/memberSelect.do", new MemberSelect());
 		map.put("/adminMemberDelete.do", new AdminMemberDelete());
-
+		map.put("/reportSelect.do", new ReportSelect());
 
 
     	//혜련zone

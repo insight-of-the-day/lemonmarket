@@ -43,7 +43,7 @@
 							<th scope="col">연락처</th>
 							<th scope="col">등급</th>
 							<th scope="col">경고횟수</th>
-							<th scope="col">삭제</th>
+							<th scope="col">회원탈퇴처리</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -54,7 +54,7 @@
 								<td>${member.memberTel }</td>
 								<td>${member.memberGrade }</td>
 								<td>${member.memberCount }</td>
-								<td><button type="submit">회원삭제</button></td>
+								<td><button type="submit" class="btn" id="search">삭제하기</button></td>
 							</tr>
 						</c:if>
 						<c:if test="${empty member }">
