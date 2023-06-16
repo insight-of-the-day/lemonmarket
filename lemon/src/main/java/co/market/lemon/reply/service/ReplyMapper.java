@@ -6,7 +6,7 @@ public interface ReplyMapper {
 	
 	List<ReplyVO> replyList(int productId);
 	
-	ReplyVO replySelect(int productId);
+	ReplyVO replySelect(int replyId);
 	
 	int replyInsert(ReplyVO vo);
 	

@@ -15,6 +15,11 @@
 		</if>		
 	</select>
 	
+	<select id="memberSelectName" resultType="co.market.lemon.member.service.MemberVO">
+		SELECT * FROM MEMBER
+		WHERE MEMBER_NAME = #{memberName}
+	</select>
+	
 	<insert id="memberInsert" parameterType="co.market.lemon.member.service.MemberVO">
 		INSERT INTO MEMBER
 		VALUES (#{memberId}, #{memberPw}, #{memberName}, #{memberTel}, 'N', 0)

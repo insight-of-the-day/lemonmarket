@@ -52,19 +52,32 @@
 					<div class="row animate-box">
 						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 							<h2>${product.productTitle}</h2>
+							<h5>${product.productWriter}</h5>
 							<p>
-								<c:if test="${name ne product.productWriter}">
-									<a href="#" class="btn btn-primary btn-outline btn-lg">찜하기</a>
-								</c:if>
-								<c:if test="${name eq product.productWriter}">
-									<a href="productUpdateForm.do" class="btn btn-primary btn-outline btn-lg">수정</a>
-									<a href="productDelete.do" class="btn btn-primary btn-outline btn-lg">삭제</a>
-
-									<!-- 									id 받아오는거 해주세여... -->
-
-								</c:if>
-									<a href="productList.do" class="btn btn-primary btn-outline btn-lg">목록</a>
-
+								<form id="frm" method="post">
+									<input type="hidden" id="productId" name="productId" value="${product.productId}"/>
+									<c:if test="${name ne product.productWriter}">
+										<form id="frm" method="post">
+										<input type="hidden" id="productId" name="productId" value="${product.productId }">
+										<c:choose>
+											<c:when test="${heartVal eq 0 }">
+												<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜하기" >
+											</c:when>
+											<c:otherwise>
+												<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜취소" >
+											</c:otherwise>
+										</c:choose>
+									  </form>
+										<a href="#" class="btn btn-primary btn-outline btn-lg">신고 </a>
+									</c:if>
+									<c:if test="${name eq product.productWriter || grade eq 'A'}">
+										<input type="submit" onclick="javascript: frm.action='productUpdateForm.do'" class="btn btn-primary btn-outline btn-lg" value="수정">
+										<input type="submit" onclick="javascript: frm.action='productDelete.do'" class="btn btn-primary btn-outline btn-lg" value="삭제">
+									</c:if>
+									<c:if test="${name eq product.productWriter}">
+										<input type="submit" onclick="javascript: frm.action='productPullUp.do'" class="btn btn-primary btn-outline btn-lg" value="끌올">
+									</c:if>
+								</form>						
 							</p>
 						</div>
 					</div>
@@ -85,7 +98,6 @@
 								<div class="col-md-10 col-md-offset-1">
 									<span class="price">가격 : ${product.productPrice}</span>
 									<h2>${product.productTitle}</h2>
-
 									<div class="row">
 										<div class="col-md-6">
 											<p>${product.productSubject}</p>
@@ -108,9 +120,12 @@
 																<p>${replyList.replySubject}</p>
 															</blockquote>
 															<h3>&mdash; ${replyList.replyWriter}, ${replyList.replyWdate}</h3>
-															<c:if test="${name eq replyList.replyWriter}">
-																<button type="button" class="btn btn-primary btn-outline btn-lg">수정</button>
-																<button type="button" class="btn btn-primary btn-outline btn-lg">삭제</button>
+															<c:if test="${name eq replyList.replyWriter || grade eq 'A'}">
+																<form id="editReply" method="post">
+																	<input type="hidden" id="replyId" name="replyId" value="${replyList.replyId}" />
+																	<button type="button" onclick="callFunction('E')" class="btn btn-primary btn-outline btn-lg">수정</button>
+																	<button type="button" onclick="callFunction('D')" class="btn btn-primary btn-outline btn-lg">삭제</button>
+																</form>
 															</c:if>
 														</div>
 													</c:when>
@@ -130,9 +145,13 @@
 														<p>${replyList.replySubject}</p>
 													</blockquote>
 													<h3>&mdash; ${replyList.replyWriter}, ${replyList.replyWdate}</h3>
-													<c:if test="${name eq replyList.replyWriter}">
-														<button type="button" class="btn btn-primary btn-outline btn-lg">수정</button>
-														<button type="button" class="btn btn-primary btn-outline btn-lg">삭제</button>
+													
+													<c:if test="${name eq replyList.replyWriter || grade eq 'A'}">
+														<form id="editReply" method="post">
+															<input type="hidden" id="replyId" name="replyId" value="${replyList.replyId}" />
+															<button type="button" onclick="callFunction('E')" class="btn btn-primary btn-outline btn-lg">수정</button>
+															<button type="button" onclick="callFunction('D')" class="btn btn-primary btn-outline btn-lg">삭제</button>
+														</form>
 													</c:if>
 												</div>
 											</c:if>
@@ -143,7 +162,7 @@
 												<div>
 													<label for="replyWriter">댓글 작성자</label><input type="text" id="replyWriter" name="replyWriter" value=${name} readonly="readonly" />
 													<br>
-													<label for="replySubject">댓글 내용</label><textarea rows="1" cols="100" type="text" id="replySubject" name="replySubject"></textarea>
+													<label for="replySubject">댓글 내용</label><textarea rows="1" cols="100" id="replySubject" name="replySubject"></textarea>
 													<br>
 													<label for="replySecret">비밀 댓글</label>
 													<input type="checkbox" id="replySecret" name="replySecret" />
@@ -162,6 +181,37 @@
 				</div>
 			</div>
 		</div>
+		
+	<script type="text/javascript">	    
+	    let he = document.getElementById("heart");
+	   	he.addEventListener("click", clickHeart);
+		
+		function clickHeart() {
+			let frm = document.getElementById("frm");
+		    if(he.value == "찜하기") {
+				he.value = "찜취소";
+				frm.action="addHeart.do";
+		    } else {
+		    	he.value ="찜하기";
+		    	frm.action="deleteHeart.do";
+		    }
+		    frm.submit();
+		}
+		
+  		function callFunction(str) {
+			let frm = document.getElementById("editReply");
+			if (str == 'E')
+				frm.action = "replyUpdateForm.do";
+			else
+				if (confirm("정말 삭제 하시겠습니까?"))
+					frm.action = "replyDelete.do";
+				else
+					return false;
+			frm.submit();
+		}
+		
+		
+	</script>
 
 </body>
 </html>

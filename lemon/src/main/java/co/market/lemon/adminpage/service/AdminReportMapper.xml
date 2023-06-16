@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="co.market.lemon.adminpage.service.AdminReportMapper">
+	
+	
+	<select id="reportSelectList" resultType="co.market.lemon.adminpage.service.AdminReportVO">
+	
+	SELECT * FROM REPORT
+	</select>
+	
+	<select id="reportSelect" resultType="co.market.lemon.adminpage.service.AdminReportVO">
+	SELECT * FROM REPORT
+	WHERE REPORT_ID = #{reportId}
+	</select>
+	
+</mapper>

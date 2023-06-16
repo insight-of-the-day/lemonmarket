@@ -22,7 +22,7 @@
 				<div class="search-window">
 					<form id="frm" action="memberSelect.do" method="post">
 						<div class="search-wrap">
-							<label for="search" class="blind">공지사항 내용 검색</label> <input
+							<label for="search" class="blind">회원 아이디 검색</label> <input
 								type="search" id="search" name="memberId" placeholder="아이디 검색">
 							<button type="submit" class="btn btn-dark"
 								style="margin-right: 0px; margin-bottom: 0px">검색</button>

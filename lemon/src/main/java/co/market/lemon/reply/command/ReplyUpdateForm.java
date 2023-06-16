@@ -8,25 +8,17 @@ import co.market.lemon.reply.service.ReplyService;
 import co.market.lemon.reply.service.ReplyVO;
 import co.market.lemon.reply.serviceImpl.ReplyServiceImpl;
 
-public class replyInsert implements Command {
+public class ReplyUpdateForm implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		ReplyService rs = new ReplyServiceImpl();
 		ReplyVO vo = new ReplyVO();
-		vo.setProductId(Integer.valueOf(request.getParameter("productId")));
-		vo.setReplyWriter(request.getParameter("replyWriter"));
-		vo.setReplySubject(request.getParameter("replySubject"));
-		vo.setReplySecret(request.getParameter("replySecret"));
-		if (vo.getReplySecret() == null) {
-			vo.setReplySecret("n");
-		} else if (vo.getReplySecret().equals("on")) {
-			vo.setReplySecret("y");
-		}
-
-		rs.replyInsert(vo);
+		vo.setReplyId(Integer.valueOf(request.getParameter("replyId")));
+		vo = rs.replySelect(vo.getReplyId());
+		request.setAttribute("replyList", vo);
 		
-		return "product/productSelect";
+		return "product/replyUpdate";
 	}
 
 }
