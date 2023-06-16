@@ -88,4 +88,11 @@ public class ProductServiceImpl implements ProductService {
 		return map.guitarproductSelectListSell();
 	}
 
+	@Override
+	public int productPullUp(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productPullUp(vo);
+	}
+	
+	
 }

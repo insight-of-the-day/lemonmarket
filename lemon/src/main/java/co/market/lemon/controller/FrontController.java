@@ -41,6 +41,7 @@ import co.market.lemon.notice.command.noticeUpdate;
 import co.market.lemon.notice.command.noticeUpdateForm;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
+import co.market.lemon.product.command.ProductPullUp;
 import co.market.lemon.product.command.ProductSelect;
 import co.market.lemon.product.command.ProductUpdate;
 import co.market.lemon.product.command.ProductUpdateForm;
@@ -52,7 +53,10 @@ import co.market.lemon.product.command.guitarProductListBuy;
 import co.market.lemon.product.command.guitarProductListSell;
 import co.market.lemon.product.command.livingProductListBuy;
 import co.market.lemon.product.command.livingProductListSell;
-import co.market.lemon.reply.command.replyInsert;
+import co.market.lemon.reply.command.ReplyDelete;
+import co.market.lemon.reply.command.ReplyUpdate;
+import co.market.lemon.reply.command.ReplyUpdateForm;
+import co.market.lemon.reply.command.ReplyInsert;
 
 
 
@@ -95,7 +99,6 @@ public class FrontController extends HttpServlet {
 
 
     	//혜련zone
-
 		map.put("/fashionproductListBuy.do", new fashionProductListBuy());
 		map.put("/fashionproductListSell.do", new fashionProductListSell());
 		map.put("/foodproductListBuy.do", new foodProductListBuy());
@@ -113,6 +116,8 @@ public class FrontController extends HttpServlet {
 		map.put("/productUpdate.do", new ProductUpdate());
 
 	
+		
+		
 
 
 		//송이zone
@@ -138,7 +143,11 @@ public class FrontController extends HttpServlet {
 
 		//나리zone
 		map.put("/productSelect.do", new ProductSelect());
-		map.put("/replyInsert.do", new replyInsert());
+		map.put("/replyInsert.do", new ReplyInsert());
+		map.put("/replyUpdateForm.do", new ReplyUpdateForm());
+		map.put("/replyUpdate.do", new ReplyUpdate());
+		map.put("/replyDelete.do", new ReplyDelete());
+		map.put("/productPullUp.do", new ProductPullUp());
 
 	}
 

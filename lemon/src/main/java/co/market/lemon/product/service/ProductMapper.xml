@@ -4,62 +4,58 @@
 	<select id="fashionproductSelectListBuy"
 		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT where product_info='삽니다' and
-		product_category='패션' ORDER BY 1
+		product_category='패션' ORDER BY 8
 		DESC
 	</select>
 
 	<select id="fashionproductSelectListSell"
 		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT where product_info='팝니다' and
-		product_category='패션' ORDER BY 1
+		product_category='패션' ORDER BY 8
 		DESC
 	</select>
 
 	<select id="livingproductSelectListBuy"
 		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT where product_info='삽니다' and
-		product_category='리빙' ORDER BY 1
+		product_category='리빙' ORDER BY 8
 		DESC
 	</select>
 
 	<select id="livingproductSelectListSell"
 		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT where product_info='팝니다' and
-		product_category='리빙' ORDER BY 1
+		product_category='리빙' ORDER BY 8
 		DESC
 	</select>
 
 	<select id="foodproductSelectListBuy"
 		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT where product_info='삽니다' and
-		product_category='식품' ORDER BY 1
+		product_category='식품' ORDER BY 8
 		DESC
 	</select>
 
 	<select id="foodproductSelectListSell"
 		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT where product_info='팝니다' and
-		product_category='식품' ORDER BY 1
+		product_category='식품' ORDER BY 8
 		DESC
 	</select>
 
 	<select id="guitarproductSelectListBuy"
 		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT where product_info='삽니다' and
-		product_category='기타' ORDER BY 1
+		product_category='기타' ORDER BY 8
 		DESC
 	</select>
-
-	<select id="guitarproductSelectListSell"
+	
+	<select id="productSelectListSell"
 		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT where product_info='팝니다' and
-		product_category='기타' ORDER BY 1
+		product_category='기타' ORDER BY 8
 		DESC
 	</select>
-
-
-
-
 
 	<select id="productSelect"
 		resultType="co.market.lemon.product.service.ProductVO">
@@ -98,5 +94,13 @@
 		UPDATE PRODUCT SET PRODUCT_VIEW = PRODUCT_VIEW + 1 WHERE
 		PRODUCT_ID = #{productId}
 	</update>
+	
+	<update id="productPullUp"
+		parameterType="co.market.lemon.product.service.ProductVO">
+		UPDATE PRODUCT SET PRODUCT_WDATE = SYSDATE
+		WHERE PRODUCT_ID = #{productId}
+	</update>
+	
+	
 
 </mapper>

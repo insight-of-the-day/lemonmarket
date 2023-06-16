@@ -28,4 +28,6 @@ public interface ProductService {
 	int productDelete(ProductVO vo);
 	
 	int productHitUpdate(ProductVO vo);
+	
+	int productPullUp(ProductVO vo);
 }
