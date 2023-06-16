@@ -11,13 +11,16 @@ import co.market.lemon.product.service.ProductService;
 import co.market.lemon.product.service.ProductVO;
 import co.market.lemon.product.serviceImpl.ProductServiceImpl;
 
-public class ProductListBuy implements Command {
-	public String exec(HttpServletRequest request, HttpServletResponse reponse) {
+public class livingProductListBuy implements Command {
+	@Override
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		ProductService ps = new ProductServiceImpl();
 		List<ProductVO> products = new ArrayList<>();
-		products = ps.productSelectListBuy();
+		products = ps.livingproductSelectListBuy();
 		
 		request.setAttribute("products", products);
-		return "product/productListBuy";
+		return "product/livingProductListBuy";
 	}
+
+
 }

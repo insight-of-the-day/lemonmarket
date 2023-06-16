@@ -17,6 +17,7 @@ import co.market.lemon.adminpage.command.AdminMypage;
 import co.market.lemon.adminpage.command.MemberReportList;
 import co.market.lemon.adminpage.command.MemberSelect;
 import co.market.lemon.adminpage.command.MemberSelectList;
+import co.market.lemon.adminpage.command.ReportSelect;
 import co.market.lemon.command.MainCommand;
 import co.market.lemon.common.Command;
 import co.market.lemon.heart.command.AddHeart;
@@ -44,13 +45,22 @@ import co.market.lemon.notice.command.noticeUpdate;
 import co.market.lemon.notice.command.noticeUpdateForm;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
-import co.market.lemon.product.command.ProductListBuy;
-import co.market.lemon.product.command.ProductListSell;
-
+import co.market.lemon.product.command.ProductPullUp;
 import co.market.lemon.product.command.ProductSelect;
 import co.market.lemon.product.command.ProductUpdate;
 import co.market.lemon.product.command.ProductUpdateForm;
-import co.market.lemon.reply.command.replyInsert;
+import co.market.lemon.product.command.fashionProductListBuy;
+import co.market.lemon.product.command.fashionProductListSell;
+import co.market.lemon.product.command.foodProductListBuy;
+import co.market.lemon.product.command.foodProductListSell;
+import co.market.lemon.product.command.guitarProductListBuy;
+import co.market.lemon.product.command.guitarProductListSell;
+import co.market.lemon.product.command.livingProductListBuy;
+import co.market.lemon.product.command.livingProductListSell;
+import co.market.lemon.reply.command.ReplyDelete;
+import co.market.lemon.reply.command.ReplyUpdate;
+import co.market.lemon.reply.command.ReplyUpdateForm;
+import co.market.lemon.reply.command.ReplyInsert;
 
 
 
@@ -90,13 +100,19 @@ public class FrontController extends HttpServlet {
 		map.put("/memberReportList.do", new MemberReportList());
 		map.put("/memberSelect.do", new MemberSelect());
 		map.put("/adminMemberDelete.do", new AdminMemberDelete());
-
+		map.put("/reportSelect.do", new ReportSelect());
 
 
     	//혜련zone
-
-		map.put("/productListBuy.do", new ProductListBuy());
-		map.put("/productListSell.do", new ProductListSell());
+		map.put("/fashionproductListBuy.do", new fashionProductListBuy());
+		map.put("/fashionproductListSell.do", new fashionProductListSell());
+		map.put("/foodproductListBuy.do", new foodProductListBuy());
+		map.put("/foodproductListSell.do", new foodProductListSell());
+		map.put("/livingproductListBuy.do", new livingProductListBuy());
+		map.put("/livingproductListSell.do", new livingProductListSell());
+		map.put("/guitarproductListBuy.do", new guitarProductListBuy());
+		map.put("/guitarproductListSell.do", new guitarProductListSell());
+		
 
 		map.put("/productInsertForm.do", new ProductInsertForm());
 		map.put("/productInsert.do", new ProductInsert());
@@ -105,6 +121,8 @@ public class FrontController extends HttpServlet {
 		map.put("/productUpdate.do", new ProductUpdate());
 
 	
+		
+		
 
 
 		//송이zone
@@ -135,7 +153,11 @@ public class FrontController extends HttpServlet {
 
 		//나리zone
 		map.put("/productSelect.do", new ProductSelect());
-		map.put("/replyInsert.do", new replyInsert());
+		map.put("/replyInsert.do", new ReplyInsert());
+		map.put("/replyUpdateForm.do", new ReplyUpdateForm());
+		map.put("/replyUpdate.do", new ReplyUpdate());
+		map.put("/replyDelete.do", new ReplyDelete());
+		map.put("/productPullUp.do", new ProductPullUp());
 
 	}
 

@@ -3,7 +3,7 @@
 <mapper namespace="co.market.lemon.reply.service.ReplyMapper">
 	<select id = "replyList" resultType="co.market.lemon.reply.service.ReplyVO">
 		SELECT * FROM REPLY
-		WHERE PRODUCT_ID = #{productId}
+		WHERE PRODUCT_ID = #{productId} ORDER BY 2 DESC
 	</select>
 	
 	<select id="replySelect" resultType="co.market.lemon.reply.service.ReplyVO">
@@ -16,13 +16,13 @@
 	</insert>
 	
 	<update id="replyUpdate" parameterType="co.market.lemon.reply.service.ReplyVO">
-		UPDATE REPLY SET REPLY_SUBJECT = #{replySubject}
-		WHERE PRODUCT_ID = #{productId}
+		UPDATE REPLY SET REPLY_SUBJECT = #{replySubject}, REPLY_SECRET = #{replySecret}
+		WHERE REPLY_ID = #{replyId}
 	</update>
 	
 	<delete id="replyDelete" parameterType="co.market.lemon.reply.service.ReplyVO">
 		DELETE FROM REPLY
-		WHERE PRODUCT_ID = #{productId}
+		WHERE REPLY_ID = #{replyId}
 	</delete>
 
 	

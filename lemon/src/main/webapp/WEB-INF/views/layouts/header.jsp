@@ -20,26 +20,26 @@
 					<ul>
 						<li class="has-dropdown"><a href="#">패션</a>
 							<ul class="dropdown">
-								<li><a href="productListBuy.do">삽니다</a></li>
-								<li><a href="productListSell.do">팝니다</a></li>
+								<li><a href="fashionproductListBuy.do">삽니다</a></li>
+								<li><a href="fashionproductListSell.do">팝니다</a></li>
 							</ul></li>
 						<li class="has-dropdown"><a href="#">식품</a>
 							<ul class="dropdown">
-								<li><a href="productListBuy.do">삽니다</a></li>
-								<li><a href="productListSell.do">팝니다</a></li>
+								<li><a href="foodproductListBuy.do">삽니다</a></li>
+								<li><a href="foodproductListSell.do">팝니다</a></li>
 							</ul></li>
 
 
 						<li class="has-dropdown"><a href="#">리빙</a>
 							<ul class="dropdown">
-								<li><a href="productListBuy.do">삽니다</a></li>
-								<li><a href="productListSell.do">팝니다</a></li>
+								<li><a href="livingproductListBuy.do">삽니다</a></li>
+								<li><a href="livingproductListSell.do">팝니다</a></li>
 							</ul></li>
 
 						<li class="has-dropdown"><a href="#">기타</a>
 							<ul class="dropdown">
-								<li><a href="productList.do">삽니다</a></li>
-								<li><a href="productList.do">팝니다</a></li>
+								<li><a href="guitarproductListBuy.do">삽니다</a></li>
+								<li><a href="guitarproductListSell.do">팝니다</a></li>
 							</ul></li>
 						<li class="has-dropdown"><a href="noticeMain.do">공지사항</a>
 					</ul>

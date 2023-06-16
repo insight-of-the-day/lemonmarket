@@ -12,11 +12,9 @@
   			<div class="container"> 
   				<div class="row animate-box">
   					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-  						<span>Cool Stuff</span>
-  						<h2>Products.</h2> 
-  						<p>Dignissimos asperiores vitae velit veniam totam fuga 
-  							molestias accusamus alias autem provident. Odit ab aliquam dolor 
-  							eius.</p> 
+  						<span>LEMON MARKET</span>
+  						<h2>식품 판매</h2> 
+  						<p>먹을 것이 남아 고민이신가요? 무료나눔을 통한 산도상승을 노려보세요</p> 
   					</div> 
   				</div> 
 				<c:forEach items="${products}" var="p"> 
@@ -34,7 +32,7 @@
   			</div> 
 
   			<br> 
-  			<div> 
+  			<div align="center"> 
 				<c:if test="${not empty id }"> 
   					<p> 
   						<a href="productInsertForm.do" 

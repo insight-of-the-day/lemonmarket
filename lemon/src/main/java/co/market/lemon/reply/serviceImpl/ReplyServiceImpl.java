@@ -20,9 +20,9 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public ReplyVO replySelect(int productId) {
+	public ReplyVO replySelect(int replyId) {
 		// TODO Auto-generated method stub
-		return map.replySelect(productId);
+		return map.replySelect(replyId);
 	}
 
 	@Override
