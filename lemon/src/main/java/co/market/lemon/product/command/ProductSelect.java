@@ -31,7 +31,7 @@ public class ProductSelect implements Command {
 		List<ReplyVO> replyList = new ArrayList<ReplyVO>();
 		replyList = rs.replyList(vo.getProductId());
 		request.setAttribute("replyList", replyList);
-		
+	
 		return "product/productSelect";
 	}
 

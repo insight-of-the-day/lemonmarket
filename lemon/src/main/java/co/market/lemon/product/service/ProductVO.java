@@ -30,5 +30,7 @@ public class ProductVO {
 	private Date productWdate;
 	private int productView;
 	private String productState;
+	private String productImg;
+	private String productImgDir;
 
 }
