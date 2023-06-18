@@ -25,8 +25,8 @@ public class ReplyInsert implements Command {
 		}
 
 		rs.replyInsert(vo);
-
-		return "product/productSelect";
+		
+		return "redirect:productSelect.do";
 	}
 
 }

@@ -17,7 +17,7 @@ public class ReplyDelete implements Command {
 		vo.setReplyId(Integer.valueOf(request.getParameter("replyId")));
 		rs.replyDelete(vo);
 		
-		return "product/productSelect";
+		return "redirect:productSelect.do";
 	}
 
 }
