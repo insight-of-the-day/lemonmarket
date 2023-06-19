@@ -8,7 +8,7 @@
 		template="/WEB-INF/views/layouts/classic.jsp">
 		
 <!-- 		template>layout위치이자 아래 헤더메뉴바디...를 총칭하는 말-->
-		<put-attribute name="title" value="my shop" />
+		<put-attribute name="title" value="lemonmarket" />
 			
 			
 		<put-attribute name="header" value="/WEB-INF/views/layouts/header.jsp" />

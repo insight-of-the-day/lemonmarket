@@ -10,7 +10,7 @@ import co.market.lemon.heart.service.HeartVO;
 import co.market.lemon.heart.serviceImpl.HeartServiceImpl;
 
 public class DeleteHeart implements Command {
-
+	//ajax사용으로 필요 없어짐
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		HeartService hs = new HeartServiceImpl();
@@ -23,7 +23,7 @@ public class DeleteHeart implements Command {
 		int n = hs.deleteHeart(vo);
 	
 		if(n != 0) {
-			request.setAttribute("message", "관심 상품이 삭제되었습니다.");
+			request.setAttribute("message", "관심 상품이 해제되었습니다.");
 			return "member/memberMessage";
 		} else {
 			request.setAttribute("message", "관심 상품 삭제가 실패하였습니다.");

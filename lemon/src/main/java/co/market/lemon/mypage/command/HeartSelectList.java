@@ -27,9 +27,7 @@ public class HeartSelectList implements Command {
 		
 		heartList = ms.heartSelectList(memberId);
 		request.setAttribute("heartList", heartList);
-		
-		System.out.println(request.getAttribute("heartList"));
-		
+			
 		return "mypage/heartSelectList";
 	}
 
