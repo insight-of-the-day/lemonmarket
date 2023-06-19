@@ -19,10 +19,10 @@ public class MemberUpdate implements Command {
 
 		
 		vo.setMemberPw(request.getParameter("memberPw"));
-		vo.setMemberName(request.getParameter("memberName"));
 		vo.setMemberTel(request.getParameter("memberTel"));
 		vo.setMemberId((String) session.getAttribute("id"));
-		
+		vo.setMemberName((String) session.getAttribute("name"));
+		System.out.println(vo.getMemberName());
 		
 		
 		int n = ms.memberUpdate(vo);

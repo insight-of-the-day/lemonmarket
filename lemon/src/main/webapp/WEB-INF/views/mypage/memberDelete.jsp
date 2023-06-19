@@ -5,38 +5,63 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+#box{
+	display: flex;
+	justify-content: center;
+}
+table input{
+	width: 500px;
+}
+#deleteButton{
+	float: right;
+}
+</style>
 </head>
 <body>
-	<div align="center">
-		<div><h1>회원 탈퇴</h1></div>
-		
-		<p>탈퇴하시려면 비밀번호를 입력해주세요</p>
-		<div>
-			<form id="frm" action="memberDelete.do" onsubmit="return pwCheck()" method="post">
-				<div>
-					<table>
-						<tr>
-							<td>아이디</td>	
-							<td>
-								<input type="text" id="memberId" name="memberId" value="${id}" disabled>
-							</td>
-						</tr>
-			            <tr>
-			                <td>비밀번호</td>
-			                <td><input type="password" id="memberPw" name="memberPw"  placeholder="비밀번호를 입력하세요." required="required"></td>
-			            </tr>
-			            	
-			        </table><br> 
-		        </div>
-		        <div>       	
-		        	<input type="submit" value="탈퇴">&nbsp;&nbsp;
-		        	<input type="button" value="취소" onclick="javascript:window.location='mypage.do'">
 
-		        </div>
-	        </form>
-	        
+	<section class="notice">
+		<div class="page-title">
+			<div class="container">
+				<h3>회원 탈퇴</h3>
+			</div>
 		</div>
-	</div>
+		
+		<div id="box">	
+			<div>
+				<jsp:include page="mypageMenu.jsp"></jsp:include>
+			</div> 		
+			<div id="board-list">
+				<div class="container" align="center">
+					<p>탈퇴하시려면 비밀번호를 입력해주세요</p>
+					<form id="frm" action="memberDelete.do" onsubmit="return pwCheck()" method="post">
+						<div>
+							<table>
+								<tr>
+									<td >아이디</td>	
+									<td>
+										<input type="text" id="memberId" name="memberId" value="${id}" style="margin-bottom: 10px;" disabled>
+									</td>
+								</tr>
+					            <tr>
+					                <td style="padding-right: 10px;">비밀번호</td>
+					                <td><input type="password" id="memberPw" name="memberPw"  placeholder="비밀번호를 입력하세요." required="required"></td>
+					            </tr>
+					            	
+					        </table><br> 
+				        </div>
+				        <div id="deleteButton">       	
+				        	<input class="btn btn-primary btn-outline btn-lg" type="submit" value="탈퇴">&nbsp;&nbsp;
+				        	<input class="btn btn-primary btn-outline btn-lg" type="button" value="취소" onclick="javascript:window.location='mypage.do'">		
+				        </div>
+			        </form>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
 	
 	<script type="text/javascript">
 		function pwCheck(){

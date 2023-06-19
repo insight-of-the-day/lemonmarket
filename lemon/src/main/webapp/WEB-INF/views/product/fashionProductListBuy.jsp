@@ -48,7 +48,7 @@
   			</div> 
   		</div> 
 	
-	
+
   		<script type="text/javascript"> 
 			function productChoice(id) {
 			let frm = document.getElementById("frm");

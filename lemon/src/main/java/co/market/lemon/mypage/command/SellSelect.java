@@ -12,7 +12,7 @@ import co.market.lemon.mypage.service.MypageService;
 import co.market.lemon.mypage.service.MypageVO;
 import co.market.lemon.mypage.serviceImpl.MypageServiceImpl;
 
-public class Mypage implements Command {
+public class SellSelect implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
@@ -20,16 +20,33 @@ public class Mypage implements Command {
 		HttpSession session = request.getSession();
 		vo.setMemberName((String) session.getAttribute("name"));
 		String memberName = vo.getMemberName();
+		
+//		if(request.getParameter("productSearch") == null) {
+//			vo.setProductSearch("");
+//		} else {
+//			vo.setProductSearch(request.getParameter("productSearch"));
+//		}			
+//		String productSearch = vo.getProductSearch();
+		
+		
+		String productSearch_ = request.getParameter("productSearch");		
+		String productSearch = "";
+		if(productSearch_ != null && productSearch_.equals("")) {
+			productSearch = productSearch_;
+		} 		
 
+		int page = 1;
+		if(request.getParameter("page") != null) {
+			page = Integer.parseInt(request.getParameter("page"));
+		} 
+		
 		MypageService ms = new MypageServiceImpl();
 		List<MypageVO> sellList = new ArrayList<MypageVO>();
-		
-		
-		sellList = ms.sellSelectList(memberName);
+
+		sellList = ms.sellSelect(memberName, productSearch, page);
 		request.setAttribute("sellList", sellList);	
 		
-		
-		return "mypage/mypage";
+		return "mypage/sellSelectList";
 	}
 
 }

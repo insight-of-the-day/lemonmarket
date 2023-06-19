@@ -29,20 +29,24 @@ import co.market.lemon.member.command.MemberInsertForm;
 import co.market.lemon.member.command.MemberLogin;
 import co.market.lemon.member.command.MemberLoginForm;
 import co.market.lemon.member.command.MemberLogout;
+import co.market.lemon.heart.command.AjaxHeart;
+import co.market.lemon.mypage.command.DeleteCookie;
+import co.market.lemon.mypage.command.HeartSelectList;
 import co.market.lemon.mypage.command.MemberDelete;
 import co.market.lemon.mypage.command.MemberDeleteForm;
 import co.market.lemon.mypage.command.MemberUpdate;
 import co.market.lemon.mypage.command.MemberUpdateForm;
 import co.market.lemon.mypage.command.Mypage;
+import co.market.lemon.mypage.command.RecentSelectList;
+import co.market.lemon.mypage.command.SellSelect;
 import co.market.lemon.mypage.command.SellSelectList;
-import co.market.lemon.mypage.command.HeartSelectList;
-import co.market.lemon.notice.command.noticeDelete;
-import co.market.lemon.notice.command.noticeInsert;
-import co.market.lemon.notice.command.noticeInsertForm;
-import co.market.lemon.notice.command.noticeMain;
-import co.market.lemon.notice.command.noticeSelect;
-import co.market.lemon.notice.command.noticeUpdate;
-import co.market.lemon.notice.command.noticeUpdateForm;
+import co.market.lemon.notice.command.NoticeDelete;
+import co.market.lemon.notice.command.NoticeInsert;
+import co.market.lemon.notice.command.NoticeInsertForm;
+import co.market.lemon.notice.command.NoticeMain;
+import co.market.lemon.notice.command.NoticeSelect;
+import co.market.lemon.notice.command.NoticeUpdate;
+import co.market.lemon.notice.command.NoticeUpdateForm;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
 import co.market.lemon.product.command.ProductPullUp;
@@ -58,9 +62,9 @@ import co.market.lemon.product.command.guitarProductListSell;
 import co.market.lemon.product.command.livingProductListBuy;
 import co.market.lemon.product.command.livingProductListSell;
 import co.market.lemon.reply.command.ReplyDelete;
+import co.market.lemon.reply.command.ReplyInsert;
 import co.market.lemon.reply.command.ReplyUpdate;
 import co.market.lemon.reply.command.ReplyUpdateForm;
-import co.market.lemon.reply.command.ReplyInsert;
 
 
 
@@ -84,7 +88,7 @@ public class FrontController extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		//공통부분s
+		//공통부분
 		map.put("/main.do", new MainCommand());
 		map.put("/memberInsertForm.do", new MemberInsertForm());
 		map.put("/memberLoginForm.do", new MemberLoginForm());
@@ -130,12 +134,17 @@ public class FrontController extends HttpServlet {
 		map.put("/memberDelete.do", new MemberDelete());  //삭제 실행
 		
 		map.put("/sellSelectList.do", new SellSelectList());  //판매 내역
-		map.put("/heartSelectList.do", new HeartSelectList());  //관심 목록
+		map.put("/sellSelect.do", new SellSelect());  //판매 내역 검색
+		map.put("/heartSelectList.do", new HeartSelectList());  //찜한 상품
+		map.put("/recentSelectList.do", new RecentSelectList());  //최근 본 상품
 		
 		
 		map.put("/addHeart.do", new AddHeart());  //찜하기 누르기
 		map.put("/deleteHeart.do", new DeleteHeart());  //찜취소 누르기
-
+		map.put("/ajaxHeart.do", new AjaxHeart());
+		
+		
+		map.put("/deleteCookie.do", new DeleteCookie());  //최근 본 상품 삭제 -> 쿠키삭제
   
 
 		//주현이 영역~~~ notice

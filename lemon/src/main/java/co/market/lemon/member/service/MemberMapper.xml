@@ -27,7 +27,7 @@
 	
 	<update id="memberUpdate" parameterType="co.market.lemon.member.service.MemberVO">	
 		UPDATE MEMBER
-		SET MEMBER_PW = #{memberPw}, MEMBER_NAME = #{memberName}, MEMBER_TEL = #{memberTel}
+		SET MEMBER_PW = #{memberPw}, MEMBER_TEL = #{memberTel}
 		WHERE MEMBER_ID = #{memberId}
 	</update>
 	
