@@ -37,16 +37,19 @@
 	
 			<div id="board-list">
 				<div class="container">
-					<form id="frm" method="post">
-						<c:forEach items="${recentList}" var="r">				
+					
+					<c:forEach items="${recentList}" var="r">	
+						<form id="frm" method="post">			
 							<div align="center">
 								<div class='myDiv' onclick='productChoice(${r.productId})'><img src="https://via.placeholder.com/120x120"></div>
 								<div class='myDiv' onclick='productChoice(${r.productId})'>${r.productTitle}</div>
-								<div><button id="deleteRecent" onclick="fnDelete()">삭제</button></div>
+								
 								<input type="hidden" name="productId" value="${r.productId}" >
-							</div>				
-						</c:forEach>
-					</form>
+								<div><button id="deleteRecent" onclick="fnDelete(this.form)">삭제</button></div>
+							</div>	
+						</form>			
+					</c:forEach>
+					
 					<c:if test="${empty recentList}">
 						<p>최근 본 상품이 없습니다.</p>
 					</c:if>
@@ -61,8 +64,8 @@
 	</section>
 
 	<script type="text/javascript">
-		function fnDelete(){
-			let frm = document.getElementById("frm");
+		function fnDelete(frm){
+			//let frm = document.getElementById("frm");  -> forEach로 폼 여러개 생성되어있는 상태 -> fnDelete(this.form)이용해 각 form에 fnDelete()적용
 			frm.action="deleteCookie.do";
 			frm.submit();
 		}

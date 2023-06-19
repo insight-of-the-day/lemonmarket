@@ -2,6 +2,7 @@ package co.market.lemon.member.serviceImpl;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 
 import co.market.lemon.common.DataSource;
@@ -80,6 +81,19 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> selectMemberListPaging(MemberVO vo) {
 		
 		return map.selectMemberListPaging(vo);
+	}
+
+	//회원 등급 조정
+	@Override
+	public int sellTotalCount(MemberVO vo) {
+
+		return map.sellTotalCount(vo);
+	}
+
+	@Override
+	public int updateGrade(@Param("count") int count,@Param("memberName") String name) {
+
+		return map.updateGrade(count, name);
 	}
 
 }
