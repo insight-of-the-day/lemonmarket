@@ -57,23 +57,21 @@
 								name="productSubject" required="required"></td>
 						</tr>
 
-						<tr>
-							<th>* 거래상태</th>
-							<td><select id="productState" name="productState">
-									<option value="거래전">거래전</option>
-									<option value="거래중">거래중</option>
-									<option value="거래완료">거래완료</option>
-							</select></td>
-						</tr>
+<!-- 						<tr> -->
+<!-- 							<th>* 거래상태</th> -->
+<!-- 							<td><select id="productState" name="productState"> -->
+<!-- 									<option value="거래전">거래전</option> -->
+<!-- 									<option value="거래중">거래중</option> -->
+<!-- 									<option value="거래완료">거래완료</option> -->
+<!-- 							</select></td> -->
+<!-- 						</tr> -->
 					</table>
 				</div>
 				<div>
 					<input type="hidden" name="productId" value="${product.productId }">
 				</div>
 				<div>
-					<input type="submit" value="저장">&nbsp;&nbsp; <input
-						type="reset" value="취소">&nbsp;&nbsp; <input type="button"
-						value="목록" onclick="location.href='productList.do'">
+					<input type="submit" value="저장">&nbsp;&nbsp; 
 				</div>
 			</form>
 		</div>

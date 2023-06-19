@@ -13,15 +13,17 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 public class FileUpload {
-private int maxSize=10*1024*1024;
+
+private int maxSize = 10 * 1024 * 1024;
+
 //저장공간을 넘겨주면 파일을 저장하고, 필드값을 리턴한다.
 public HashMap<String, String> upload(HttpServletRequest request, HttpServletResponse response, String dir){
 	HashMap<String, String> map = new HashMap<String, String>();
 	String saveDir = request.getServletContext().getRealPath(dir); //저장공간
-	File attachDir = new File(File.separator + saveDir);
+	File attechDir = new File(File.separator + saveDir);
 	
 	DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
-	fileItemFactory.setRepository(attachDir);
+	fileItemFactory.setRepository(attechDir);
 	fileItemFactory.setSizeThreshold(maxSize);
 	
 	ServletFileUpload  fileUpload = new ServletFileUpload(fileItemFactory);
@@ -37,7 +39,7 @@ public HashMap<String, String> upload(HttpServletRequest request, HttpServletRes
 					int index = item.getName().lastIndexOf(".");
 					String pfile = UUID.randomUUID().toString(); //파일명 중복방지를 위해 UUID 사용
 					pfile += item.getName().substring(index);  //저장할 파일명 만듬
-					File uploadFile = new File(attachDir + File.separator + pfile);
+					File uploadFile = new File(attechDir + File.separator + pfile);
 					item.write(uploadFile);  //파일 저장
 					map.put("ofile", item.getName());  //원본파일명
 					map.put("pfile", pfile);  //변경파일명

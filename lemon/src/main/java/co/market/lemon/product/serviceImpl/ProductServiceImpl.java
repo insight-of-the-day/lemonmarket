@@ -2,6 +2,7 @@ package co.market.lemon.product.serviceImpl;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 
 import co.market.lemon.adminpage.service.AdminReportVO;
@@ -42,52 +43,18 @@ public class ProductServiceImpl implements ProductService {
 
 
 	@Override
-	public List<ProductVO> fashionproductSelectListBuy() {
+	public List<ProductVO> productSelectListBuy(@Param("productInfo")String info, @Param("productCategory")String category) {
 		// TODO Auto-generated method stub
-		return map.fashionproductSelectListBuy();
+		return map.productSelectListBuy(info,category);
 	}
 
 	@Override
-	public List<ProductVO> fashionproductSelectListSell() {
+	public List<ProductVO> productSelectListSell(@Param("productInfo")String info, @Param("productCategory")String category) {
 		// TODO Auto-generated method stub
-		return map.fashionproductSelectListSell();
+		return map.productSelectListSell(info,category);
 	}
 
-	@Override
-	public List<ProductVO> livingproductSelectListBuy() {
-		// TODO Auto-generated method stub
-		return map.livingproductSelectListBuy();
-	}
 
-	@Override
-	public List<ProductVO> livingproductSelectListSell() {
-		// TODO Auto-generated method stub
-		return map.livingproductSelectListSell();
-	}
-
-	@Override
-	public List<ProductVO> foodproductSelectListBuy() {
-		// TODO Auto-generated method stub
-		return map.foodproductSelectListBuy();
-	}
-
-	@Override
-	public List<ProductVO> foodproductSelectListSell() {
-		// TODO Auto-generated method stub
-		return map.foodproductSelectListSell();
-	}
-
-	@Override
-	public List<ProductVO> guitarproductSelectListBuy() {
-		// TODO Auto-generated method stub
-		return map.guitarproductSelectListBuy();
-	}
-
-	@Override
-	public List<ProductVO> guitarproductSelectListSell() {
-		// TODO Auto-generated method stub
-		return map.guitarproductSelectListSell();
-	}
 
 	@Override
 	public int productPullUp(ProductVO vo) {

@@ -16,35 +16,35 @@
 						<div class="item">
 							<div class="active text-center">
 								<figure>
-									<img src="images/product-single-1.jpg" alt="user">
+									<img src="attach/${product.productImg}" alt="user">
 								</figure>
 							</div>
 						</div>
 						<div class="item">
 							<div class="active text-center">
 								<figure>
-									<img src="images/product-single-2.jpg" alt="user">
+									<img src="attach/${product.productImg}" alt="user">
 								</figure>
 							</div>
 						</div>
 						<div class="item">
 							<div class="active text-center">
 								<figure>
-									<img src="images/product-single-3.jpg" alt="user">
+									<img src="attach/${product.productImg}" alt="user">
 								</figure>
 							</div>
 						</div>
 						<div class="item">
 							<div class="active text-center">
 								<figure>
-									<img src="images/product-single-4.jpg" alt="user">
+									<img src="attach/${product.productImg}" alt="user">
 								</figure>
 							</div>
 						</div>
 						<div class="item">
 							<div class="active text-center">
 								<figure>
-									<img src="images/product-single-5.jpg" alt="user">
+									<img src="attach/${product.productImg}" alt="user">
 								</figure>
 							</div>
 						</div>
@@ -65,7 +65,7 @@
 													<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜하기" >
 												</c:when>
 												<c:otherwise>
-													<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜취소" >
+													<input type="button" id="heart" class="btn btn-success btn-outline btn-lg" value="찜취소" >
 												</c:otherwise>
 											</c:choose>
 										</c:if>

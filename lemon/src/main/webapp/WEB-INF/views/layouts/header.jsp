@@ -63,13 +63,13 @@
 						<c:if test="${not empty id }">
 							<c:choose>
 								<c:when test="${grade == 'A' }">
-									<li><a href="adminMypage.do">${name}</a></li>
+									<li><a href="adminMypage.do" style="padding-bottom: 0px;">${name}</a></li>
 								</c:when>
 								<c:otherwise>
 									<li><a href="mypage.do">${name}</a></li>
 								</c:otherwise>
 							</c:choose>
-							<li><a href="memberLogout.do">로그아웃</a></li>
+							<li><a href="memberLogout.do" style="padding-top: 0px;">로그아웃</a></li>
 						</c:if>
 					</ul>
 				</div>

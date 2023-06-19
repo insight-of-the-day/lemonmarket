@@ -16,7 +16,7 @@ public class livingProductListSell implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		ProductService ps = new ProductServiceImpl();
 		List<ProductVO> products = new ArrayList<>();
-		products = ps.livingproductSelectListSell();
+		products = ps.productSelectListSell("팝니다","리빙");
 		
 		request.setAttribute("products", products);
 		return "product/livingProductListSell";

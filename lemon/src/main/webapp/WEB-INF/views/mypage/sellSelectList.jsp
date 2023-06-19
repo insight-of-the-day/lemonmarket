@@ -55,7 +55,6 @@
 						<div class="search-window">
 							<form id="frm" action="sellSelect.do" method="get">
 								<div class="search-wrap">
-									<input type="hidden" id="page" name="page" value=${(empty param.page)? 1 : param.page}>
 									<label for="productSearch" class="blind"></label> 
 									<input type="search" id="productSearch" name="productSearch" 
 											placeholder="검색할 내용을 입력하세요" value="${param.productSearch}">
