@@ -2,6 +2,8 @@ package co.market.lemon.product.service;
 
 import java.util.List;
 
+import co.market.lemon.adminpage.service.AdminReportVO;
+
 public interface ProductMapper {
 	List<ProductVO> fashionproductSelectListBuy();
 	
@@ -30,5 +32,9 @@ public interface ProductMapper {
 	int productHitUpdate(ProductVO vo);
 	
 	int productPullUp(ProductVO vo);
+	
+	int productSell(ProductVO vo);
+	
+	int productReport(AdminReportVO vo);
 }
 

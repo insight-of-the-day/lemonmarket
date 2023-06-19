@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import co.market.lemon.adminpage.service.AdminReportVO;
 import co.market.lemon.common.DataSource;
 import co.market.lemon.product.service.ProductMapper;
 import co.market.lemon.product.service.ProductService;
@@ -93,6 +94,19 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return map.productPullUp(vo);
 	}
+	
+	@Override
+	public int productSell(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.productSell(vo);
+	}
+
+	@Override
+	public int productReport(AdminReportVO vo) {
+		// TODO Auto-generated method stub
+		return map.productReport(vo);
+	}
+	
 	
 	
 }

@@ -52,13 +52,13 @@
 					<div class="row animate-box">
 						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 							<h2>${product.productTitle}</h2>
+							<h3>거래 상태 : ${product.productState}</h3>
 							<h5>${product.productWriter}</h5>
 							<p>
 								<form id="frm" method="post">
 									<input type="hidden" id="productId" name="productId" value="${product.productId}"/>
 									<input type="hidden" id="productWdate" name="productWdate" value="${product.productWdate}"/>
 									<c:if test="${name ne product.productWriter}">
-								
 										<c:if test="${not empty id}">
 											<c:choose>						
 												<c:when test="${heartVal eq 0 }">
@@ -69,8 +69,7 @@
 												</c:otherwise>
 											</c:choose>
 										</c:if>
-
-										<a href="#" class="btn btn-primary btn-outline btn-lg">신고 </a>
+										<button type="button" onclick="productReport()" class="btn btn-primary btn-outline btn-lg">신고</button>
 									</c:if>
 									<c:if test="${name eq product.productWriter || grade eq 'A'}">
 										<input type="submit" onclick="javascript: frm.action='productUpdateForm.do'" class="btn btn-primary btn-outline btn-lg" value="수정">
@@ -113,41 +112,52 @@
 								<div class="col-md-10 col-md-offset-1">
 									<h3>댓글 목록</h3>
 									<div class="feed">
+									<form id="replyForm" method="post">
+										<input type="hidden" id="productId" name="productId" value="${product.productId}" />
+										<input type="hidden" id="replyId" name="replyId">
+										<input type="hidden" id="productBuyer" name="productBuyer">
+										<input type="hidden" id="productKeepGoing" name="productKeepGoing">
 										<c:forEach items="${replyList}" var="replyList">
 										<c:choose>
-											<c:when test="${(replyList.replySecret eq 'y') && (name ne product.productWriter || name ne replyList.replyWriter || grade ne 'A')}">
-												<div>
-													<blockquote>
-														<p>비밀 댓글은 게시글, 댓글 작성자와 관리자만 볼 수 있습니다.</p>
-													</blockquote>
-													<h3>&mdash; ${replyList.replyWdate}</h3>
-												</div>
-											</c:when>
-											<c:otherwise>
+											<c:when test="${(replyList.replySecret eq 'n') || ((replyList.replySecret eq 'y') && (name eq product.productWriter || name eq replyList.replyWriter || grade eq 'A'))}">
 												<div>
 													<blockquote>
 														<p>${replyList.replySubject}</p>
 													</blockquote>
 													<h3>&mdash; ${replyList.replyWriter}, ${replyList.replyWdate}</h3>
 													<c:if test="${name eq replyList.replyWriter || grade eq 'A'}">
-														<form id="editReply" method="post">
-															<input type="hidden" id="replyId" name="replyId">
 															<button type="button" onclick="replyUpdate(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">수정</button>
 															<button type="button" onclick="replyDelete(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">삭제</button>
-														</form>
 													</c:if>
 													<c:if test="${name eq product.productWriter && name ne replyList.replyWriter}">
-														<form id="sellReply" method="post">
-															<input type="hidden" id="replyWriter" name="replyWriter">
-															<button type="button" onclick="sellFunction(${replyList.replyWriter})" class="btn btn-primary btn-outline btn-lg">판매하기</button>
-														</form>
+															<c:choose>
+																<c:when test="${product.productState eq '거래중'}">
+																	<button type="button" onclick="sellCheck('${replyList.replyWriter}')" class="btn btn-primary btn-outline btn-lg">거래완료</button>
+																	<button type="button" onclick="sellCancel('${replyList.replyWriter}')" class="btn btn-primary btn-outline btn-lg">거래취소</button>
+																</c:when>
+																<c:when test="${product.productState eq '거래전'}">
+																	<button type="button" onclick="sellCheck('${replyList.replyWriter}')" class="btn btn-primary btn-outline btn-lg">거래하기</button>
+																</c:when>
+															</c:choose>
 													</c:if>
+													<c:if test="${not empty id && name ne replyList.replyWriter}">
+														<button type="button" onclick="replyReport('${replyList.replyId}')" class="btn btn-primary btn-outline btn-lg">신고</button>
+													</c:if>
+												</div>
+											</c:when>
+											<c:otherwise>
+												<div>
+													<blockquote>
+														<p>비밀 댓글은 게시글, 댓글 작성자와 관리자만 볼 수 있습니다.</p>
+													</blockquote>
+													<h3>&mdash; ${replyList.replyWdate}</h3>
 												</div>
 											</c:otherwise>
 										</c:choose>
 										</c:forEach>
+										</form>
 										<c:if test="${not empty id}">
-											<form name="replyForm" action="replyInsert.do" method="post">
+											<form name="replyInsertForm" action="replyInsert.do" method="post">
 												<input type="hidden" id="productId" name="productId" value="${product.productId}" />
 												<div>
 													<label for="replyWriter">댓글 작성자</label><input type="text" id="replyWriter" name="replyWriter" value=${name} readonly="readonly" />
@@ -213,20 +223,16 @@
 			}
 		}
   		
-  		
-
-
-		
 
 		function replyUpdate(key) {
-			let frm = document.getElementById("editReply");
+			let frm = document.getElementById("replyForm");
 			frm.replyId.value = key;
 			frm.action = "replyUpdateForm.do";
 			frm.submit();
 		}
 		
 		function replyDelete(key) {
-			let frm = document.getElementById("editReply");
+			let frm = document.getElementById("replyForm");
 			frm.replyId.value = key;
 			if (confirm("정말 삭제 하시겠습니까?"))
 				frm.action = "replyDelete.do";
@@ -250,16 +256,55 @@
 			}
 		}
 	
-		function sellFunction(data) {
-			let frm = document.getElementById("sellReply");
-			frm.replyWriter.value = key
-			if (confirm(frm.replyWriter.value + "님과 거래 하시겠습니까?"))
-				frm.action = "productSell.do";
-			else
-				return false;
-			frm.submit();
+		function sellCheck(data) {
+			  let frm = document.getElementById("replyForm");
+			  
+			  if ("${product.productState}" == "거래중") {
+				  if (confirm(data + "님과의 거래를 완료 하시겠습니까?")) {
+						frm.productBuyer.value = data;
+					    frm.action = "productSell.do";
+					    frm.submit();
+					  } else {
+					    return false;
+					  }
+			  } else {
+				  if (confirm(data + "님과 거래 하시겠습니까?")) {
+						frm.productBuyer.value = data;
+					    frm.action = "productSell.do";
+					    frm.submit();
+					  } else {
+					    return false;
+					  }
+				}
+		}
+
+		
+		function sellCancel(data) {
+			 let frm = document.getElementById("replyForm");
+			 
+			 if (confirm(data + "님과 거래를 취소 하시겠습니까?")) {
+				 frm.productKeepGoing.value = 'n';
+				 frm.action = "productSell.do";
+				 frm.submit();
+			 } else {
+				 return false;
+			 }
+			
 		}
 		
+		function productReport() {
+				let frm = document.getElementById("frm");
+				frm.action = "productReportForm.do";
+				frm.submit();
+		}
+		
+		
+		function replyReport(data) {
+				let frm = document.getElementById("replyForm");
+				frm.replyId.value = data;
+				frm.action = "replyReportForm.do";
+				frm.submit();
+		}
 	</script>
 
 </body>
