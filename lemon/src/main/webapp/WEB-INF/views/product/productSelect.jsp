@@ -132,6 +132,12 @@
 															<button type="button" onclick="replyDelete(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">삭제</button>
 														</form>
 													</c:if>
+													<c:if test="${name eq product.productWriter && name ne replyList.replyWriter}">
+														<form id="sellReply" method="post">
+															<input type="hidden" id="replyWriter" name="replyWriter">
+															<button type="button" onclick="sellFunction(${replyList.replyWriter})" class="btn btn-primary btn-outline btn-lg">판매하기</button>
+														</form>
+													</c:if>
 												</div>
 											</c:otherwise>
 										</c:choose>
@@ -210,7 +216,16 @@
 				frm.submit();
 			}
 		}
-
+	
+		function sellFunction(data) {
+			let frm = document.getElementById("sellReply");
+			frm.replyWriter.value = key
+			if (confirm(frm.replyWriter.value + "님과 거래 하시겠습니까?"))
+				frm.action = "productSell.do";
+			else
+				return false;
+			frm.submit();
+		}
 		
 	</script>
 
