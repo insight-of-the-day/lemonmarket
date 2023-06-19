@@ -12,7 +12,7 @@
 			<h1>제품등록</h1>
 		</div>
 		<div>
-			<form id="frm" action="upload.jsp" method="post" enctype="multipart/form-data">
+			<form id="frm" action="productInsert.do" method="post" enctype="multipart/form-data">
 
 				<div>
 					<table>
