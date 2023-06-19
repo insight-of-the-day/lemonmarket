@@ -56,6 +56,8 @@ import co.market.lemon.product.command.ProductDelete;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
 import co.market.lemon.product.command.ProductPullUp;
+import co.market.lemon.product.command.ProductReport;
+import co.market.lemon.product.command.ProductReportForm;
 import co.market.lemon.product.command.ProductSelect;
 import co.market.lemon.product.command.ProductSell;
 import co.market.lemon.product.command.ProductUpdate;
@@ -70,6 +72,7 @@ import co.market.lemon.product.command.livingProductListBuy;
 import co.market.lemon.product.command.livingProductListSell;
 import co.market.lemon.reply.command.ReplyDelete;
 import co.market.lemon.reply.command.ReplyInsert;
+import co.market.lemon.reply.command.ReplyReportForm;
 import co.market.lemon.reply.command.ReplyUpdate;
 import co.market.lemon.reply.command.ReplyUpdateForm;
 
@@ -176,7 +179,10 @@ public class FrontController extends HttpServlet {
 		map.put("/replyDelete.do", new ReplyDelete());
 		map.put("/productPullUp.do", new ProductPullUp());
 		map.put("/productSell.do", new ProductSell());
-
+		map.put("/productReportForm.do", new ProductReportForm());
+		map.put("/replyReportForm.do", new ReplyReportForm());
+		map.put("/productReport.do", new ProductReport());
+		
 	}
 
 	/**

@@ -62,6 +62,16 @@
 		WHERE PRODUCT_ID = #{productId}
 	</update>
 	
+	<update id="productSell"
+		parameterType="co.market.lemon.product.service.ProductVO">
+		UPDATE PRODUCT SET PRODUCT_BUYER = #{productBuyer}, PRODUCT_STATE = #{productState}
+		WHERE PRODUCT_ID = #{productId}
+	</update>
 	
-
+	<insert id="productReport"
+		parameterType="co.market.lemon.product.service.ProductVO">
+	INSERT INTO REPORT VALUES (report_seq.nextval, #{productId}, #{reportReporter}, #{reportSuspect},
+							   #{reportContent}, #{reportCategory}, #{reportReason})
+	</insert>
+	
 </mapper>
