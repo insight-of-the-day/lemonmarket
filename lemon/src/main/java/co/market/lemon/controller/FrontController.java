@@ -51,6 +51,7 @@ import co.market.lemon.notice.command.NoticeMain;
 import co.market.lemon.notice.command.NoticeSelect;
 import co.market.lemon.notice.command.NoticeUpdate;
 import co.market.lemon.notice.command.NoticeUpdateForm;
+import co.market.lemon.product.command.ProductDelete;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
 import co.market.lemon.product.command.ProductPullUp;
@@ -130,6 +131,8 @@ public class FrontController extends HttpServlet {
 
 		map.put("/productUpdateForm.do", new ProductUpdateForm());
 		map.put("/productUpdate.do", new ProductUpdate());
+		
+		map.put("/productDelete.do", new ProductDelete());
 
 
 
