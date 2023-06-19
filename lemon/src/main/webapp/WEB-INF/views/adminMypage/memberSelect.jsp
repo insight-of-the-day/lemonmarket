@@ -50,7 +50,7 @@
 						<c:if test="${not empty member }">
 							<tr>
 								<td><input type="hidden" name="memberId" value="${member.memberId }">${member.memberId }</td>
-								<td>${member.memberName }</td>
+								<td><input type="hidden" name="memberName" value="${member.memberName }">${member.memberName }</td>
 								<td>${member.memberTel }</td>
 								<td>${member.memberGrade }</td>
 								<td>${member.memberCount }</td>

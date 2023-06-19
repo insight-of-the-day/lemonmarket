@@ -62,6 +62,19 @@
 		WHERE PRODUCT_ID = #{productId}
 	</update>
 	
+
+	<delete id="productNameDelete" parameterType="co.market.lemon.product.service.ProductVO">
+		DELETE FROM PRODUCT
+		WHERE PRODUCT_WRITER = #{productWriter}
+	</delete>
+
+	<select id="mainPageSearch" resultType="co.market.lemon.product.service.ProductVO">
+		SELECT * FROM PRODUCT
+		WHERE PRODUCT_TITLE LIKE '%' || #{productTitle} || '%'
+		ORDER BY 8 DESC
+	
+	</select>
+
 	<update id="productSell"
 		parameterType="co.market.lemon.product.service.ProductVO">
 		UPDATE PRODUCT SET PRODUCT_BUYER = #{productBuyer}, PRODUCT_STATE = #{productState}
@@ -74,4 +87,5 @@
 							   #{reportContent}, #{reportCategory}, #{reportReason})
 	</insert>
 	
+
 </mapper>

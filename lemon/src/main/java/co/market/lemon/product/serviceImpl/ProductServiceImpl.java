@@ -61,6 +61,20 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return map.productPullUp(vo);
 	}
+
+	@Override
+	public int productNameDelete(ProductVO vo) {
+		
+		return map.productNameDelete(vo);
+	}
+
+	@Override
+	public List<ProductVO> mainPageSearch(ProductVO vo) {
+		
+		return map.mainPageSearch(vo);
+	}
+
+
 	
 	@Override
 	public int productSell(ProductVO vo) {

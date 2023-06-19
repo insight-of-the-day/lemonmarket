@@ -52,6 +52,8 @@ import co.market.lemon.notice.command.NoticeMain;
 import co.market.lemon.notice.command.NoticeSelect;
 import co.market.lemon.notice.command.NoticeUpdate;
 import co.market.lemon.notice.command.NoticeUpdateForm;
+import co.market.lemon.product.command.MainPageSearch;
+
 import co.market.lemon.product.command.ProductDelete;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
@@ -107,6 +109,9 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxCheckId.do", new AjaxCheckId());
 		map.put("/ajaxCheckName.do", new AjaxCheckName());
 
+    
+    
+    
 		//상희zone
 		map.put("/memberLogout.do", new MemberLogout());
 		map.put("/adminMypage.do", new AdminMypage());
@@ -118,8 +123,17 @@ public class FrontController extends HttpServlet {
 		map.put("/reportProcessing.do", new ReportProcessing());
 		map.put("/reportThree.do", new ReportThree());
 		map.put("/reportDisallow.do", new ReportDisallow());
-
-    	//혜련zone
+		map.put("/mainPageSearch.do", new MainPageSearch());
+    
+    
+    
+    
+    
+    
+    
+ 
+    
+    	//주현zone
 		map.put("/fashionproductListBuy.do", new fashionProductListBuy());
 		map.put("/fashionproductListSell.do", new fashionProductListSell());
 		map.put("/foodproductListBuy.do", new foodProductListBuy());
@@ -139,6 +153,10 @@ public class FrontController extends HttpServlet {
 		map.put("/productDelete.do", new ProductDelete());
 
 
+    
+    
+    
+    
 
 		//송이zone
 		map.put("/mypage.do", new Mypage());  //마이페이지
@@ -160,8 +178,14 @@ public class FrontController extends HttpServlet {
   
 		map.put("/updateGrade.do", new UpdateGrade());  //회원 등급 변경
 		
+    
+    
+    
+    
+    
+    
 
-		//주현이 영역~~~ notice
+		//혜련이 영역~~~ notice
 		map.put("/noticeMain.do", new NoticeMain());
 		map.put("/noticeInsertForm.do", new NoticeInsertForm());
 		map.put("/noticeSelect.do", new NoticeSelect());
@@ -170,6 +194,10 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeUpdateForm.do", new NoticeUpdateForm());
 		map.put("/noticeInsert.do",new NoticeInsert());
 
+    
+    
+    
+    
 
 		//나리zone
 		map.put("/productSelect.do", new ProductSelect());
@@ -183,6 +211,13 @@ public class FrontController extends HttpServlet {
 		map.put("/replyReportForm.do", new ReplyReportForm());
 		map.put("/productReport.do", new ProductReport());
 		
+    
+    
+    
+    
+    
+    
+    
 	}
 
 	/**

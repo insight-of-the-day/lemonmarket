@@ -13,5 +13,11 @@ public interface AdminReportService {
 	int reportDelete(AdminReportVO vo);
 	
 	int reportAllDelete(AdminReportVO vo);
+	
+	
+	//페이징 처리 관련
+	
+	int selectReportTotal(AdminReportVO vo);
+	List<AdminReportVO> selectmemberPageList(AdminReportVO vo);
 
 }

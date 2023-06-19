@@ -15,12 +15,28 @@ public class MemberReportList implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		//-신고기능 (카테고리: 욕설및비방,불법및부적절한상품,카테고리부적합,사기,기타사유)
+		
 		AdminReportService ars= new AdminReportServiceImpl();
 		List<AdminReportVO> reports = new ArrayList<AdminReportVO>();
-		reports = ars.reportSelectList();
+		AdminReportVO vo = new AdminReportVO();
+		
+		int total = ars.selectReportTotal(vo);
+		int totalPage =(int)Math.ceil((double)total/10);
+		
+		String viewPageParam = request.getParameter("viewPage");
+		int viewPage = viewPageParam != null ? Integer.parseInt(viewPageParam) : 1;
+		vo.setViewPage(viewPage);
+		int startIndex = (viewPage-1) * 10 +1;
+		int endIndex = startIndex + (10 - 1);
+		
+		vo.setStartIndex(startIndex);
+		vo.setEndIndex(endIndex);
+		
+		reports = ars.selectmemberPageList(vo);
 		
 		request.setAttribute("reports", reports);
+		request.setAttribute("total", total);
+		request.setAttribute("totalPage", totalPage);
 		
 		return "adminMypage/adminReportList";
 	}

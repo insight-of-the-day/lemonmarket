@@ -27,8 +27,8 @@ public class ReportSelect implements Command {
 		MemberService ms = new MemberServiceImpl();
 		MemberVO memVo = new MemberVO();
 		
-		memVo.setMemberId(request.getParameter("reportSuspect"));
-		memVo= ms.memberSelect(memVo);
+		memVo.setMemberName(request.getParameter("reportSuspect"));
+		memVo= ms.memberSelectName(memVo);
 		request.setAttribute("members", memVo);
 		
 		

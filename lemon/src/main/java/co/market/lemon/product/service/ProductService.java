@@ -25,7 +25,12 @@ public interface ProductService {
 	
 	int productPullUp(ProductVO vo);
 	
+	int productNameDelete(ProductVO vo);
+	
+	List<ProductVO> mainPageSearch(ProductVO vo);
+
 	int productSell(ProductVO vo);
 	
 	int productReport(AdminReportVO vo);
+
 }
