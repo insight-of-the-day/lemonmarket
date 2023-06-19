@@ -29,7 +29,7 @@ public class ReportProcessing implements Command {
 		if(memn !=0 && n !=0) {
 			request.setAttribute("message", "신고처리 완료");
 		}else {
-			request.setAttribute("message", "신고처리 실패");
+			request.setAttribute("message", "신고처리 없는 회원입니다");
 		}
 		
 		

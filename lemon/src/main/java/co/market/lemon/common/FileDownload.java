@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 public class FileDownload {  //파일 경로를 포함해서 넘어온 파일을 다운로드 한다.
 
 	public void fileDown(HttpServletRequest request, HttpServletResponse response, String file) {

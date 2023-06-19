@@ -21,6 +21,11 @@ public class SellSelect implements Command {
 		vo.setMemberName((String) session.getAttribute("name"));
 		String memberName = vo.getMemberName();
 		
+		
+		MypageService ms = new MypageServiceImpl();
+		List<MypageVO> sellList = new ArrayList<MypageVO>();
+		List<MypageVO> sellList2 = new ArrayList<MypageVO>();
+		
 //		if(request.getParameter("productSearch") == null) {
 //			vo.setProductSearch("");
 //		} else {
@@ -29,23 +34,28 @@ public class SellSelect implements Command {
 //		String productSearch = vo.getProductSearch();
 		
 		
-		String productSearch_ = request.getParameter("productSearch");		
+		String productSearch_ = request.getParameter("productSearch");	
 		String productSearch = "";
-		if(productSearch_ != null && productSearch_.equals("")) {
+		if(productSearch_ != null && !productSearch_.equals("")) {
 			productSearch = productSearch_;
 		} 		
 
 		int page = 1;
-		if(request.getParameter("page") != null) {
-			page = Integer.parseInt(request.getParameter("page"));
+		String page_ = request.getParameter("page");
+		if(page_ != null && !page_.equals("")) {
+			page = Integer.parseInt(page_);
 		} 
 		
-		MypageService ms = new MypageServiceImpl();
-		List<MypageVO> sellList = new ArrayList<MypageVO>();
+		System.out.println(productSearch);
 
 		sellList = ms.sellSelect(memberName, productSearch, page);
 		request.setAttribute("sellList", sellList);	
+		System.out.println(sellList.size());
 		
+		sellList2 = ms.sellSelectCount(memberName, productSearch);
+		request.setAttribute("sellList2", sellList2);	
+		System.out.println(sellList2.size());
+
 		return "mypage/sellSelectList";
 	}
 

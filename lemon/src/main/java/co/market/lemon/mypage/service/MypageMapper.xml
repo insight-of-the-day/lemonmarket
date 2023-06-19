@@ -3,10 +3,15 @@
 
 <mapper namespace="co.market.lemon.mypage.service.MypageMapper">
 	<select id="sellSelectList" resultType="co.market.lemon.mypage.service.MypageVO" parameterType="String">
-		SELECT PRODUCT_ID, PRODUCT_CATEGORY, PRODUCT_TITLE, PRODUCT_WRITER, PRODUCT_STATE, PRODUCT_WDATE
-		FROM PRODUCT
-		WHERE PRODUCT_WRITER = #{value} AND PRODUCT_INFO='팝니다'
-		ORDER BY PRODUCT_WDATE
+		SELECT PRODUCT_ID, 
+			   PRODUCT_CATEGORY, 
+			   PRODUCT_TITLE, 
+			   PRODUCT_WRITER, 
+			   PRODUCT_STATE, 
+			   PRODUCT_WDATE
+		  FROM PRODUCT
+		 WHERE PRODUCT_WRITER = #{value} AND PRODUCT_INFO='팝니다'
+		 ORDER BY PRODUCT_WDATE
 	</select>
 	
 	<select id="sellSelectPaging" resultType="co.market.lemon.mypage.service.MypageVO">
@@ -30,6 +35,18 @@
 						OR PRODUCT_STATE LIKE '%' || #{productSearch} || '%')
 		                ORDER BY PRODUCT_WDATE DESC) p)
 		WHERE NUM BETWEEN (1+(#{page}-1)*10) AND (#{page}*10) 
+	</select>
+	
+	<select id="sellSelectCount" resultType="co.market.lemon.mypage.service.MypageVO">
+		SELECT PRODUCT_ID, PRODUCT_CATEGORY, PRODUCT_TITLE, PRODUCT_WRITER, PRODUCT_STATE, PRODUCT_WDATE
+		FROM (SELECT ROWNUM NUM, p.* 
+		        FROM (SELECT * 
+		                FROM product
+		                WHERE PRODUCT_WRITER = #{memberName} AND PRODUCT_INFO='팝니다'
+		                AND (PRODUCT_TITLE LIKE '%' || #{productSearch} || '%'
+						OR PRODUCT_CATEGORY LIKE '%' || #{productSearch} || '%'
+						OR PRODUCT_STATE LIKE '%' || #{productSearch} || '%')
+		                ORDER BY PRODUCT_WDATE DESC) p) 
 	</select>
 	
 <!-- 	<select id="sellSelect" resultType="co.market.lemon.mypage.service.MypageVO"> -->

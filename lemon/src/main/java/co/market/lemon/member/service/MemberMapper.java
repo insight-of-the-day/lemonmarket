@@ -2,6 +2,8 @@ package co.market.lemon.member.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface MemberMapper {
 	List<MemberVO> memberSelectList();
 	MemberVO memberSelect(MemberVO vo);
@@ -20,4 +22,9 @@ public interface MemberMapper {
 	
 	int selectMemberTotal(MemberVO vo);
 	List<MemberVO> selectMemberListPaging(MemberVO vo);
+	
+	
+	//회원 등급 조정
+	int sellTotalCount(MemberVO vo);
+	int updateGrade(@Param("count") int count,@Param("memberName") String name);
 }

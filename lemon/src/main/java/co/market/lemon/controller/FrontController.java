@@ -35,6 +35,8 @@ import co.market.lemon.member.command.MemberLogin;
 import co.market.lemon.member.command.MemberLoginForm;
 import co.market.lemon.member.command.MemberLogout;
 import co.market.lemon.member.command.NaverLogin;
+import co.market.lemon.member.command.UpdateGrade;
+import co.market.lemon.heart.command.AjaxHeart;
 import co.market.lemon.mypage.command.DeleteCookie;
 import co.market.lemon.mypage.command.HeartSelectList;
 import co.market.lemon.mypage.command.MemberDelete;
@@ -52,9 +54,14 @@ import co.market.lemon.notice.command.NoticeMain;
 import co.market.lemon.notice.command.NoticeSelect;
 import co.market.lemon.notice.command.NoticeUpdate;
 import co.market.lemon.notice.command.NoticeUpdateForm;
+import co.market.lemon.product.command.MainPageSearch;
+
+import co.market.lemon.product.command.ProductDelete;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
 import co.market.lemon.product.command.ProductPullUp;
+import co.market.lemon.product.command.ProductReport;
+import co.market.lemon.product.command.ProductReportForm;
 import co.market.lemon.product.command.ProductSelect;
 import co.market.lemon.product.command.ProductSell;
 import co.market.lemon.product.command.ProductUpdate;
@@ -69,6 +76,7 @@ import co.market.lemon.product.command.livingProductListBuy;
 import co.market.lemon.product.command.livingProductListSell;
 import co.market.lemon.reply.command.ReplyDelete;
 import co.market.lemon.reply.command.ReplyInsert;
+import co.market.lemon.reply.command.ReplyReportForm;
 import co.market.lemon.reply.command.ReplyUpdate;
 import co.market.lemon.reply.command.ReplyUpdateForm;
 
@@ -103,6 +111,9 @@ public class FrontController extends HttpServlet {
 		map.put("/ajaxCheckId.do", new AjaxCheckId());
 		map.put("/ajaxCheckName.do", new AjaxCheckName());
 
+    
+    
+    
 		//상희zone
 		map.put("/memberLogout.do", new MemberLogout());
 		map.put("/adminMypage.do", new AdminMypage());
@@ -114,8 +125,17 @@ public class FrontController extends HttpServlet {
 		map.put("/reportProcessing.do", new ReportProcessing());
 		map.put("/reportThree.do", new ReportThree());
 		map.put("/reportDisallow.do", new ReportDisallow());
-
-    	//혜련zone
+		map.put("/mainPageSearch.do", new MainPageSearch());
+    
+    
+    
+    
+    
+    
+    
+ 
+    
+    	//주현zone
 		map.put("/fashionproductListBuy.do", new fashionProductListBuy());
 		map.put("/fashionproductListSell.do", new fashionProductListSell());
 		map.put("/foodproductListBuy.do", new foodProductListBuy());
@@ -124,18 +144,17 @@ public class FrontController extends HttpServlet {
 		map.put("/livingproductListSell.do", new livingProductListSell());
 		map.put("/guitarproductListBuy.do", new guitarProductListBuy());
 		map.put("/guitarproductListSell.do", new guitarProductListSell());
-		
-		
-		map.put("/naverLogin.do", new NaverLogin());
-		
 
 		map.put("/productInsertForm.do", new ProductInsertForm());
 		map.put("/productInsert.do", new ProductInsert());
 
 		map.put("/productUpdateForm.do", new ProductUpdateForm());
 		map.put("/productUpdate.do", new ProductUpdate());
+		
+		map.put("/productDelete.do", new ProductDelete());
 
-//		map.put("/naverLogin.do", new NaverLogin());
+
+
 		//송이zone
 		map.put("/mypage.do", new Mypage());  //마이페이지
 		map.put("/memberUpdateForm.do", new MemberUpdateForm());  //수정 폼 호출
@@ -146,18 +165,24 @@ public class FrontController extends HttpServlet {
 		map.put("/sellSelectList.do", new SellSelectList());  //판매 내역
 		map.put("/sellSelect.do", new SellSelect());  //판매 내역 검색
 		map.put("/heartSelectList.do", new HeartSelectList());  //찜한 상품
-		map.put("/recentSelectList.do", new RecentSelectList());  //최근 본 상품
-		
+		map.put("/recentSelectList.do", new RecentSelectList());  //최근 본 상품		
 		
 		map.put("/addHeart.do", new AddHeart());  //찜하기 누르기
 		map.put("/deleteHeart.do", new DeleteHeart());  //찜취소 누르기
 		map.put("/ajaxHeart.do", new AjaxHeart());
-		
-		
+				
 		map.put("/deleteCookie.do", new DeleteCookie());  //최근 본 상품 삭제 -> 쿠키삭제
   
+		map.put("/updateGrade.do", new UpdateGrade());  //회원 등급 변경
+		
+    
+    
+    
+    
+    
+    
 
-		//주현이 영역~~~ notice
+		//혜련이 영역~~~ notice
 		map.put("/noticeMain.do", new NoticeMain());
 		map.put("/noticeInsertForm.do", new NoticeInsertForm());
 		map.put("/noticeSelect.do", new NoticeSelect());
@@ -165,7 +190,12 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeDelete.do", new NoticeDelete());
 		map.put("/noticeUpdateForm.do", new NoticeUpdateForm());
 		map.put("/noticeInsert.do",new NoticeInsert());
+    map.put("/naverLogin.do", new NaverLogin());
 
+    
+    
+    
+    
 
 		//나리zone
 		map.put("/productSelect.do", new ProductSelect());
@@ -175,7 +205,17 @@ public class FrontController extends HttpServlet {
 		map.put("/replyDelete.do", new ReplyDelete());
 		map.put("/productPullUp.do", new ProductPullUp());
 		map.put("/productSell.do", new ProductSell());
-
+		map.put("/productReportForm.do", new ProductReportForm());
+		map.put("/replyReportForm.do", new ReplyReportForm());
+		map.put("/productReport.do", new ProductReport());
+		
+    
+    
+    
+    
+    
+    
+    
 	}
 
 	/**

@@ -48,12 +48,14 @@
 					<ul>
 						<li class="search">
 							<div class="input-group">
-								<input type="text" placeholder="Search.."> <span
-									class="input-group-btn">
-									<button class="btn btn-primary" type="button">
-										<i class="icon-search"></i>
-									</button>
-								</span>
+								<form id="frmAll"action="mainPageSearch.do">
+									<input type="text" name="mainPageSearch" placeholder="Search.."> <span
+										class="input-group-btn">
+										<button class="btn btn-primary" type="button">
+											<i class="icon-search"></i>
+										</button>
+									</span>
+								</form>
 							</div>
 						</li>
 						<c:if test="${empty id }">
@@ -63,13 +65,13 @@
 						<c:if test="${not empty id }">
 							<c:choose>
 								<c:when test="${grade == 'A' }">
-									<li><a href="adminMypage.do">${name}</a></li>
+									<li><a href="adminMypage.do" style="padding-bottom: 0px;">${name}</a></li>
 								</c:when>
 								<c:otherwise>
 									<li><a href="mypage.do">${name}</a></li>
 								</c:otherwise>
 							</c:choose>
-							<li><a href="memberLogout.do">로그아웃</a></li>
+							<li><a href="memberLogout.do" style="padding-top: 0px;">로그아웃</a></li>
 						</c:if>
 					</ul>
 				</div>

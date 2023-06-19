@@ -24,6 +24,10 @@
 		DELETE FROM REPLY
 		WHERE REPLY_ID = #{replyId}
 	</delete>
+	
+	<delete id="replyNameDelete" parameterType="co.market.lemon.reply.service.ReplyVO">
+	DELETE FROM REPLY WHERE REPLY_WRITER = #{replyWriter}
+	</delete>
 
 	
 </mapper>

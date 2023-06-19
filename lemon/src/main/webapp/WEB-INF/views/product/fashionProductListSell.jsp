@@ -20,7 +20,7 @@
 				<c:forEach items="${products}" var="p"> 
   					<div class="product"> 
 					<div onclick="productChoice(${p.productId})" class="product-grid" 
-  							style="background-image: url(images/product-1.jpg);"></div>
+  							style="background-image: url(attach/${p.productImg});"></div>
   					</div> 
   					<div class="desc"> 
   						<h3>

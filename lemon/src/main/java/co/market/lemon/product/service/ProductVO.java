@@ -32,5 +32,6 @@ public class ProductVO {
 	private String productState;
 	private String productImg;
 	private String productImgDir;
+	private String productBuyer;
 
 }

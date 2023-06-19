@@ -14,7 +14,7 @@ public class guitarProductListSell implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		ProductService ps = new ProductServiceImpl();
 		List<ProductVO> products;
-		products = ps.guitarproductSelectListSell();
+		products = ps.productSelectListSell("삽니다","기타");
 		
 		request.setAttribute("products", products);
 		return "product/guitarProductListSell";
