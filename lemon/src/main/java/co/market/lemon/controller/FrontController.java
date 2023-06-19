@@ -17,7 +17,10 @@ import co.market.lemon.adminpage.command.AdminMypage;
 import co.market.lemon.adminpage.command.MemberReportList;
 import co.market.lemon.adminpage.command.MemberSelect;
 import co.market.lemon.adminpage.command.MemberSelectList;
+import co.market.lemon.adminpage.command.ReportDisallow;
+import co.market.lemon.adminpage.command.ReportProcessing;
 import co.market.lemon.adminpage.command.ReportSelect;
+import co.market.lemon.adminpage.command.ReportThree;
 import co.market.lemon.command.MainCommand;
 import co.market.lemon.common.Command;
 import co.market.lemon.heart.command.AddHeart;
@@ -29,20 +32,20 @@ import co.market.lemon.member.command.MemberInsertForm;
 import co.market.lemon.member.command.MemberLogin;
 import co.market.lemon.member.command.MemberLoginForm;
 import co.market.lemon.member.command.MemberLogout;
+import co.market.lemon.mypage.command.HeartSelectList;
 import co.market.lemon.mypage.command.MemberDelete;
 import co.market.lemon.mypage.command.MemberDeleteForm;
 import co.market.lemon.mypage.command.MemberUpdate;
 import co.market.lemon.mypage.command.MemberUpdateForm;
 import co.market.lemon.mypage.command.Mypage;
 import co.market.lemon.mypage.command.SellSelectList;
-import co.market.lemon.mypage.command.HeartSelectList;
-import co.market.lemon.notice.command.noticeDelete;
-import co.market.lemon.notice.command.noticeInsert;
-import co.market.lemon.notice.command.noticeInsertForm;
-import co.market.lemon.notice.command.noticeMain;
-import co.market.lemon.notice.command.noticeSelect;
-import co.market.lemon.notice.command.noticeUpdate;
-import co.market.lemon.notice.command.noticeUpdateForm;
+import co.market.lemon.notice.command.NoticeDelete;
+import co.market.lemon.notice.command.NoticeInsert;
+import co.market.lemon.notice.command.NoticeInsertForm;
+import co.market.lemon.notice.command.NoticeMain;
+import co.market.lemon.notice.command.NoticeSelect;
+import co.market.lemon.notice.command.NoticeUpdate;
+import co.market.lemon.notice.command.NoticeUpdateForm;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
 import co.market.lemon.product.command.ProductPullUp;
@@ -58,9 +61,9 @@ import co.market.lemon.product.command.guitarProductListSell;
 import co.market.lemon.product.command.livingProductListBuy;
 import co.market.lemon.product.command.livingProductListSell;
 import co.market.lemon.reply.command.ReplyDelete;
+import co.market.lemon.reply.command.ReplyInsert;
 import co.market.lemon.reply.command.ReplyUpdate;
 import co.market.lemon.reply.command.ReplyUpdateForm;
-import co.market.lemon.reply.command.ReplyInsert;
 
 
 
@@ -101,7 +104,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberSelect.do", new MemberSelect());
 		map.put("/adminMemberDelete.do", new AdminMemberDelete());
 		map.put("/reportSelect.do", new ReportSelect());
-
+		map.put("/reportProcessing.do", new ReportProcessing());
+		map.put("/reportThree.do", new ReportThree());
+		map.put("/reportDisallow.do", new ReportDisallow());
 
     	//혜련zone
 		map.put("/fashionproductListBuy.do", new fashionProductListBuy());

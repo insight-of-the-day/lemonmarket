@@ -18,4 +18,9 @@ public class MemberVO {
 	private String memberTel;
 	private String memberGrade;
 	private int memberCount;
+	
+	
+	 public int  viewPage = 1;
+	 public int startIndex= 1;
+	 public int endIndex = 10;
 }

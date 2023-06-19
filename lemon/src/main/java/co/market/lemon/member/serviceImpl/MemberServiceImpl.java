@@ -58,4 +58,28 @@ public class MemberServiceImpl implements MemberService {
 		return map.memberSelectName(vo);
 	}
 
+	@Override
+	public int memberDeleteName(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return map.memberDeleteName(vo);
+	}
+
+	@Override
+	public int memberGradeUpdate(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return map.memberGradeUpdate(vo);
+	}
+
+	@Override
+	public int selectMemberTotal(MemberVO vo) {
+		
+		return map.selectMemberTotal(vo);
+	}
+
+	@Override
+	public List<MemberVO> selectMemberListPaging(MemberVO vo) {
+		
+		return map.selectMemberListPaging(vo);
+	}
+
 }

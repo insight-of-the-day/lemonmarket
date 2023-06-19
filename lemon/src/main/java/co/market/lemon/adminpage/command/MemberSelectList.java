@@ -15,11 +15,30 @@ public class MemberSelectList implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		MemberService ns = new MemberServiceImpl();
 		List<MemberVO> members = new ArrayList<MemberVO>();
-		members = ns.memberSelectList();
+		MemberService ns = new MemberServiceImpl();
+		MemberVO vo = new MemberVO();
+
+		int total = ns.selectMemberTotal(vo);
+		int totalPage = (int)Math.ceil((double)total/10);
+
+		String viewPageParam = request.getParameter("viewPage");
+		int viewPage = viewPageParam != null ? Integer.parseInt(viewPageParam) : 1;
+		vo.setViewPage(viewPage);
+		int startIndex = (viewPage-1) * 10 +1;
+		int endIndex = startIndex + (10 - 1);
+		
+		vo.setStartIndex(startIndex);
+		vo.setEndIndex(endIndex);
+		
+		
+		members = ns.selectMemberListPaging(vo);
 		
 		request.setAttribute("members", members);
+		request.setAttribute("total", total);
+		request.setAttribute("totalPage", totalPage);
+
+
 		return "adminMypage/memberSelectList";
 	}
 
