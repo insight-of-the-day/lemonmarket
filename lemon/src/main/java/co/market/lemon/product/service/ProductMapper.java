@@ -30,5 +30,9 @@ public interface ProductMapper {
 	int productHitUpdate(ProductVO vo);
 	
 	int productPullUp(ProductVO vo);
+	
+	int productNameDelete(ProductVO vo);
+	
+	List<ProductVO> mainPageSearch(ProductVO vo);
 }
 

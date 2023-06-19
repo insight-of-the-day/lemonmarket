@@ -48,12 +48,14 @@
 					<ul>
 						<li class="search">
 							<div class="input-group">
-								<input type="text" placeholder="Search.."> <span
-									class="input-group-btn">
-									<button class="btn btn-primary" type="button">
-										<i class="icon-search"></i>
-									</button>
-								</span>
+								<form id="frmAll"action="mainPageSearch.do">
+									<input type="text" name="mainPageSearch" placeholder="Search.."> <span
+										class="input-group-btn">
+										<button class="btn btn-primary" type="button">
+											<i class="icon-search"></i>
+										</button>
+									</span>
+								</form>
 							</div>
 						</li>
 						<c:if test="${empty id }">

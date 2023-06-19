@@ -51,6 +51,7 @@ import co.market.lemon.notice.command.NoticeMain;
 import co.market.lemon.notice.command.NoticeSelect;
 import co.market.lemon.notice.command.NoticeUpdate;
 import co.market.lemon.notice.command.NoticeUpdateForm;
+import co.market.lemon.product.command.MainPageSearch;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
 import co.market.lemon.product.command.ProductPullUp;
@@ -113,7 +114,7 @@ public class FrontController extends HttpServlet {
 		map.put("/reportProcessing.do", new ReportProcessing());
 		map.put("/reportThree.do", new ReportThree());
 		map.put("/reportDisallow.do", new ReportDisallow());
-
+		map.put("/mainPageSearch.do", new MainPageSearch());
     	//혜련zone
 		map.put("/fashionproductListBuy.do", new fashionProductListBuy());
 		map.put("/fashionproductListSell.do", new fashionProductListSell());

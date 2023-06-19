@@ -37,7 +37,9 @@ public class MemberSelectList implements Command {
 		request.setAttribute("members", members);
 		request.setAttribute("total", total);
 		request.setAttribute("totalPage", totalPage);
-
+		
+		//
+		request.setAttribute("viewPage", viewPage);
 
 		return "adminMypage/memberSelectList";
 	}

@@ -13,7 +13,7 @@ public class AdminReportVO {
 //	REPORT_CONTENT	VARCHAR2(4000 BYTE)
 //	REPORT_CATEGORY	VARCHAR2(30 BYTE)
 //	REPORT_REASON	VARCHAR2(20 BYTE)
-	
+
 	private int reportId;
 	private int productId;
 	private String reportReporter;
@@ -22,4 +22,8 @@ public class AdminReportVO {
 	private String reportCategory;
 	private String reportReason;
 
+	// 페이징 처리
+	public int viewPage = 1;
+	public int startIndex = 1;
+	public int endIndex = 10;
 }

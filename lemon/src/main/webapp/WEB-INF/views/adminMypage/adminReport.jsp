@@ -24,16 +24,16 @@
 							<th scope="col">신고자</th>
 							<th scope="col">신고당한사람</th>
 							<th scope="col">신고종류</th>
-							<th scope="col">신고종류</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>${reports.reportId }</td>
 							<td>${reports.productId }</td>
-							<td>${reports.reportReporter }</td>
-							<td>${reports.reportSuspect }</td>
-							<td>${members.memberCount}</td>
+							<td style="color: blue;">${reports.reportReporter }</td>
+							<td style="color: red;"><input type="hidden"
+								name="reportSuspect" value="${reports.reportSuspect }">
+								${reports.reportSuspect } (경고횟수:${members.memberCount})</td>
 							<td>${reports.reportCategory }</td>
 						</tr>
 						<tr>
@@ -105,22 +105,26 @@
 
 
 		<form id="frm" action="reportProcessing.do" method="post">
-		<div id="board-search">
-			<div class="container">
-				<div class="search-window" align="center">
-				<c:choose>
-				<c:when test="${members.memberCount == 2 }">
-						<button type="button" class="btn btn-dark" id="search" onclick="reportThree('${reports.reportSuspect }')">신고처리</button>
-					</c:when>
-					<c:otherwise>
-						<button type="button" class="btn btn-dark" id="search" onclick="reportOther('${reports.reportId }','${reports.reportSuspect }')">신고처리</button>
-					</c:otherwise>
-					</c:choose>
-						<button type="button" class="btn btn-dark" id="search" onclick="reportList()">목록보기</button>
-						<button type="button" class="btn btn-dark" id="search" onclick="reportDisallow('${reports.reportId }')">신고철회</button>
+			<div id="board-search">
+				<div class="container">
+					<div class="search-window" align="center">
+						<c:choose>
+							<c:when test="${members.memberCount == 2 }">
+								<button type="button" class="btn btn-dark" id="search"
+									onclick="reportThree('${reports.reportSuspect }')">신고처리</button>
+							</c:when>
+							<c:otherwise>
+								<button type="button" class="btn btn-dark" id="search"
+									onclick="reportOther('${reports.reportId }','${reports.reportSuspect }')">신고처리</button>
+							</c:otherwise>
+						</c:choose>
+						<button type="button" class="btn btn-dark" id="search"
+							onclick="reportList()">목록보기</button>
+						<button type="button" class="btn btn-dark" id="search"
+							onclick="reportDisallow('${reports.reportId }')">신고철회</button>
+					</div>
 				</div>
 			</div>
-		</div>
 		</form>
 	</section>
 

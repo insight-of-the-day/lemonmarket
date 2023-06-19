@@ -13,5 +13,7 @@ public interface ReplyService {
 	int replyUpdate(ReplyVO vo);
 	
 	int replyDelete(ReplyVO vo);
+	
+	int replyNameDelete(ReplyVO vo);
 
 }

@@ -21,7 +21,7 @@ public class ReportDisallow implements Command{
 		if(n !=0) {
 			request.setAttribute("message", "신고철회 완료");
 		}else {
-			request.setAttribute("message", "신고펄회 실패");
+			request.setAttribute("message", "신고삭제");
 		}
 		return "adminMypage/adminReportMessage";
 	}
