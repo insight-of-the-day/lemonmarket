@@ -7,8 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 align="center">공지사항 작성</h1>
-	<form action="noticeInsert.do" method="post" id="frm">
+	<h1 align="center" style="margin-top: 150px;">공지사항 작성</h1>
+	<form action="noticeInsert.do" method="post" id="frm"  align="center" style="
+    margin-top: 60px;
+    margin-left: 0px;
+    margin-right: 0px;
+">
 		<table>
 			<thead>
 				<tr>

@@ -81,5 +81,13 @@ public class MemberServiceImpl implements MemberService {
 		
 		return map.selectMemberListPaging(vo);
 	}
+	
+	@Override
+	public int NaverApi(MemberVO vo) {
+		
+		return map.NaverApi(vo);
+	}
+
+
 
 }

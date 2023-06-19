@@ -31,6 +31,8 @@
 				</div><br>
 				<div>
 					<input type="submit" value="로그인">&nbsp;&nbsp;
+					<button type="submit" class="btn btn-primary">로그인</button>
+					<img height="38px" src="../webapp/images/kakaoLogin.png" />
 					<input type="reset" value="취소">
 				</div>
 			</form>

@@ -1,6 +1,7 @@
 package co.market.lemon.controller;
 
 import java.io.IOException;
+
 import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
@@ -24,6 +25,7 @@ import co.market.lemon.adminpage.command.ReportThree;
 import co.market.lemon.command.MainCommand;
 import co.market.lemon.common.Command;
 import co.market.lemon.heart.command.AddHeart;
+import co.market.lemon.heart.command.AjaxHeart;
 import co.market.lemon.heart.command.DeleteHeart;
 import co.market.lemon.member.command.AjaxCheckId;
 import co.market.lemon.member.command.AjaxCheckName;
@@ -32,9 +34,8 @@ import co.market.lemon.member.command.MemberInsertForm;
 import co.market.lemon.member.command.MemberLogin;
 import co.market.lemon.member.command.MemberLoginForm;
 import co.market.lemon.member.command.MemberLogout;
-import co.market.lemon.heart.command.AjaxHeart;
+import co.market.lemon.member.command.NaverLogin;
 import co.market.lemon.mypage.command.DeleteCookie;
-
 import co.market.lemon.mypage.command.HeartSelectList;
 import co.market.lemon.mypage.command.MemberDelete;
 import co.market.lemon.mypage.command.MemberDeleteForm;
@@ -124,6 +125,9 @@ public class FrontController extends HttpServlet {
 		map.put("/guitarproductListBuy.do", new guitarProductListBuy());
 		map.put("/guitarproductListSell.do", new guitarProductListSell());
 		
+		
+		map.put("/naverLogin.do", new NaverLogin());
+		
 
 		map.put("/productInsertForm.do", new ProductInsertForm());
 		map.put("/productInsert.do", new ProductInsert());
@@ -131,8 +135,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productUpdateForm.do", new ProductUpdateForm());
 		map.put("/productUpdate.do", new ProductUpdate());
 
-
-
+//		map.put("/naverLogin.do", new NaverLogin());
 		//송이zone
 		map.put("/mypage.do", new Mypage());  //마이페이지
 		map.put("/memberUpdateForm.do", new MemberUpdateForm());  //수정 폼 호출
