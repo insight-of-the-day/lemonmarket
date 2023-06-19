@@ -17,7 +17,7 @@ public class ProductPullUp implements Command {
 		vo.setProductId(Integer.valueOf(request.getParameter("productId")));
 		ps.productPullUp(vo);
 			
-		return "product/productSelect";
+		return "redirect:productSelect.do";
 	}
 
 }

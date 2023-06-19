@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>		<div id="fh5co-product">
+<body
+>		<div id="fh5co-product">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 animate-box">
@@ -55,10 +56,9 @@
 							<p>
 								<form id="frm" method="post">
 									<input type="hidden" id="productId" name="productId" value="${product.productId}"/>
+									<input type="hidden" id="productWdate" name="productWdate" value="${product.productWdate}"/>
 									<c:if test="${name ne product.productWriter}">
-										
-										
-										
+								
 										<c:if test="${not empty id}">
 											<c:choose>						
 												<c:when test="${heartVal eq 0 }">
@@ -69,9 +69,7 @@
 												</c:otherwise>
 											</c:choose>
 										</c:if>
-									
-									 	 
-									 	 
+
 										<a href="#" class="btn btn-primary btn-outline btn-lg">신고 </a>
 									</c:if>
 									<c:if test="${name eq product.productWriter || grade eq 'A'}">
@@ -79,7 +77,7 @@
 										<input type="submit" onclick="javascript: frm.action='productDelete.do'" class="btn btn-primary btn-outline btn-lg" value="삭제">
 									</c:if>
 									<c:if test="${name eq product.productWriter}">
-										<input type="submit" onclick="javascript: frm.action='productPullUp.do'" class="btn btn-primary btn-outline btn-lg" value="끌올">
+										<input type="button" onclick="pullUpCheck()" class="btn btn-primary btn-outline btn-lg" value="끌올">
 									</c:if>
 								</form>						
 							</p>
@@ -116,49 +114,37 @@
 									<h3>댓글 목록</h3>
 									<div class="feed">
 										<c:forEach items="${replyList}" var="replyList">
-											<c:if test="${replyList.replySecret eq 'y'}">
-												<c:choose>
-													<c:when test="${name eq product.productWriter || name eq replyList.replyWriter || grade eq 'A'}">
-														<div>
-															<blockquote>
-																<p>${replyList.replySubject}</p>
-															</blockquote>
-															<h3>&mdash; ${replyList.replyWriter}, ${replyList.replyWdate}</h3>
-															<c:if test="${name eq replyList.replyWriter || grade eq 'A'}">
-																<form id="editReply" method="post">
-																	<input type="hidden" id="replyId" name="replyId" value="${replyList.replyId}" />
-																	<button type="button" onclick="callFunction('E')" class="btn btn-primary btn-outline btn-lg">수정</button>
-																	<button type="button" onclick="callFunction('D')" class="btn btn-primary btn-outline btn-lg">삭제</button>
-																</form>
-															</c:if>
-														</div>
-													</c:when>
-													<c:otherwise>
-														<div>
-															<blockquote>
-																<p>비밀 댓글은 게시글, 댓글 작성자와 관리자만 볼 수 있습니다.</p>
-															</blockquote>
-															<h3>&mdash; ${replyList.replyWdate}</h3>
-														</div>
-													</c:otherwise>
-												</c:choose>
-											</c:if>
-											<c:if test="${replyList.replySecret eq 'n'}">
+										<c:choose>
+											<c:when test="${(replyList.replySecret eq 'y') && (name ne product.productWriter || name ne replyList.replyWriter || grade ne 'A')}">
+												<div>
+													<blockquote>
+														<p>비밀 댓글은 게시글, 댓글 작성자와 관리자만 볼 수 있습니다.</p>
+													</blockquote>
+													<h3>&mdash; ${replyList.replyWdate}</h3>
+												</div>
+											</c:when>
+											<c:otherwise>
 												<div>
 													<blockquote>
 														<p>${replyList.replySubject}</p>
 													</blockquote>
 													<h3>&mdash; ${replyList.replyWriter}, ${replyList.replyWdate}</h3>
-													
 													<c:if test="${name eq replyList.replyWriter || grade eq 'A'}">
 														<form id="editReply" method="post">
-															<input type="hidden" id="replyId" name="replyId" value="${replyList.replyId}" />
-															<button type="button" onclick="callFunction('E')" class="btn btn-primary btn-outline btn-lg">수정</button>
-															<button type="button" onclick="callFunction('D')" class="btn btn-primary btn-outline btn-lg">삭제</button>
+															<input type="hidden" id="replyId" name="replyId">
+															<button type="button" onclick="replyUpdate(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">수정</button>
+															<button type="button" onclick="replyDelete(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">삭제</button>
+														</form>
+													</c:if>
+													<c:if test="${name eq product.productWriter && name ne replyList.replyWriter}">
+														<form id="sellReply" method="post">
+															<input type="hidden" id="replyWriter" name="replyWriter">
+															<button type="button" onclick="sellFunction(${replyList.replyWriter})" class="btn btn-primary btn-outline btn-lg">판매하기</button>
 														</form>
 													</c:if>
 												</div>
-											</c:if>
+											</c:otherwise>
+										</c:choose>
 										</c:forEach>
 										<c:if test="${not empty id}">
 											<form name="replyForm" action="replyInsert.do" method="post">
@@ -231,24 +217,49 @@
 
 
 		
-  		function callFunction(str) {
+
+		function replyUpdate(key) {
 			let frm = document.getElementById("editReply");
-			if (str == 'E')
-				frm.action = "replyUpdateForm.do";
-			else
-				if (confirm("정말 삭제 하시겠습니까?"))
-					frm.action = "replyDelete.do";
-				else
-					return false;
+			frm.replyId.value = key;
+			frm.action = "replyUpdateForm.do";
 			frm.submit();
 		}
-  		
-  		
-  		
-  	
-
-  		
-  		
+		
+		function replyDelete(key) {
+			let frm = document.getElementById("editReply");
+			frm.replyId.value = key;
+			if (confirm("정말 삭제 하시겠습니까?"))
+				frm.action = "replyDelete.do";
+			else
+				return false;
+			frm.submit();
+		}
+		
+		function pullUpCheck() {
+			let frm = document.getElementById("frm");
+			let wDate = new Date(frm.productWdate.value).toLocaleDateString();
+			let today = new Date().toLocaleDateString();
+			
+			if (wDate == today) {
+				alert("끌올은 하루에 한번만 할 수 있습니다.");
+				return false;
+			} else {
+				alert("끌올을 완료 했습니다.");
+				frm.action = "productPullUp.do";
+				frm.submit();
+			}
+		}
+	
+		function sellFunction(data) {
+			let frm = document.getElementById("sellReply");
+			frm.replyWriter.value = key
+			if (confirm(frm.replyWriter.value + "님과 거래 하시겠습니까?"))
+				frm.action = "productSell.do";
+			else
+				return false;
+			frm.submit();
+		}
+		
 	</script>
 
 </body>

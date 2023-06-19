@@ -24,8 +24,10 @@ public class ReplyUpdate implements Command {
 		}
 		
 		rs.replyUpdate(vo);
-		
-		return "product/productSelect";
+
+		String referer = request.getHeader("Referer");
+
+		return "redirect:" + referer;
 	}
 
 }
