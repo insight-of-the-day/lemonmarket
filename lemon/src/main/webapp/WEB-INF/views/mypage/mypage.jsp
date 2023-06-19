@@ -130,7 +130,40 @@
 		
 		<div>
 			<jsp:include page="clickProductSelect.jsp"></jsp:include>
-		</div> 
+		</div>
+		
+		<script>
+			//document.frm.submit();
+			window.onload = updateGrade();
+			
+			function updateGrade(){
+				
+			}
+			
+			function heartCheck(){
+				let id = '<%=(String)session.getAttribute("id")%>';; 
+				let productId = ${product.productId}
+				let url = "ajaxHeart.do?id=" + id + "&productId=" + productId  ;			
+				fetch(url)   
+					.then(response => response.text())	
+					.then(text => htmlProcess(text));
+			}
+			
+	  		function htmlProcess(data){
+	  			let frm = document.getElementById("frm");
+				if(data == 'Heart'){
+					alert("관심 상품이 등록되었습니다.");
+					heart.value = "찜취소";
+//	 				frm.action="addHeart.do";	
+					
+				}else{
+					alert("관심 상품이 해제되었습니다.")
+					heart.value ="찜하기";
+//	 		    	frm.action="deleteHeart.do";
+					
+				}
+			}
+		</script> 
 	</section>
 
 </body>

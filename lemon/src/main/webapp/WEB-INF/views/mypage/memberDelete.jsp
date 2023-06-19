@@ -47,9 +47,9 @@ table input{
 					                <td style="padding-right: 10px;">비밀번호</td>
 					                <td><input type="password" id="memberPw" name="memberPw"  placeholder="비밀번호를 입력하세요." required="required"></td>
 					            </tr>
-					            	
 					        </table><br> 
 				        </div>
+<%-- 				        <input type="hidden" id="memberName" name="memberName" value="${name }"> --%>
 				        <div id="deleteButton">       	
 				        	<input class="btn btn-primary btn-outline btn-lg" type="submit" value="탈퇴">&nbsp;&nbsp;
 				        	<input class="btn btn-primary btn-outline btn-lg" type="button" value="취소" onclick="javascript:window.location='mypage.do'">		

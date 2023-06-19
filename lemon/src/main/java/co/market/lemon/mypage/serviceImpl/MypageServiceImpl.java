@@ -32,6 +32,12 @@ public class MypageServiceImpl implements MypageService {
 		
 		return map.sellSelect(name, search, page);
 	}
+	
+	@Override
+	public List<MypageVO> sellSelectCount(String name, String search) {
+
+		return map.sellSelectCount(name, search);
+	}
 
 	@Override
 	public List<MypageVO> heartSelectList(String id) {
@@ -44,6 +50,8 @@ public class MypageServiceImpl implements MypageService {
 		
 		return map.recentSelectList(no);
 	}
+
+	
 
 	
 

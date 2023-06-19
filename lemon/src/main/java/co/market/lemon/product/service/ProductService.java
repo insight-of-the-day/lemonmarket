@@ -2,22 +2,16 @@ package co.market.lemon.product.service;
 
 import java.util.List;
 
+
+import co.market.lemon.adminpage.service.AdminReportVO;
+
+import org.apache.ibatis.annotations.Param;
+
+
 public interface ProductService {
-	List<ProductVO> fashionproductSelectListBuy();
+	List<ProductVO> productSelectListBuy(@Param("productInfo")String info, @Param("productCategory")String category);
 	
-	List<ProductVO> fashionproductSelectListSell();
-	
-	List<ProductVO> livingproductSelectListBuy();
-	
-	List<ProductVO> livingproductSelectListSell();
-	
-	List<ProductVO>	foodproductSelectListBuy();
-	
-	List<ProductVO> foodproductSelectListSell();
-	
-	List<ProductVO> guitarproductSelectListBuy();
-	
-	List<ProductVO> guitarproductSelectListSell();
+	List<ProductVO> productSelectListSell(@Param("productInfo")String info, @Param("productCategory")String category);
 
 	ProductVO productSelect(ProductVO vo);
 
@@ -34,4 +28,9 @@ public interface ProductService {
 	int productNameDelete(ProductVO vo);
 	
 	List<ProductVO> mainPageSearch(ProductVO vo);
+
+	int productSell(ProductVO vo);
+	
+	int productReport(AdminReportVO vo);
+
 }

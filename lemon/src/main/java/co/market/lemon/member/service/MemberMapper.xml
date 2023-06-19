@@ -72,4 +72,24 @@
 	]]>
 	</select>
 	
+	<select id="sellTotalCount" resultType="int">
+		SELECT COUNT(*)
+		FROM PRODUCT
+		WHERE PRODUCT_WRITER = #{memberName} AND PRODUCT_INFO='팝니다'
+	</select>
+	
+<!-- 	<update id="updateGrade"> -->
+<!-- 		<![CDATA[ -->
+<!-- 		UPDATE MEMBER  -->
+<!-- 		<set> -->
+<!-- 			<if test="count >= 1">MEMBER_GRADE = 'R',</if>  -->
+<!-- 			<if test="count >= 10">MEMBER_GRADE = 'V',</if>  -->
+<!-- 			<if test="count >= 100">MEMBER_GRADE = 'VV'</if> -->
+<!-- 		</set> -->
+<!-- 		WHERE MEMBER_NAME = #{memberName} -->
+<!-- 		]]> -->
+<!-- 	</update> -->
+	
+	
+	
 </mapper>
