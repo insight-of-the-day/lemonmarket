@@ -12,4 +12,5 @@ public interface AdminReportMapper {
 
 	int reportDelete(AdminReportVO vo);
 	
+	int reportAllDelete(AdminReportVO vo);
 }

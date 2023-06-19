@@ -17,7 +17,10 @@ import co.market.lemon.adminpage.command.AdminMypage;
 import co.market.lemon.adminpage.command.MemberReportList;
 import co.market.lemon.adminpage.command.MemberSelect;
 import co.market.lemon.adminpage.command.MemberSelectList;
+import co.market.lemon.adminpage.command.ReportDisallow;
+import co.market.lemon.adminpage.command.ReportProcessing;
 import co.market.lemon.adminpage.command.ReportSelect;
+import co.market.lemon.adminpage.command.ReportThree;
 import co.market.lemon.command.MainCommand;
 import co.market.lemon.common.Command;
 import co.market.lemon.heart.command.AddHeart;
@@ -101,7 +104,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberSelect.do", new MemberSelect());
 		map.put("/adminMemberDelete.do", new AdminMemberDelete());
 		map.put("/reportSelect.do", new ReportSelect());
-
+		map.put("/reportProcessing.do", new ReportProcessing());
+		map.put("/reportThree.do", new ReportThree());
+		map.put("/reportDisallow.do", new ReportDisallow());
 
     	//혜련zone
 		map.put("/fashionproductListBuy.do", new fashionProductListBuy());
