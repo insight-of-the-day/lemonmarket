@@ -19,28 +19,55 @@ public class ProductInsert implements Command {
 		ProductVO vo = new ProductVO();
 		HashMap<String,String>map=new HashMap<>();
 		
-		FileUpload f=new FileUpload();
-		String dir="attach";
-		map=f.upload(request, response, dir);
-		
-		
-		vo.setProductCategory(map.get("productCategory"));
-		vo.setProductInfo(map.get("productInfo"));
-		vo.setProductWriter(map.get("productWriter"));
-		vo.setProductTitle(map.get("productTitle"));
-		vo.setProductPrice(Integer.valueOf(map.get("productPrice")));
-		vo.setProductSubject(map.get("productSubject"));
-		vo.setProductImg(map.get("ofile"));
-		vo.setProductImgDir(map.get("pfile"));
 		
 		
 		
-		int n = ps.productInsert(vo);
 		
-		if (n != 0)
-			request.setAttribute("message", "제품 등록이 완료되었습니다.");
-		else
-			request.setAttribute("message", "제품 등록에 실패했습니다.");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		
+//		FileUpload f=new FileUpload();
+//		String dir="attach";
+//		map=f.upload(request, response, dir);
+//		
+//		
+//		vo.setProductCategory(map.get("productCategory"));
+//		vo.setProductInfo(map.get("productInfo"));
+//		vo.setProductWriter(map.get("productWriter"));
+//		vo.setProductTitle(map.get("productTitle"));
+//		vo.setProductPrice(Integer.valueOf(map.get("productPrice")));
+//		vo.setProductSubject(map.get("productSubject"));
+//		vo.setProductImg(map.get("ofile"));
+//		vo.setProductImgDir(map.get("pfile"));
+//		
+//		
+//		
+//		int n = ps.productInsert(vo);
+//		
+//		if (n != 0)
+//			request.setAttribute("message", "제품 등록이 완료되었습니다.");
+//		else
+//			request.setAttribute("message", "제품 등록에 실패했습니다.");
 
 		return "product/productMessage";
 	}

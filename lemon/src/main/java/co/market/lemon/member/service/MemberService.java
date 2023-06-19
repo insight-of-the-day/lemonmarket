@@ -11,4 +11,13 @@ public interface MemberService {
 	int memberDelete(MemberVO vo);
 	
 	MemberVO memberLogin(MemberVO vo); 
+	
+	
+	int memberDeleteName(MemberVO vo);
+	int memberGradeUpdate(MemberVO vo);
+	
+	
+	int selectMemberTotal(MemberVO vo);
+	List<MemberVO> selectMemberListPaging(MemberVO vo);
+	
 }

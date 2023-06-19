@@ -11,5 +11,7 @@ public interface AdminReportService {
 	int reportUpdate(AdminReportVO vo);
 
 	int reportDelete(AdminReportVO vo);
+	
+	int reportAllDelete(AdminReportVO vo);
 
 }
