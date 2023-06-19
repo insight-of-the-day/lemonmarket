@@ -15,7 +15,7 @@
 		<td>제목: <input type="text" id="noticeTitle" name="noticeTitle" value="${notice.noticeTitle }"></td>
 		</tr>
 		<tr>
-		<td><input type="text" id="noticeSubject" name="noticeSubject" value="${notice.noticeSubject }"></td>
+		<td><textarea id="noticeSubject" name="noticeSubject" >${notice.noticeSubject }</textarea></td>
 		</tr>
 		</table>
 		<input type="hidden" name="noticeId" value="${notice.noticeId }">
