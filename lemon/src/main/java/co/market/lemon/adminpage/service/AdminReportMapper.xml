@@ -14,4 +14,9 @@
 	WHERE REPORT_ID = #{reportId}
 	</select>
 	
+	<delete id="reportAllDelete" parameterType="co.market.lemon.adminpage.service.AdminReportVO">
+		DELETE FROM REPORT
+		WHERE REPORT_SUSPECT = #{reportSuspect}
+	</delete>
+	
 </mapper>

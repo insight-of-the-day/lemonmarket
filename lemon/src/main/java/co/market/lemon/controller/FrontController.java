@@ -17,7 +17,10 @@ import co.market.lemon.adminpage.command.AdminMypage;
 import co.market.lemon.adminpage.command.MemberReportList;
 import co.market.lemon.adminpage.command.MemberSelect;
 import co.market.lemon.adminpage.command.MemberSelectList;
+import co.market.lemon.adminpage.command.ReportDisallow;
+import co.market.lemon.adminpage.command.ReportProcessing;
 import co.market.lemon.adminpage.command.ReportSelect;
+import co.market.lemon.adminpage.command.ReportThree;
 import co.market.lemon.command.MainCommand;
 import co.market.lemon.common.Command;
 import co.market.lemon.heart.command.AddHeart;
@@ -29,12 +32,17 @@ import co.market.lemon.member.command.MemberInsertForm;
 import co.market.lemon.member.command.MemberLogin;
 import co.market.lemon.member.command.MemberLoginForm;
 import co.market.lemon.member.command.MemberLogout;
+import co.market.lemon.heart.command.AjaxHeart;
+import co.market.lemon.mypage.command.DeleteCookie;
+
 import co.market.lemon.mypage.command.HeartSelectList;
 import co.market.lemon.mypage.command.MemberDelete;
 import co.market.lemon.mypage.command.MemberDeleteForm;
 import co.market.lemon.mypage.command.MemberUpdate;
 import co.market.lemon.mypage.command.MemberUpdateForm;
 import co.market.lemon.mypage.command.Mypage;
+import co.market.lemon.mypage.command.RecentSelectList;
+import co.market.lemon.mypage.command.SellSelect;
 import co.market.lemon.mypage.command.SellSelectList;
 import co.market.lemon.notice.command.NoticeDelete;
 import co.market.lemon.notice.command.NoticeInsert;
@@ -85,7 +93,7 @@ public class FrontController extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		//공통부분s
+		//공통부분
 		map.put("/main.do", new MainCommand());
 		map.put("/memberInsertForm.do", new MemberInsertForm());
 		map.put("/memberLoginForm.do", new MemberLoginForm());
@@ -102,7 +110,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberSelect.do", new MemberSelect());
 		map.put("/adminMemberDelete.do", new AdminMemberDelete());
 		map.put("/reportSelect.do", new ReportSelect());
-
+		map.put("/reportProcessing.do", new ReportProcessing());
+		map.put("/reportThree.do", new ReportThree());
+		map.put("/reportDisallow.do", new ReportDisallow());
 
     	//혜련zone
 		map.put("/fashionproductListBuy.do", new fashionProductListBuy());
@@ -131,12 +141,17 @@ public class FrontController extends HttpServlet {
 		map.put("/memberDelete.do", new MemberDelete());  //삭제 실행
 		
 		map.put("/sellSelectList.do", new SellSelectList());  //판매 내역
-		map.put("/heartSelectList.do", new HeartSelectList());  //관심 목록
+		map.put("/sellSelect.do", new SellSelect());  //판매 내역 검색
+		map.put("/heartSelectList.do", new HeartSelectList());  //찜한 상품
+		map.put("/recentSelectList.do", new RecentSelectList());  //최근 본 상품
 		
 		
 		map.put("/addHeart.do", new AddHeart());  //찜하기 누르기
 		map.put("/deleteHeart.do", new DeleteHeart());  //찜취소 누르기
-
+		map.put("/ajaxHeart.do", new AjaxHeart());
+		
+		
+		map.put("/deleteCookie.do", new DeleteCookie());  //최근 본 상품 삭제 -> 쿠키삭제
   
 
 		//주현이 영역~~~ notice

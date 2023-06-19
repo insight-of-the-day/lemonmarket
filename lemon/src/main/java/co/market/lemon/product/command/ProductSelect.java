@@ -11,6 +11,7 @@ import co.market.lemon.common.Command;
 import co.market.lemon.heart.service.HeartService;
 import co.market.lemon.heart.service.HeartVO;
 import co.market.lemon.heart.serviceImpl.HeartServiceImpl;
+import co.market.lemon.mypage.command.CookieCreate;
 import co.market.lemon.product.service.ProductService;
 import co.market.lemon.product.service.ProductVO;
 import co.market.lemon.product.serviceImpl.ProductServiceImpl;
@@ -50,10 +51,11 @@ public class ProductSelect implements Command {
 		int heartVal = hs.selectHeart(hvo);
 		request.setAttribute("heartVal", heartVal);
 
-		
-		
+		// 최근 본 상품 불러오기
+		//쿠키생성
+		CookieCreate cc = new CookieCreate();
+		cc.exec(request, response);
 
-	
 
 		return "product/productSelect";
 		

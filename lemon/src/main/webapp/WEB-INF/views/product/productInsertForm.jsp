@@ -12,7 +12,7 @@
 			<h1>제품등록</h1>
 		</div>
 		<div>
-			<form id="frm" action="productInsert.do" method="post" enctype="multipart/form-data">
+			<form id="frm" action="upload.jsp" method="post" enctype="multipart/form-data">
 
 				<div>
 					<table>
@@ -53,7 +53,7 @@
 									required="required"></textarea>
 						</tr>
 						<tr>
-							<th align="center">* 사진첨부</th>
+							<th align="center"> 사진첨부</th>
 							<td><input type="file" id="pfile" name="pfile" accept="image/*">
 						</tr>
 					</table>

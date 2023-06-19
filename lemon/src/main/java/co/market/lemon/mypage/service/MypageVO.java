@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MypageVO {
-	//거래내역
+	//거래 내역
 	private String memberName;
 	private int productId;
 	private String productWriter;
@@ -16,11 +16,15 @@ public class MypageVO {
 	private String productTitle;
 	private String productState;
 	private Date productWdate;
-	
-	//관심목록
-	private String memberId;
 	private String productInfo;
+	
+	//찜한 상품
+	private String memberId;
+	
+	
+	
 
+	
 
 
 }

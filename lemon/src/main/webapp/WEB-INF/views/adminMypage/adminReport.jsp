@@ -14,7 +14,7 @@
 				<h3>신고조회</h3>
 			</div>
 		</div>
-		<div id="board-list" >
+		<div id="board-list">
 			<div class="container">
 				<table border="1" class="board-table">
 					<thead>
@@ -23,6 +23,7 @@
 							<th scope="col">제품번호</th>
 							<th scope="col">신고자</th>
 							<th scope="col">신고당한사람</th>
+							<th scope="col">신고종류</th>
 							<th scope="col">신고종류</th>
 						</tr>
 					</thead>
@@ -73,7 +74,7 @@
 		</div>
 
 
-<h1></h1>
+		<h1></h1>
 
 
 
@@ -94,33 +95,55 @@
 			</div>
 		</div>
 
-		
+
 		<div class="page-title">
 			<div class="container">
 				<h3></h3>
 			</div>
 		</div>
-		
-		
-		
+
+
+
+		<form id="frm" action="reportProcessing.do" method="post">
 		<div id="board-search">
 			<div class="container">
 				<div class="search-window" align="center">
-					<form id="frm" action="" method="post">
-						<button type="submit" class="btn btn-dark" id="search">신고처리</button>
+				<c:choose>
+				<c:when test="${members.memberCount == 2 }">
+						<button type="button" class="btn btn-dark" id="search" onclick="reportThree('${reports.reportSuspect }')">신고처리</button>
+					</c:when>
+					<c:otherwise>
+						<button type="button" class="btn btn-dark" id="search" onclick="reportOther('${reports.reportId }','${reports.reportSuspect }')">신고처리</button>
+					</c:otherwise>
+					</c:choose>
 						<button type="button" class="btn btn-dark" id="search" onclick="reportList()">목록보기</button>
-					</form>
+						<button type="button" class="btn btn-dark" id="search" onclick="reportDisallow('${reports.reportId }')">신고철회</button>
 				</div>
 			</div>
 		</div>
+		</form>
 	</section>
-	
+
 	<script type="text/javascript">
-	function reportList() {
-		let url="memberReportList.do";
-		location.href=url;
-	}
-	
+		function reportList() {
+			let url = "memberReportList.do";
+			location.href = url;
+		}
+		function reportThree(reportSuspect) {
+			let url = "reportThree.do?reportSuspect=" + reportSuspect;
+			location.href = url;
+		}
+
+		function reportOther(reportId, reportSuspect) {
+			let url = "reportProcessing.do?reportId=" + reportId
+					+ "&reportSuspect=" + reportSuspect;
+			location.href = url;
+		}
+
+		function reportDisallow(reportId) {
+			let url = "reportDisallow.do?reportId=" + reportId;
+			location.href = url;
+		}
 	</script>
 
 </body>

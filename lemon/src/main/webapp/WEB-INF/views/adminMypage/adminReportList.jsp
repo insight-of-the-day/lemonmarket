@@ -28,7 +28,7 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${reports }" var="n">
-							<tr onclick="reportChoice(${n.reportId },${n.reportSuspect })">
+							<tr onclick="reportChoice('${n.reportId }','${n.reportSuspect }')">
 								<td>${n.reportId }</td>
 								<td>${n.productId }</td>
 								<td>${n.reportReporter }</td>
@@ -45,7 +45,7 @@
 	<script type="text/javascript">
 	
 		function reportChoice(reportId, reportSuspect) {
-			let url="reportSelect.do?reportId="+reportId+"+reportSuspect="+reportSuspect;
+			let url="reportSelect.do?reportId="+reportId+"&reportSuspect="+reportSuspect;
 			location.href=url;
 		}
 	</script>

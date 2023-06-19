@@ -27,7 +27,7 @@
 	
 	<update id="memberUpdate" parameterType="co.market.lemon.member.service.MemberVO">	
 		UPDATE MEMBER
-		SET MEMBER_PW = #{memberPw}, MEMBER_NAME = #{memberName}, MEMBER_TEL = #{memberTel}
+		SET MEMBER_PW = #{memberPw}, MEMBER_TEL = #{memberTel}
 		WHERE MEMBER_ID = #{memberId}
 	</update>
 	
@@ -40,4 +40,36 @@
 		SELECT * FROM MEMBER
 		WHERE MEMBER_ID = #{memberId} AND MEMBER_PW = #{memberPw}
 	</select>
+	
+	
+	
+	<delete id="memberDeleteName" parameterType="co.market.lemon.member.service.MemberVO">
+		DELETE FROM MEMBER
+		WHERE MEMBER_NAME = #{memberName}
+	</delete>
+	
+		<update id="memberGradeUpdate"
+		parameterType="co.market.lemon.member.service.MemberVO">
+		UPDATE MEMBER
+		SET MEMBER_GRADE ='T', MEMBER_COUNT= MEMBER_COUNT+1
+		WHERE MEMBER_NAME = #{memberName}
+	</update>
+	
+	<select id="selectMemberTotal" resultType="int">
+	SELECT COUNT(*) total FROM MEMBER
+	</select>
+	
+	
+	<select id="selectMemberListPaging" resultType="co.market.lemon.member.service.MemberVO">
+		<![CDATA[
+		select b.* from(
+			select rownum rn, a.* from (
+				select * 
+					from member
+					order by member_id ) a ) b
+					
+					where rn >= #{startIndex} and rn <= #{endIndex}
+	]]>
+	</select>
+	
 </mapper>

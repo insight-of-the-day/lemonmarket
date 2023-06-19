@@ -50,7 +50,7 @@
 		DESC
 	</select>
 	
-	<select id="productSelectListSell"
+	<select id="guitarproductSelectListSell"
 		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT where product_info='팝니다' and
 		product_category='기타' ORDER BY 8

@@ -10,7 +10,7 @@ import co.market.lemon.heart.service.HeartVO;
 import co.market.lemon.heart.serviceImpl.HeartServiceImpl;
 
 public class AddHeart implements Command {
-
+	//ajax사용으로 필요 없어짐
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		HeartService hs = new HeartServiceImpl();

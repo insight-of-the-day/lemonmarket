@@ -36,4 +36,10 @@ public class AdminReportServiceImpl implements AdminReportService{
 		return map.reportDelete(vo);
 	}
 
+	@Override
+	public int reportAllDelete(AdminReportVO vo) {
+		
+		return map.reportAllDelete(vo);
+	}
+
 }

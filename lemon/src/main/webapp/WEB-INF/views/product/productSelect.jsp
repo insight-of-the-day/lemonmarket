@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-		<div id="fh5co-product">
+<body
+>		<div id="fh5co-product">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 animate-box">
@@ -58,14 +58,18 @@
 									<input type="hidden" id="productId" name="productId" value="${product.productId}"/>
 									<input type="hidden" id="productWdate" name="productWdate" value="${product.productWdate}"/>
 									<c:if test="${name ne product.productWriter}">
-										<c:choose>
-											<c:when test="${heartVal eq 0 }">
-												<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜하기" >
-											</c:when>
-											<c:otherwise>
-												<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜취소" >
-											</c:otherwise>
-										</c:choose>
+								
+										<c:if test="${not empty id}">
+											<c:choose>						
+												<c:when test="${heartVal eq 0 }">
+													<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜하기" >
+												</c:when>
+												<c:otherwise>
+													<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜취소" >
+												</c:otherwise>
+											</c:choose>
+										</c:if>
+
 										<a href="#" class="btn btn-primary btn-outline btn-lg">신고 </a>
 									</c:if>
 									<c:if test="${name eq product.productWriter || grade eq 'A'}">
@@ -169,20 +173,49 @@
 		</div>
 		
 	<script type="text/javascript">	    
-	    let he = document.getElementById("heart");
-	   	he.addEventListener("click", clickHeart);
+	    let heart = document.getElementById("heart");
+//	   	heart.addEventListener("click", clickHeart);
+		heart.addEventListener("click", heartCheck);
 		
-		function clickHeart() {
-			let frm = document.getElementById("frm");
-		    if(he.value == "찜하기") {
-				he.value = "찜취소";
-				frm.action="addHeart.do";
-		    } else {
-		    	he.value ="찜하기";
-		    	frm.action="deleteHeart.do";
-		    }
-		    frm.submit();
+// 		function clickHeart() {
+// 			let frm = document.getElementById("frm");
+// 		    if(heart.value == "찜하기") {
+// 				heart.value = "찜취소";
+// 				frm.action="addHeart.do";
+// 		    } else {
+// 		    	heart.value ="찜하기";
+// 		    	frm.action="deleteHeart.do";
+// 		    }
+// 		    frm.submit();
+// 		}
+
+		function heartCheck(){
+			let id = '<%=(String)session.getAttribute("id")%>';; 
+			let productId = ${product.productId}
+			let url = "ajaxHeart.do?id=" + id + "&productId=" + productId  ;			
+			fetch(url)   
+				.then(response => response.text())	
+				.then(text => htmlProcess(text));
 		}
+		
+  		function htmlProcess(data){
+  			let frm = document.getElementById("frm");
+			if(data == 'Heart'){
+				alert("관심 상품이 등록되었습니다.");
+				heart.value = "찜취소";
+// 				frm.action="addHeart.do";	
+				
+			}else{
+				alert("관심 상품이 해제되었습니다.")
+				heart.value ="찜하기";
+// 		    	frm.action="deleteHeart.do";
+				
+			}
+		}
+  		
+  		
+
+
 		
 
 		function replyUpdate(key) {
