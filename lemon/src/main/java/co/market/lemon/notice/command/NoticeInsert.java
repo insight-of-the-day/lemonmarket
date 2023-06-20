@@ -16,6 +16,8 @@ public class NoticeInsert implements Command {
 		NoticeVO vo= new NoticeVO();
 		vo.setNoticeTitle(request.getParameter("noticeTitle"));
 		vo.setNoticeSubject(request.getParameter("noticeSubject"));
+//		String noticeSubject=request.getParameter("noticeSubject");
+//		noticeSubject=noticeSubject.replaceAll("\r\n","<br>");
 		
 		int n=ns.noticeInsert(vo);
 		if(n>0) {
