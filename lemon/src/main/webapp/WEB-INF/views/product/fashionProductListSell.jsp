@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -21,14 +21,22 @@
 </head>
 <body>
 
-<div id="fh5co-product">
+	<div id="fh5co-product">
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<span>LEMON MARKET</span>
-					<h2>패션 물품 판매</h2> 
-  						<p>show your fashion!</p> 
+					<h2>패션 물품 판매</h2>
+					<p>show your fashion!</p>
 				</div>
+			</div>
+			<div align="center">
+				<c:if test="${not empty id }">
+					<p>
+						<a href="productInsertForm.do"
+							class="btn btn-primary btn-outline btn-lg">글 작성</a>
+					</p>
+				</c:if>
 			</div>
 			<c:forEach items="${products}" var="p">
 				<!-- 				<div class="product"> -->
@@ -52,12 +60,6 @@
 												<h2>${p.productPrice }원</h2>
 											</div>
 										</div>
-										<!-- Product actions-->
-										<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-											<div class="text-center">
-												<a class="btn btn-outline-dark mt-auto" href="#">상세보기</a>
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -67,32 +69,36 @@
 			</c:forEach>
 		</div>
 
+		<br>
 
 
-  			<br> 
-  			<div align="center"> 
-				<c:if test="${not empty id }"> 
-  					<p> 
-  						<a href="productInsertForm.do" 
-  							class="btn btn-primary btn-outline btn-lg">글 작성</a> 
-  					</p> 
- 				</c:if> 
-  			</div> 
-  			<div> 
-  				<form id="frm" action="productSelect.do" method="post"> 
-  					<input type="hidden" id="productId" name="productId"> 
-  				</form> 
-  			</div> 
-  		</div> 
-	
-	
-  		<script type="text/javascript"> 
+		<div>
+			<form id="frm" action="productSelect.do" method="post">
+				<input type="hidden" id="productId" name="productId">
+			</form>
+		</div>
+	</div>
+
+	<!-- 페이징 -->
+
+	<div align="center" class="pager">
+		<ul class="listCenter">
+			<c:forEach var="n" begin="1" end="${totalPage }">
+				<li><a href="fashionproductListBuy.do?viewPage=${n }">${n  }
+				</a></li>
+			</c:forEach>
+		</ul>
+	</div>
+
+
+
+	<script type="text/javascript"> 
 			function productChoice(id) {
 			let frm = document.getElementById("frm");
 			frm.productId.value = id;
 			frm.submit();
 			}
-  		</script> 
+  		</script>
 
 </body>
 </html>

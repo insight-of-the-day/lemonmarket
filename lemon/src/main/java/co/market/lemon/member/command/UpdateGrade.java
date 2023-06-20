@@ -25,17 +25,18 @@ public class UpdateGrade implements Command {
 		
 		
 		
-		int totalCount = ms.sellTotalCount(vo);
+		int sTotalCount = ms.sellTotalCount(vo);
+		int bTotalCount = ms.sellTotalCount(vo);
 		
 		int n=0;
-		if(totalCount>=1 && totalCount<10) {
-			n = ms.updateGradeR(vo);
+		if(sTotalCount>=100 && bTotalCount>=100) {
+			n = ms.updateGradeVV(vo);
 			vo = ms.memberSelect(vo);
-		} else if(totalCount>=10 && totalCount<100) {
+		} else if(sTotalCount>=10 && bTotalCount>=5) {
 			n = ms.updateGradeV(vo);
 			vo = ms.memberSelect(vo);
-		} else if(totalCount>=100) {
-			n = ms.updateGradeVV(vo);
+		} else if(sTotalCount>=1) {
+			n = ms.updateGradeR(vo);
 			vo = ms.memberSelect(vo);
 		}
 		

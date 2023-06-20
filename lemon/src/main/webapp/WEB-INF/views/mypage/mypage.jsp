@@ -121,7 +121,7 @@
 							
 							<div class="grade" style="padding-left: 20px;margin-top: 20px;">
 								<p style="font-weight: bold;" >회원등급 안내</p>
-								<p>판매건수 - 1건: 일반회원 / 10건: VIP / 100건: VVIP</p>
+								<p>일반회원: 판매 1건 / VIP: 판매 10건, 구매 5건 / VVIP: 판매 100건, 구매 100건</p>
 							</div>
 							
 						</div>
@@ -132,14 +132,28 @@
 				<div id="board-list">
 					<div class="container">
 						<table class="board-table">
-								<tr>		
-									<th scope="col" style=" width: 200px;">총 판매건수</th>
+								<tr>	
+									<th style="width: 100px;">판매</th>
+									<td></td>
+									<th scope="col" style="width: 200px;">총 판매</th>
 									<td style="text-align: left;"> ${fn:length(sellList)} 건</td>
+									<th scope="col" style="width: 200px;">거래중</th>
+									<td style="text-align: left;"> ${sellCountIng} 건</td>
+									<th scope="col" style="width: 200px;">거래완료</th>
+									<td style="text-align: left;"> ${sellCountDone} 건</td>
 								</tr>
-								<tr>		
-									<th scope="col" style=" width: 200px;">별점 미입력</th>
-									<td style="text-align: left;"><button>별점 주기</button></td>
+							
+								<tr>	
+									<th>구매</th>
+									<td></td>	
+									<th scope="col">총 구매</th>
+									<td style="text-align: left;"> ${fn:length(buyList)} 건</td>
+									<th scope="col">거래중</th>
+									<td style="text-align: left;"> ${buyCountIng} 건</td>
+									<th scope="col">거래완료</th>
+									<td style="text-align: left;"> ${buyCountDone} 건</td>
 								</tr>
+
 						</table>
 					</div>
 				</div>

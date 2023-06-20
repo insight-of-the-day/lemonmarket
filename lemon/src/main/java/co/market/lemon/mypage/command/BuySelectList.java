@@ -33,6 +33,7 @@ public class BuySelectList implements Command {
 		
 		List<MypageVO> buyList2 = ms.buySelectList(memberName);
 		request.setAttribute("buyList2", buyList2);	
+		
 		return "mypage/buySelectList";
 	}
 

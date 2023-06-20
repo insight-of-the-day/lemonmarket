@@ -15,9 +15,31 @@ public class fashionProductListBuy implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse reponse) {
 		ProductService ps = new ProductServiceImpl();
 		List<ProductVO> products = new ArrayList<>();
-		products = ps.productSelectListBuy("삽니다","패션");
+		ProductVO vo=new ProductVO();
 		
+		
+//		products = ps.productSelectListBuy("삽니다","패션");
+		
+		int total=ps.selectProductTotal(vo,"삽니다","패션");
+		int totalPage=(int)Math.ceil((double)total/5);
+		
+		String viewPageParam=request.getParameter("viewPage");
+		int viewPage=viewPageParam!=null?Integer.parseInt(viewPageParam):1;
+		vo.setViewPage(viewPage);
+		int startIndex=(viewPage-1)*5+1;
+		int endIndex=startIndex+(5-1);
+		
+
+
+		
+		
+		
+		products=ps.selectBuyListPaging(startIndex,endIndex, "삽니다", "패션");
+		
+		request.setAttribute("totalPage", totalPage);	
 		request.setAttribute("products", products);
+		
+		
 		return "product/fashionProductListBuy";
 	}
 }

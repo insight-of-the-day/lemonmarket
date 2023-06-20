@@ -12,9 +12,31 @@
 	<select id="productSelectListSell"
 		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT where product_info=#{productInfo} and
-		product_category=#{productCategory}  ORDER BY 8
+		product_category=#{productCategory} ORDER BY product_wdate
 		DESC
 	</select>
+
+	<select id="selectProductTotal" resultType="int">
+		SELECT COUNT(*) total
+		FROM PRODUCT where product_info=#{productInfo}and
+		product_category=#{productCategory} 
+	</select>
+
+	<select id="selectBuyListPaging"
+		resultType="co.market.lemon.product.service.ProductVO">
+		<![CDATA[
+		select b.* from(
+			select rownum rn, a.* from (
+				select * 
+					from product
+						where product_info=#{productInfo} and
+							  product_category=#{productCategory}
+					order by product_wdate ) a ) b
+					
+					where rn >= #{startIndex} and rn <= #{endIndex}
+	]]>
+	</select>
+
 
 
 
@@ -28,14 +50,15 @@
 		INSERT INTO PRODUCT
 		VALUES (product_seq.nextval,
 		#{productCategory}, #{productInfo}, #{productWriter}, #{productTitle},
-		#{productPrice}, #{productSubject}, SYSDATE, 0, '거래전', #{productImg1}, #{productImgDir1}, null )
+		#{productPrice}, #{productSubject}, SYSDATE, 0, '거래전', #{productImg1},
+		#{productImgDir1}, null )
 	</insert>
 
 	<update id="productUpdate"
 		parameterType="co.market.lemon.product.service.ProductVO">
 		UPDATE PRODUCT
 		<set>
-<!-- 			<if test="productWriter != null">PRODUCT_WRITER = #{productWriter},</if> -->
+			<!-- <if test="productWriter != null">PRODUCT_WRITER = #{productWriter},</if> -->
 			<if test="productTitle != null">PRODUCT_TITLE = #{productTitle},</if>
 			<if test="productWdate == null">PRODUCT_WDATE = sysdate,</if>
 			<if test="productCategory != null">PRODUCT_CATEGORY = #{productCategory},</if>
@@ -43,8 +66,8 @@
 			<if test="productSubject != null">PRODUCT_SUBJECT = #{productSubject},</if>
 			<if test="productState != null">PRODUCT_STATE = #{productState},</if>
 			<if test="productInfo != null">PRODUCT_INFO = #{productInfo},</if>
-			<if test="productImg1 != null">PRODUCT_IMG1 = #{productImg1},</if>	
-			<if test="productImgDir1 != null">PRODUCT_IMG_DIR1 = #{productImgDir1},</if>	
+			<if test="productImg1 != null">PRODUCT_IMG1 = #{productImg1},</if>
+			<if test="productImgDir1 != null">PRODUCT_IMG_DIR1 = #{productImgDir1},</if>
 		</set>
 		WHERE PRODUCT_Id = #{productId}
 	</update>
@@ -59,37 +82,46 @@
 		UPDATE PRODUCT SET PRODUCT_VIEW = PRODUCT_VIEW + 1 WHERE
 		PRODUCT_ID = #{productId}
 	</update>
-	
+
 	<update id="productPullUp"
 		parameterType="co.market.lemon.product.service.ProductVO">
 		UPDATE PRODUCT SET PRODUCT_WDATE = SYSDATE
-		WHERE PRODUCT_ID = #{productId}
+		WHERE
+		PRODUCT_ID = #{productId}
 	</update>
-	
 
-	<delete id="productNameDelete" parameterType="co.market.lemon.product.service.ProductVO">
+
+	<delete id="productNameDelete"
+		parameterType="co.market.lemon.product.service.ProductVO">
 		DELETE FROM PRODUCT
-		WHERE PRODUCT_WRITER = #{productWriter}
+		WHERE PRODUCT_WRITER =
+		#{productWriter}
 	</delete>
 
-	<select id="mainPageSearch" resultType="co.market.lemon.product.service.ProductVO">
+	<select id="mainPageSearch"
+		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT
-		WHERE PRODUCT_TITLE LIKE '%' || #{productTitle} || '%'
+		WHERE PRODUCT_TITLE LIKE '%' ||
+		#{productTitle} || '%'
 		ORDER BY 8 DESC
-	
+
 	</select>
 
 	<update id="productSell"
 		parameterType="co.market.lemon.product.service.ProductVO">
-		UPDATE PRODUCT SET PRODUCT_BUYER = #{productBuyer}, PRODUCT_STATE = #{productState}
+		UPDATE PRODUCT SET PRODUCT_BUYER = #{productBuyer},
+		PRODUCT_STATE = #{productState}
 		WHERE PRODUCT_ID = #{productId}
 	</update>
-	
+
 	<insert id="productReport"
 		parameterType="co.market.lemon.product.service.ProductVO">
-	INSERT INTO REPORT VALUES (report_seq.nextval, #{productId}, #{reportReporter}, #{reportSuspect},
-							   #{reportContent}, #{reportCategory}, #{reportReason})
+		INSERT INTO REPORT VALUES (report_seq.nextval,
+		#{productId},
+		#{reportReporter}, #{reportSuspect},
+		#{reportContent},
+		#{reportCategory}, #{reportReason})
 	</insert>
-	
+
 
 </mapper>

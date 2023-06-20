@@ -13,11 +13,25 @@
 	justify-content: center;
 }
 
-.container form{
+#recentList{
 	display: flex;
   	flex-wrap: wrap;
 	align-content: flex-start;
-	justify-content: space-evenly;
+	justify-content: space-around;
+}
+.recentForm{
+	width: 120px;
+	height: 200px;
+}
+.recentImg {
+    width: 120px;
+    height: 120px;
+}
+.divTitle p{
+	overflow: hidden; 
+	font-size: 14px;
+	text-overflow: ellipsis;
+ 	white-space: nowrap; 	
 }
 </style>
 </head>
@@ -36,13 +50,13 @@
 			</div> 
 	
 			<div id="board-list">
-				<div class="container">
+				<div id="recentList" class="container">
 					
 					<c:forEach items="${recentList}" var="r">	
-						<form id="frm" method="post">			
+						<form id="frm" method="post" class="recentForm">			
 							<div align="center">
-								<div class='myDiv' onclick='productChoice(${r.productId})'><img src="https://via.placeholder.com/120x120"></div>
-								<div class='myDiv' onclick='productChoice(${r.productId})'>${r.productTitle}</div>
+								<div class='divImg' onclick='productChoice(${r.productId})'><img class="recentImg" src="attach/${r.productImg1}"></div>
+								<div class='divTitle' onclick='productChoice(${r.productId})'><p>${r.productTitle}</p></div>
 								
 								<input type="hidden" name="productId" value="${r.productId}" >
 								<div><button id="deleteRecent" onclick="fnDelete(this.form)">삭제</button></div>

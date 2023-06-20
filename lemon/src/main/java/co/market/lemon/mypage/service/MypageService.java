@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import co.market.lemon.product.service.ProductVO;
+
 public interface MypageService {
 	//판매 내역
 	List<MypageVO> sellSelectList(String name);
@@ -30,8 +32,8 @@ public interface MypageService {
 	
 	//구매 내역 검색 카운트용
 	List<MypageVO> buySelectCount(@Param("memberName") String name, @Param("productSearch")String search);
-		
 	
+
 	//관심목록
 	List<MypageVO> heartSelectList(String id);
 	
