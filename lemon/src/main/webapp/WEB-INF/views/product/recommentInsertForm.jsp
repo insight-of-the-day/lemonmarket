@@ -47,13 +47,14 @@
     
     function checkValue()
     {
-        var form = document.getElementById("recommentInsert");
-        // 전송할 값을 변수에 담는다.    
+    	var form = document.getElementById("recommentInsert");
+    	
         var productId = form.productId.value;
         var replyId = form.replyId.value;
         var replyWriter = form.replyWriter.value;
         var replySubject = form.replySubject.value;
-        var replySecret = form.replySecret.value;
+        var replySecretCheckbox = form.replySecret;
+        var replySecret = replySecretCheckbox.checked ? "on" : "";
         
         if(!replySubject)
         {
@@ -75,11 +76,9 @@
     
     function checkFunc(){
         if(httpRequest.readyState == 4){
-            // 결과값을 가져온다.
             var resultText = httpRequest.responseText;
             if(resultText == 1){
                 if (opener != null) {
-                    // 부모창 새로고침
                     window.opener.document.location.reload(); 
                     opener.recommentForm = null;
                     self.close();

@@ -16,6 +16,7 @@ public class RecommentInsertForm implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		ReplyService rs = new ReplyServiceImpl();
 		ReplyVO vo = new ReplyVO();
+		vo.setProductId(Integer.valueOf(request.getParameter("productId")));
 		vo.setReplyId(Integer.valueOf(request.getParameter("replyId")));
 		rs.replySelect(vo.getReplyId());
 		
