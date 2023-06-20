@@ -14,4 +14,6 @@ public class ReplyVO {
 	private String replySubject;
 	private Date replyWdate;
 	private String replySecret;
+	private int replyParent;
+	private int replyLevel;
 }
