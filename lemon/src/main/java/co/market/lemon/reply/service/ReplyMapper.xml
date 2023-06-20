@@ -3,7 +3,10 @@
 <mapper namespace="co.market.lemon.reply.service.ReplyMapper">
 	<select id = "replyList" resultType="co.market.lemon.reply.service.ReplyVO">
 		SELECT * FROM REPLY
-		WHERE PRODUCT_ID = #{productId} ORDER BY 2 DESC
+		WHERE PRODUCT_ID = #{productId}
+		START WITH REPLY_PARENT = 0
+		CONNECT BY PRIOR REPLY_ID = REPLY_PARENT
+		ORDER SIBLINGS BY REPLY_PARENT ASC, REPLY_ID ASC
 	</select>
 	
 	<select id="replySelect" resultType="co.market.lemon.reply.service.ReplyVO">
@@ -12,8 +15,8 @@
 	</select>
 	
 	<insert id="replyInsert">
-		INSERT INTO REPLY (PRODUCT_ID, REPLY_ID, REPLY_WRITER, REPLY_SUBJECT, REPLY_WDATE, REPLY_SECRET)
-					VALUES (#{productId}, REPLY_SEQ.NEXTVAL, #{replyWriter}, #{replySubject}, SYSDATE, #{replySecret})
+		INSERT INTO REPLY
+					VALUES (#{productId}, REPLY_SEQ.NEXTVAL, #{replyWriter}, #{replySubject}, SYSDATE, #{replySecret}, #{replyParent}, #{replyLevel})
 	</insert>
 	
 	<update id="replyUpdate" parameterType="co.market.lemon.reply.service.ReplyVO">
@@ -24,10 +27,6 @@
 	<delete id="replyDelete" parameterType="co.market.lemon.reply.service.ReplyVO">
 		DELETE FROM REPLY
 		WHERE REPLY_ID = #{replyId}
-	</delete>
-	
-	<delete id="replyNameDelete" parameterType="co.market.lemon.reply.service.ReplyVO">
-	DELETE FROM REPLY WHERE REPLY_WRITER = #{replyWriter}
 	</delete>
 
 	

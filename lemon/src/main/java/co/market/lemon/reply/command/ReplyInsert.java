@@ -24,6 +24,8 @@ public class ReplyInsert implements Command {
 			vo.setReplySecret("y");
 		}
 
+		vo.setReplyParent(0);
+		vo.setReplyLevel(1);
 		rs.replyInsert(vo);
 		
 		return "redirect:productSelect.do";

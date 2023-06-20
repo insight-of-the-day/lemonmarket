@@ -116,24 +116,24 @@
 										<input type="hidden" id="productBuyer" name="productBuyer">
 										<input type="hidden" id="productKeepGoing" name="productKeepGoing">
 										<c:forEach items="${replyList}" var="replyList">
-										<c:choose>
-											<c:when test="${(replyList.replySecret eq 'n') || ((replyList.replySecret eq 'y') && (name eq product.productWriter || name eq replyList.replyWriter || grade eq 'A'))}">
-												<div>
+											<c:choose>
+												<c:when test="${(replyList.replySecret eq 'n') || ((replyList.replySecret eq 'y') && (name eq product.productWriter || name eq replyList.replyWriter || grade eq 'A'))}">
+													<div>
 														<c:if test="${replyList.replyLevel > 1}">
 															&nbsp;&nbsp;&nbsp;&nbsp;<p>Re:</p>
 														</c:if>
-													<blockquote>
-														<p>${replyList.replySubject}</p>
-													</blockquote>
-													<h3>&mdash; ${replyList.replyWriter}, ${replyList.replyWdate}</h3>
-													<c:if test="${not empty id}">
-														<button type="button" onclick="recommentInsert(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">대댓</button>
-													</c:if>
-													<c:if test="${name eq replyList.replyWriter || grade eq 'A'}">
+														<blockquote>
+															<p>${replyList.replySubject}</p>
+														</blockquote>
+														<h3>&mdash; ${replyList.replyWriter}, ${replyList.replyWdate}</h3>
+														<c:if test="${not empty id && replyList.replyLevel == 1}">
+															<button type="button" onclick="recommentInsert('${replyList.productId}', '${replyList.replyId}')" class="btn btn-primary btn-outline btn-lg">대댓</button>
+														</c:if>
+														<c:if test="${name eq replyList.replyWriter || grade eq 'A'}">
 															<button type="button" onclick="replyUpdate(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">수정</button>
 															<button type="button" onclick="replyDelete(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">삭제</button>
-													</c:if>
-													<c:if test="${name eq product.productWriter && name ne replyList.replyWriter}">
+														</c:if>
+														<c:if test="${name eq product.productWriter && name ne replyList.replyWriter}">
 															<c:choose>
 																<c:when test="${product.productState eq '거래중'}">
 																	<button type="button" onclick="sellCheck('${replyList.replyWriter}')" class="btn btn-primary btn-outline btn-lg">거래완료</button>
@@ -143,23 +143,23 @@
 																	<button type="button" onclick="sellCheck('${replyList.replyWriter}')" class="btn btn-primary btn-outline btn-lg">거래하기</button>
 																</c:when>
 															</c:choose>
-													</c:if>
-													<c:if test="${not empty id && name ne replyList.replyWriter}">
-														<button type="button" onclick="replyReport('${replyList.replyId}')" class="btn btn-primary btn-outline btn-lg">신고</button>
-													</c:if>
-												</div>
-											</c:when>
-											<c:otherwise>
-												<div>
-													<blockquote>
-														<p>비밀 댓글은 게시글, 댓글 작성자와 관리자만 볼 수 있습니다.</p>
-													</blockquote>
-													<h3>&mdash; ${replyList.replyWdate}</h3>
-												</div>
-											</c:otherwise>
-										</c:choose>
+														</c:if>
+														<c:if test="${not empty id && name ne replyList.replyWriter}">
+															<button type="button" onclick="replyReport('${replyList.replyId}')" class="btn btn-primary btn-outline btn-lg">신고</button>
+														</c:if>
+													</div>
+												</c:when>
+												<c:otherwise>
+													<div>
+														<blockquote>
+															<p>비밀 댓글은 게시글, 댓글 작성자와 관리자만 볼 수 있습니다.</p>
+														</blockquote>
+														<h3>&mdash; ${replyList.replyWdate}</h3>
+													</div>
+												</c:otherwise>
+											</c:choose>
 										</c:forEach>
-										</form>
+									</form>
 										<c:if test="${not empty id}">
 											<form name="replyInsertForm" action="replyInsert.do" method="post">
 												<input type="hidden" id="productId" name="productId" value="${product.productId}" />
@@ -184,8 +184,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		
+
 	<script type="text/javascript">	    
 	    let heart = document.getElementById("heart");
 //	   	heart.addEventListener("click", clickHeart);
@@ -310,9 +309,9 @@
 				frm.submit();
 		}
 		
-		function recommentInsert(replyId) {
+		function recommentInsert(productId, replyId) {
 			window.name = "parentForm";
-			window.open("recommentInsertForm.do?replyId=" + replyId,
+			window.open("recommentInsertForm.do?productId=" + productId + "&replyId=" + replyId,
 						"recommentForm", "width=570, height=350, resizable = no, scrollbars = no");
 		}
 		

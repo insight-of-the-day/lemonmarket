@@ -19,10 +19,9 @@ public class RecommentInsert implements Command {
 		vo.setProductId(Integer.valueOf(request.getParameter("productId")));
 		vo.setReplyWriter(request.getParameter("replyWriter"));
 		vo.setReplySubject(request.getParameter("replySubject"));
-		vo.setReplySecret(request.getParameter("replySecret"));
-		if (vo.getReplySecret() == null) {
+		if (request.getParameter("replySecret").equals("")) {
 			vo.setReplySecret("n");
-		} else if (vo.getReplySecret().equals("on")) {
+		} else {
 			vo.setReplySecret("y");
 		}
 		vo.setReplyParent(Integer.valueOf(request.getParameter("replyId")));

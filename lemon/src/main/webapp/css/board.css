@@ -165,12 +165,6 @@ section.notice {
   display: block;
   clear: both;
 }
-.container {
-  width: 250px;
-  height:250px;
-  margin: 0 auto;
-  display:inline-block;
-}
 .blind {
   position: absolute;
   overflow: hidden;
