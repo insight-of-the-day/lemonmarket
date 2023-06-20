@@ -32,5 +32,13 @@ public interface ProductService {
 	int productSell(ProductVO vo);
 	
 	int productReport(AdminReportVO vo);
+	
+	//페이징 처리 관련
+	
+	int selectProductTotal(@Param("vo")ProductVO vo, @Param("productInfo")String productInfo,@Param("productCategory")String productCategory);
+	
+	List<ProductVO> selectBuyListPaging(@Param("startIndex")int startIndex,@Param("endIndex")int endIndex, @Param("productInfo") String info, @Param("productCategory") String category);
+	
+	List<ProductVO> selectSellListPaging(@Param("startIndex")int startIndex,@Param("endIndex")int endIndex, @Param("productInfo") String info, @Param("productCategory") String category);
 
 }

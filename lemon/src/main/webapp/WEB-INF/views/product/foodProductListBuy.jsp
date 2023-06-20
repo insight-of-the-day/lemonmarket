@@ -22,7 +22,7 @@
 <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-<nav class="fh5co-nav" role="navigation"></nav>
+	<nav class="fh5co-nav" role="navigation"></nav>
 	<div id="fh5co-product">
 		<div class="container">
 			<div class="row animate-box">
@@ -31,6 +31,15 @@
 					<h2>식품 구매</h2>
 					<p>먹을 것이 남아 고민이신가요? 무료나눔을 통한 산도상승을 노려보세요</p>
 				</div>
+			</div>
+
+			<div align="center">
+				<c:if test="${not empty id }">
+					<p>
+						<a href="productInsertForm.do"
+							class="btn btn-primary btn-outline btn-lg">글 작성</a>
+					</p>
+				</c:if>
 			</div>
 			<c:forEach items="${products}" var="p">
 				<!-- 				<div class="product"> -->
@@ -54,12 +63,6 @@
 												<h2>${p.productPrice }원</h2>
 											</div>
 										</div>
-										<!-- Product actions-->
-										<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-											<div class="text-center">
-												<a class="btn btn-outline-dark mt-auto" href="#">상세보기</a>
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -70,19 +73,23 @@
 		</div>
 
 		<br>
-		<div align="center">
-			<c:if test="${not empty id }">
-				<p>
-					<a href="productInsertForm.do"
-						class="btn btn-primary btn-outline btn-lg">글 작성</a>
-				</p>
-			</c:if>
-		</div>
+
 		<div>
 			<form id="frm" action="productSelect.do" method="post">
 				<input type="hidden" id="productId" name="productId">
 			</form>
 		</div>
+	</div>
+
+	<!-- 페이징 -->
+
+	<div align="center" class="pager">
+		<ul class="listCenter">
+			<c:forEach var="n" begin="1" end="${totalPage }">
+				<li><a href="fashionproductListBuy.do?viewPage=${n }">${n  }
+				</a></li>
+			</c:forEach>
+		</ul>
 	</div>
 
 
