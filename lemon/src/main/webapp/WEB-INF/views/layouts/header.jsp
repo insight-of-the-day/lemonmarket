@@ -71,7 +71,7 @@
 									<li><a href="adminMypage.do" style="padding-bottom: 0px;">${name}</a></li>
 								</c:when>
 								<c:otherwise>
-									<li><a href="mypage.do">${name}</a></li>
+									<li><a href="updateGrade.do">${name}</a></li>
 								</c:otherwise>
 							</c:choose>
 							<li><a href="memberLogout.do" style="padding-top: 0px;">로그아웃</a></li>

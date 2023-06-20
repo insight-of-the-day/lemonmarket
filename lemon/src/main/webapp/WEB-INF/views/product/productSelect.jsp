@@ -64,7 +64,7 @@
 													<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜하기" >
 												</c:when>
 												<c:otherwise>
-													<input type="button" id="heart" class="btn btn-success btn-outline btn-lg" value="찜취소" >
+													<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜취소" >
 												</c:otherwise>
 											</c:choose>
 											<button type="button" onclick="productReport()" class="btn btn-primary btn-outline btn-lg">신고</button>
@@ -204,7 +204,7 @@
 // 		}
 
 		function heartCheck(){
-			let id = '<%=(String)session.getAttribute("id")%>';; 
+			let id = '<%=(String)session.getAttribute("id")%>';
 			let productId = ${product.productId}
 			let url = "ajaxHeart.do?id=" + id + "&productId=" + productId  ;			
 			fetch(url)   

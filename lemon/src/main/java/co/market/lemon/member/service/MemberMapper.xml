@@ -83,24 +83,37 @@
 	]]>
 	</select>
 	
+	<!-- 회원 등급 조정 -->
 	<select id="sellTotalCount" resultType="int">
 		SELECT COUNT(*)
-		FROM PRODUCT
-		WHERE PRODUCT_WRITER = #{memberName} AND PRODUCT_INFO='팝니다'
+		  FROM PRODUCT
+		 WHERE PRODUCT_WRITER = #{memberName} AND PRODUCT_INFO='팝니다'
 	</select>
 	
-<!-- 	<update id="updateGrade"> -->
-<!-- 		<![CDATA[ -->
-<!-- 		UPDATE MEMBER  -->
-<!-- 		<set> -->
-<!-- 			<if test="count >= 1">MEMBER_GRADE = 'R',</if>  -->
-<!-- 			<if test="count >= 10">MEMBER_GRADE = 'V',</if>  -->
-<!-- 			<if test="count >= 100">MEMBER_GRADE = 'VV'</if> -->
-<!-- 		</set> -->
-<!-- 		WHERE MEMBER_NAME = #{memberName} -->
-<!-- 		]]> -->
-<!-- 	</update> -->
+	<update id="updateGradeR" >
+ 		UPDATE MEMBER
+ 		   SET MEMBER_GRADE = 'R'
+ 		 WHERE MEMBER_NAME = #{memberName} AND NOT MEMBER_GRADE IN 'R'
+	</update>
+	
+	<update id="updateGradeV" >
+ 		UPDATE MEMBER
+ 		   SET MEMBER_GRADE = 'V'
+ 		 WHERE MEMBER_NAME = #{memberName} AND NOT MEMBER_GRADE IN 'V'
+	</update>
+	
+	<update id="updateGradeVV" >
+ 		UPDATE MEMBER
+ 		   SET MEMBER_GRADE = 'VV'
+ 		 WHERE MEMBER_NAME = #{memberName} AND NOT MEMBER_GRADE IN 'VV'
+	</update>
 	
 	
+	<!-- 탈퇴시 비밀번호 확인용 -->
+	<select id="passwordCheck" resultType="String" parameterType="String">
+		SELECT MEMBER_PW
+		  FROM MEMBER
+		 WHERE MEMBER_ID = #{value}
+	</select>
 	
 </mapper>

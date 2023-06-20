@@ -2,7 +2,7 @@ package co.market.lemon.member.serviceImpl;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
+
 import org.apache.ibatis.session.SqlSession;
 
 import co.market.lemon.common.DataSource;
@@ -94,14 +94,28 @@ public class MemberServiceImpl implements MemberService {
 	//회원 등급 조정
 	@Override
 	public int sellTotalCount(MemberVO vo) {
-
 		return map.sellTotalCount(vo);
 	}
 
 	@Override
-	public int updateGrade(@Param("count") int count,@Param("memberName") String name) {
+	public int updateGradeR(MemberVO vo) {
+		return map.updateGradeR(vo);
+	}
 
-		return map.updateGrade(count, name);
+	@Override
+	public int updateGradeV(MemberVO vo) {
+		return map.updateGradeV(vo);
+	}
+
+	@Override
+	public int updateGradeVV(MemberVO vo) {
+		return map.updateGradeVV(vo);
+	}
+
+	//탈퇴시 비밀번호 확인용
+	@Override
+	public String passwordCheck(String id) {
+		return map.passwordCheck(id);
 	}
 
 }

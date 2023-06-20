@@ -22,7 +22,6 @@ public class MemberUpdate implements Command {
 		vo.setMemberTel(request.getParameter("memberTel"));
 		vo.setMemberId((String) session.getAttribute("id"));
 		vo.setMemberName((String) session.getAttribute("name"));
-		System.out.println(vo.getMemberName());
 		
 		
 		int n = ms.memberUpdate(vo);

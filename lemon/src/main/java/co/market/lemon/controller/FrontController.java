@@ -36,7 +36,8 @@ import co.market.lemon.member.command.MemberLoginForm;
 import co.market.lemon.member.command.MemberLogout;
 import co.market.lemon.member.command.NaverLogin;
 import co.market.lemon.member.command.UpdateGrade;
-import co.market.lemon.heart.command.AjaxHeart;
+import co.market.lemon.mypage.command.BuySelect;
+import co.market.lemon.mypage.command.BuySelectList;
 import co.market.lemon.mypage.command.DeleteCookie;
 import co.market.lemon.mypage.command.HeartSelectList;
 import co.market.lemon.mypage.command.MemberDelete;
@@ -166,9 +167,13 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/sellSelectList.do", new SellSelectList());  //판매 내역
 		map.put("/sellSelect.do", new SellSelect());  //판매 내역 검색
-		map.put("/heartSelectList.do", new HeartSelectList());  //찜한 상품
-		map.put("/recentSelectList.do", new RecentSelectList());  //최근 본 상품		
 		
+		map.put("/buySelectList.do", new BuySelectList());  //구매 내역
+		map.put("/buySelect.do", new BuySelect());  //구매 내역 검색
+		
+		map.put("/heartSelectList.do", new HeartSelectList());  //찜한 상품
+		map.put("/recentSelectList.do", new RecentSelectList());  //최근 본 상품	
+
 		map.put("/addHeart.do", new AddHeart());  //찜하기 누르기
 		map.put("/deleteHeart.do", new DeleteHeart());  //찜취소 누르기
 		map.put("/ajaxHeart.do", new AjaxHeart());
