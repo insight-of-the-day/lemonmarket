@@ -33,6 +33,11 @@
 	margin-left: 5px;
     margin-right: 5px;
 }
+
+.selectImg {
+    width: 50px;
+    height: 50px;
+}
 </style>
 </head>
 <body>
@@ -82,7 +87,7 @@
 								<c:forEach items="${sellList}" var="s">
 									<tr>
 										<td>${s.productCategory}</td>
-										<td><div class='myDiv' onclick='productChoice(${s.productId})'>이미지</div></td>
+										<td><div class='myDiv' onclick='productChoice(${s.productId})'><img class="selectImg" src="attach/${s.productImg1}"></div></td>
 										<td><div class='myDiv' onclick='productChoice(${s.productId})'>${s.productTitle}</div></td>
 										<td>${s.productState}</td>
 										<td>${s.productWdate}</td>

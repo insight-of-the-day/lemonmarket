@@ -41,7 +41,7 @@ public class BuySelect implements Command {
 		
 		List<MypageVO> buyList2 = ms.buySelectCount(memberName, productSearch);
 		request.setAttribute("buyList2", buyList2);	
-		
+
 		return "mypage/buySelectList";
 	}
 

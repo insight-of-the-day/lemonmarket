@@ -18,6 +18,7 @@ public class MypageVO {
 	private Date productWdate;
 	private String productInfo;
 	private String productImgDir1;
+	private String productImg1;
 	
 	//찜한 상품
 	private String memberId;

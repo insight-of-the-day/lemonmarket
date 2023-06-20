@@ -9,6 +9,7 @@ import co.market.lemon.common.DataSource;
 import co.market.lemon.mypage.service.MypageMapper;
 import co.market.lemon.mypage.service.MypageService;
 import co.market.lemon.mypage.service.MypageVO;
+import co.market.lemon.product.service.ProductVO;
 
 
 public class MypageServiceImpl implements MypageService {
@@ -54,8 +55,8 @@ public class MypageServiceImpl implements MypageService {
 	public List<MypageVO> buySelectCount(String name, String search) {
 		return map.buySelectCount(name, search);
 	}
-
 	
+
 	@Override
 	public List<MypageVO> heartSelectList(String id) {
 		return map.heartSelectList(id);
@@ -65,6 +66,8 @@ public class MypageServiceImpl implements MypageService {
 	public MypageVO recentSelectList(int no) {		
 		return map.recentSelectList(no);
 	}
+
+	
 
 
 	

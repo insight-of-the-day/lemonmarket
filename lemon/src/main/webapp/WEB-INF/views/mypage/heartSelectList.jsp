@@ -12,6 +12,10 @@
 	display: flex;
 	justify-content: center;
 }
+.selectImg {
+    width: 50px;
+    height: 50px;
+}
 </style>
 
 </head>
@@ -45,7 +49,7 @@
 								<tr>
 									<td>${h.productCategory}</td>
 									<td>${h.productInfo}</td>
-									<td><div class='myDiv' onclick='productChoice(${h.productId})'>이미지</div></td>									
+									<td><div class='myDiv' onclick='productChoice(${h.productId})'><img class="selectImg" src="attach/${h.productImg1}"></div></td>									
 									<td><div class='myDiv' onclick='productChoice(${h.productId})'>${h.productTitle}</div></td>
 									<td>${h.productWriter}</td>
 									<td>${h.productState}</td>
