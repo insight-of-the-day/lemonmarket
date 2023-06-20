@@ -33,8 +33,7 @@ public class MemberLogin implements Command {
 			if (vo.getMemberGrade().equals("T")) {
 				return "main/mainTLoginPage";
 			} else {
-				//return "main/main";
-				return "updateGrade.do";
+				return "main/main";
 			}
 
 		} else {

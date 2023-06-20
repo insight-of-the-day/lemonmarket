@@ -18,6 +18,20 @@ public interface MypageService {
 	//판매 내역 검색 카운트용
 	List<MypageVO> sellSelectCount(@Param("memberName") String name, @Param("productSearch")String search);
 	
+	
+	//구매 내역
+	List<MypageVO> buySelectList(String name);
+	
+	//구매 내역 페이징
+	List<MypageVO> buySelectPaging(@Param("memberName") String name, @Param("page") int page);
+	
+	//구매 내역 검색
+	List<MypageVO> buySelect(@Param("memberName") String name, @Param("productSearch")String search, @Param("page") int page);
+	
+	//구매 내역 검색 카운트용
+	List<MypageVO> buySelectCount(@Param("memberName") String name, @Param("productSearch")String search);
+		
+	
 	//관심목록
 	List<MypageVO> heartSelectList(String id);
 	

@@ -33,7 +33,8 @@ table input{
 			</div> 		
 			<div id="board-list">
 				<div class="container" align="center">
-					<p>탈퇴하시려면 비밀번호를 입력해주세요</p>
+					<p>탈퇴하시면 작성한 게시글과 댓글이 모두 삭제됩니다.</p>
+					<p>탈퇴하시려면 비밀번호를 입력해주세요.</p>
 					<form id="frm" action="memberDelete.do" onsubmit="return pwCheck()" method="post">
 						<div>
 							<table>
@@ -64,20 +65,22 @@ table input{
 	
 	
 	<script type="text/javascript">
-		function pwCheck(){
-			let frm = document.getElementById("frm");
-			if(frm.memberPw.value != ${pw}){
-				alert("비밀번호가 일치하지 않습니다.");
-				frm.memberPw.value ="";
-				frm.memberPw.focus();
-				return false;
-			} else{
-				if(confirm("정말 탈퇴하시겠습니까?")) {
-					return true;
-				}
-				return false;
-			} 
-		}
+	//비밀번호 확인은 보안을 위해 서버쪽에서 확인할 것
+	
+// 		function pwCheck(){
+// 			let frm = document.getElementById("frm");
+// 			if(frm.memberPw.value != ${pw}){
+// 				alert("비밀번호가 일치하지 않습니다.");
+// 				frm.memberPw.value ="";
+// 				frm.memberPw.focus();
+// 				return false;
+// 			} else{
+// 				if(confirm("정말 탈퇴하시겠습니까?")) {
+// 					return true;
+// 				}
+// 				return false;
+// 			} 
+// 		}
 	</script>	
 </body>	
 </html>

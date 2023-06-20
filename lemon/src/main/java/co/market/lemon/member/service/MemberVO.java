@@ -23,4 +23,5 @@ public class MemberVO {
 	 public int  viewPage = 1;
 	 public int startIndex= 1;
 	 public int endIndex = 10;
+
 }

@@ -2,7 +2,6 @@ package co.market.lemon.member.service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 
 public interface MemberMapper {
 	List<MemberVO> memberSelectList();
@@ -24,7 +23,14 @@ public interface MemberMapper {
 	List<MemberVO> selectMemberListPaging(MemberVO vo);
 	
 	
+	
 	//회원 등급 조정
 	int sellTotalCount(MemberVO vo);
-	int updateGrade(@Param("count") int count,@Param("memberName") String name);
+	int updateGradeR(MemberVO vo);
+	int updateGradeV(MemberVO vo);
+	int updateGradeVV(MemberVO vo);
+	
+	//탈퇴시 비밀번호 확인용
+	String passwordCheck(String id);
+	
 }
