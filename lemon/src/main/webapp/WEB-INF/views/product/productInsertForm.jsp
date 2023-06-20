@@ -58,12 +58,14 @@
 							<div class="col-md-12">
 								<!-- <label for="message">Message</label> -->
 								<textarea id="productSubject" name="productSubject"
-									required="required" cols="30" rows="10" class="form-control"
+									required="required"  rows=10 cols=60 wrap=on class="form-control"
 									placeholder="내용 작성" style="width: 844px;"></textarea>
 								<input type="hidden" id="productWriter" name="productWriter"
 									value=${name }>
 							</div>
 						</div>
+						
+						
 						<div class="form-group">
 							<input type="file" id="pfile" name="pfile" accept="image/*">
 							
