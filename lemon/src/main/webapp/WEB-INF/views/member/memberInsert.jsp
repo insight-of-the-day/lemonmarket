@@ -77,7 +77,7 @@ main {
 	padding: 5px 0px;
 	text-indent: 6px;
 	margin-top: 10px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	font-family: 'system-ui';
 	font-size: 0.9rem;
 	letter-spacing: 2px;
@@ -86,7 +86,7 @@ main {
 .submit_class {
 	border-style: none;
 	border-radius: 5px;
-	background-color: #ffffdf;
+	background-color: #ffffbf;
 	padding: 8px 20px;
 	font-family: 'system-ui';
 	text-transform: uppercase;
@@ -98,19 +98,19 @@ main {
 	cursor: pointer;
 }
 
-
 .check_submit_class {
-    border-style: none;
-    border-radius: 5px;
-    background-color: #ffffdf;
-    padding: 1px 1px;
-    font-family: 'system-ui';
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    margin: auto;
-    margin-top: 1px;
-    box-shadow: 2px 2px 5px rgb(0,0,0,0.2);
-    cursor: pointer;
+	border-style: none;
+	border-radius: 5px;
+	background-color: #ffffdf;
+	padding: 1px 1px;
+	font-family: 'system-ui';
+	text-transform: uppercase;
+	letter-spacing: .5px;
+	margin: auto;
+	margin-top: 1px;
+	box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.2);
+	cursor: pointer;
+	font-size: 1.2rem;
 }
 
 footer {
@@ -141,37 +141,36 @@ footer>p>a {
 		<form id="login_form" class="form_class" action="memberInsert.do"
 			onsubmit="return formCheck() method="post">
 			<div class="form_div">
-				<label>ID:</label>
-				<input class="field_class" type="email" 
+				<label>ID:</label> <input class="field_class" type="email"
 					id="memberId" name="memberId" required="required" autofocus>
-				<button class="check_submit_class" type="button" id="checkId" value="No" onclick="idCheck()">중복체크</button>
+				<button class="check_submit_class" type="button" id="checkId"
+					value="No" onclick="idCheck()">ID 중복체크</button>
 				<p></p>
-					
-					
-				<label>Password:</label>
-				<input class="field_class"
-					type="password" id="memberPw" name="memberPw" required="required">
-					
-					
-				<label>Password Check:</label>
-					<input class="field_class"
-					type="password" id="passwordCheck" name="passwordCheck"
-					required="required">
-					
-				<label>NickName:</label>
-				<input class="field_class" type="text" id="memberName" name="memberName" required="required">
-				<button type="button" id="checkName" value="No" onclick="nameCheck()">중복체크</button>
-				<p></p>
-				
-				
-				<label>Tel:</label>
-				<input class="field_class" type="tel" id="memberTel" name="memberTel" required="required">
-				
+
+
+				<label>Password:</label> <input class="field_class" type="password"
+					id="memberPw" name="memberPw" required="required"> <label>Password
+					Check:</label> <input class="field_class" type="password"
+					id="passwordCheck" name="passwordCheck" required="required">
+
+
+				<label>NickName:</label> <input class="field_class" type="text"
+					id="memberName" name="memberName" required="required">
+				<button class="check_submit_class" type="button" id="checkName" value="No"
+					onclick="nameCheck()">NickName 중복체크</button>
+					<p></p>
+
+				<label>Tel:</label> <input class="field_class" type="tel"
+					id="memberTel" name="memberTel" required="required">
+
+
 				<button class="submit_class" type="submit">회원가입</button>
 			</div>
 		</form>
 	</main>
-					
+	<footer>
+		<h1 style="color: #fff;">LEMONMARKET</h1>
+	</footer>
 	<script type="text/javascript">
 		function formCheck(){
 			let frm = document.getElementById("frm");
@@ -231,4 +230,4 @@ footer>p>a {
 		}
 	</script>
 </body>
-</html>	
+</html>
