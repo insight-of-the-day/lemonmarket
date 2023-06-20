@@ -15,9 +15,6 @@
 		</script>
 	</c:if>
 
-
-
-
 	<section class="notice" >
 		<div class="page-title">
 			<div class="container">
