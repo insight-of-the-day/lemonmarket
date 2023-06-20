@@ -74,6 +74,8 @@ import co.market.lemon.product.command.guitarProductListBuy;
 import co.market.lemon.product.command.guitarProductListSell;
 import co.market.lemon.product.command.livingProductListBuy;
 import co.market.lemon.product.command.livingProductListSell;
+import co.market.lemon.reply.command.RecommentInsert;
+import co.market.lemon.reply.command.RecommentInsertForm;
 import co.market.lemon.reply.command.ReplyDelete;
 import co.market.lemon.reply.command.ReplyInsert;
 import co.market.lemon.reply.command.ReplyReportForm;
@@ -190,7 +192,7 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeDelete.do", new NoticeDelete());
 		map.put("/noticeUpdateForm.do", new NoticeUpdateForm());
 		map.put("/noticeInsert.do",new NoticeInsert());
-    map.put("/naverLogin.do", new NaverLogin());
+		map.put("/naverLogin.do", new NaverLogin());
 
     
     
@@ -208,7 +210,8 @@ public class FrontController extends HttpServlet {
 		map.put("/productReportForm.do", new ProductReportForm());
 		map.put("/replyReportForm.do", new ReplyReportForm());
 		map.put("/productReport.do", new ProductReport());
-		
+		map.put("/recommentInsertForm.do", new RecommentInsertForm());
+		map.put("/recommentInsert.do", new RecommentInsert());
     
     
     

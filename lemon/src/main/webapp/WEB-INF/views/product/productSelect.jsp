@@ -58,8 +58,7 @@
 								<form id="frm" method="post">
 									<input type="hidden" id="productId" name="productId" value="${product.productId}"/>
 									<input type="hidden" id="productWdate" name="productWdate" value="${product.productWdate}"/>
-									<c:if test="${name ne product.productWriter}">
-										<c:if test="${not empty id}">
+									<c:if test="${name ne product.productWriter && not empty id}">
 											<c:choose>						
 												<c:when test="${heartVal eq 0 }">
 													<input type="button" id="heart" class="btn btn-primary btn-outline btn-lg" value="찜하기" >
@@ -68,9 +67,8 @@
 													<input type="button" id="heart" class="btn btn-success btn-outline btn-lg" value="찜취소" >
 												</c:otherwise>
 											</c:choose>
+											<button type="button" onclick="productReport()" class="btn btn-primary btn-outline btn-lg">신고</button>
 										</c:if>
-										<button type="button" onclick="productReport()" class="btn btn-primary btn-outline btn-lg">신고</button>
-									</c:if>
 									<c:if test="${name eq product.productWriter || grade eq 'A'}">
 										<input type="submit" onclick="javascript: frm.action='productUpdateForm.do'" class="btn btn-primary btn-outline btn-lg" value="수정">
 										<input type="submit" onclick="javascript: frm.action='productDelete.do'" class="btn btn-primary btn-outline btn-lg" value="삭제">
@@ -121,10 +119,16 @@
 										<c:choose>
 											<c:when test="${(replyList.replySecret eq 'n') || ((replyList.replySecret eq 'y') && (name eq product.productWriter || name eq replyList.replyWriter || grade eq 'A'))}">
 												<div>
+														<c:if test="${replyList.replyLevel > 1}">
+															&nbsp;&nbsp;&nbsp;&nbsp;<p>Re:</p>
+														</c:if>
 													<blockquote>
 														<p>${replyList.replySubject}</p>
 													</blockquote>
 													<h3>&mdash; ${replyList.replyWriter}, ${replyList.replyWdate}</h3>
+													<c:if test="${not empty id}">
+														<button type="button" onclick="recommentInsert(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">대댓</button>
+													</c:if>
 													<c:if test="${name eq replyList.replyWriter || grade eq 'A'}">
 															<button type="button" onclick="replyUpdate(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">수정</button>
 															<button type="button" onclick="replyDelete(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">삭제</button>
@@ -305,6 +309,13 @@
 				frm.action = "replyReportForm.do";
 				frm.submit();
 		}
+		
+		function recommentInsert(replyId) {
+			window.name = "parentForm";
+			window.open("recommentInsertForm.do?replyId=" + replyId,
+						"recommentForm", "width=570, height=350, resizable = no, scrollbars = no");
+		}
+		
 	</script>
 
 </body>
