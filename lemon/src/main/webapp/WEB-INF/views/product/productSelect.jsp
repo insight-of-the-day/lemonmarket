@@ -137,7 +137,8 @@
 										<input type="hidden" id="productKeepGoing" name="productKeepGoing">
 										<c:forEach items="${replyList}" var="replyList">
 											<c:choose>
-												<c:when test="${(replyList.replySecret eq 'n') || ((replyList.replySecret eq 'y') && (name eq product.productWriter || name eq replyList.replyWriter || grade eq 'A'))}">
+												<c:when test="${(replyList.replySecret eq 'n') || ((replyList.replySecret eq 'y') && (name eq product.productWriter || name eq replyList.replyWriter || grade eq 'A'
+																|| name eq replyList.parentWriter))}">
 													<div>
 														<c:if test="${replyList.replyLevel > 1}">
 															&nbsp;&nbsp;&nbsp;&nbsp;<p>Re:</p>
