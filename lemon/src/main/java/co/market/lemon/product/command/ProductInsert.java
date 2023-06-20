@@ -52,27 +52,15 @@ public class ProductInsert implements Command {
 //		map=f.upload(request, response, dir);
 //		
 		
-		
-//		System.out.println(multpartRequest.getParameter("productCategory"));
-//		System.out.println(multpartRequest.getParameter("productInfo"));
-//		System.out.println(multpartRequest.getParameter("productWriter"));
-//		System.out.println(multpartRequest.getParameter("productTitle"));
-//		System.out.println(Integer.valueOf(multpartRequest.getParameter("productPrice")));
-//		System.out.println(multpartRequest.getParameter("productSubject"));
-//		System.out.println(multpartRequest.getOriginalFileName("pfile"));
-//		System.out.println(realPath);
-
-
-		
-		
+	
 		vo.setProductCategory(multpartRequest.getParameter("productCategory"));
 		vo.setProductInfo(multpartRequest.getParameter("productInfo"));
 		vo.setProductWriter(multpartRequest.getParameter("productWriter"));
 		vo.setProductTitle(multpartRequest.getParameter("productTitle"));
 		vo.setProductPrice(Integer.valueOf(multpartRequest.getParameter("productPrice")));
 		vo.setProductSubject(multpartRequest.getParameter("productSubject"));
-		vo.setProductImg(multpartRequest.getOriginalFileName("pfile"));
-		vo.setProductImgDir(realPath);
+		vo.setProductImg1(multpartRequest.getOriginalFileName("pfile"));
+		vo.setProductImgDir1(realPath);
 		
 		
 		
