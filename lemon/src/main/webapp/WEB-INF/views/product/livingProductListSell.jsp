@@ -29,6 +29,15 @@
 					<p>원 플러스 원? 여기, 레몬마켓에서는 재화창출의 기회입니다</p>
 				</div>
 			</div>
+			<br>
+			<div align="center">
+				<c:if test="${not empty id }">
+					<p>
+						<a href="productInsertForm.do"
+							class="btn btn-primary btn-outline btn-lg">글 작성</a>
+					</p>
+				</c:if>
+			</div>
 			<c:forEach items="${products}" var="p">
 				<!-- 				<div class="product"> -->
 				<div onclick="productChoice(${p.productId})">
@@ -51,13 +60,7 @@
 												<h2>${p.productPrice }원</h2>
 											</div>
 										</div>
-										<!-- Product actions-->
-										<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-											<div class="text-center">
-												<a class="btn btn-outline-dark mt-auto" href="#">상세보기</a>
-											</div>
-										</div>
-									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -69,15 +72,7 @@
 
 
 
-		<br>
-		<div align="center">
-			<c:if test="${not empty id }">
-				<p>
-					<a href="productInsertForm.do"
-						class="btn btn-primary btn-outline btn-lg">글 작성</a>
-				</p>
-			</c:if>
-		</div>
+
 		<div>
 			<form id="frm" action="productSelect.do" method="post">
 				<input type="hidden" id="productId" name="productId">
@@ -85,6 +80,16 @@
 		</div>
 	</div>
 
+	<!-- 페이징 -->
+
+	<div align="center" class="pager">
+		<ul class="listCenter">
+			<c:forEach var="n" begin="1" end="${totalPage }">
+				<li><a href="fashionproductListBuy.do?viewPage=${n }">${n  }
+				</a></li>
+			</c:forEach>
+		</ul>
+	</div>
 
 	<script type="text/javascript"> 
 			function productChoice(id) {

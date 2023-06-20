@@ -34,4 +34,9 @@ public class ProductVO {
 	private String productImgDir1;
 	private String productBuyer;
 
+	// 페이징 처리
+	public int viewPage = 1;
+	public int startIndex = 1;
+	public int endIndex = 5;
+
 }

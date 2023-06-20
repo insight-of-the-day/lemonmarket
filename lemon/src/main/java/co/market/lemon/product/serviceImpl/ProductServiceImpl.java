@@ -87,7 +87,28 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return map.productReport(vo);
 	}
-	
+
+	@Override
+	public int selectProductTotal(@Param("vo")ProductVO vo, @Param("productInfo")String productInfo,@Param("productCategory")String productCategory) {
+		// TODO Auto-generated method stub
+		return map.selectProductTotal(vo,productInfo, productCategory);
+	}
+
+	@Override
+	public List<ProductVO> selectBuyListPaging(@Param("startIndex")int startIndex,@Param("endIndex")int endIndex, @Param("productInfo")String info, @Param("productCategory")String category) {
+		// TODO Auto-generated method stub
+		return map.selectBuyListPaging(startIndex,endIndex, info, category);
+	}
+
+	@Override
+	public List<ProductVO> selectSellListPaging(@Param("startIndex")int startIndex,@Param("endIndex")int endIndex, @Param("productInfo")String info, @Param("productCategory")String category) {
+		// TODO Auto-generated method stub
+		return map.selectSellListPaging(startIndex,endIndex, info, category);
+	}
+
+
+
+
 	
 	
 }

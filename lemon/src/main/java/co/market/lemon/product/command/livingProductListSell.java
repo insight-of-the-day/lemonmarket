@@ -16,9 +16,30 @@ public class livingProductListSell implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		ProductService ps = new ProductServiceImpl();
 		List<ProductVO> products = new ArrayList<>();
-		products = ps.productSelectListSell("팝니다","리빙");
+		ProductVO vo=new ProductVO();
 		
+		
+		
+		int total=ps.selectProductTotal(vo,"팝니다","리빙");
+		int totalPage=(int)Math.ceil((double)total/5);
+		
+		String viewPageParam=request.getParameter("viewPage");
+		int viewPage=viewPageParam!=null?Integer.parseInt(viewPageParam):1;
+		vo.setViewPage(viewPage);
+		int startIndex=(viewPage-1)*5+1;
+		int endIndex=startIndex+(5-1);
+		
+
+
+		
+		
+		
+		products=ps.selectBuyListPaging(startIndex,endIndex, "팝니다", "리빙");
+		
+		request.setAttribute("totalPage", totalPage);	
 		request.setAttribute("products", products);
+		
+
 		return "product/livingProductListSell";
 	}
 }
