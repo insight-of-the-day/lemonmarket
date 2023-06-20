@@ -34,7 +34,7 @@
     margin-right: 5px;
 }
 
-.img {
+.selectImg {
     width: 50px;
     height: 50px;
 }
@@ -87,7 +87,7 @@
 								<c:forEach items="${buyList}" var="b">
 									<tr>
 										<td>${b.productCategory}</td>
-										<td><div class='myDiv' onclick='productChoice(${b.productId})'></div></td>
+										<td><div class='myDiv' onclick='productChoice(${b.productId})'><img class="selectImg" src="attach/${b.productImg1}"></div></td>
 										<td><div class='myDiv' onclick='productChoice(${b.productId})'>${b.productTitle}</div></td>
 										<td>${b.productState}</td>
 										<td>${b.productWdate}</td>

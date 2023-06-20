@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import co.market.lemon.product.service.ProductVO;
+
 
 
 public interface MypageMapper {
@@ -33,7 +35,7 @@ public interface MypageMapper {
 	//구매 내역 검색 카운트용
 	List<MypageVO> buySelectCount(@Param("memberName") String name, @Param("productSearch")String search);
 	
-		
+	
 	//찜한 상품
 	List<MypageVO> heartSelectList(String id);
 	

@@ -36,6 +36,23 @@ public class SellSelectList implements Command {
 		sellList2 = ms.sellSelectList(memberName);
 		request.setAttribute("sellList2", sellList2);	
 		
+		int countIng = 0;
+		for(MypageVO countVo : sellList2) {
+			if(countVo.getProductState().equals("거래중")) {	
+				countIng = countIng + 1;
+				System.out.println(countIng);
+			}
+		}
+		request.setAttribute("countIng", countIng);
+		
+		for(MypageVO countVo : sellList2) {
+			if(countVo.getProductState().equals("거래안료")) {
+				int countDone = 0;
+				countDone = countDone + 1;
+				request.setAttribute("countDone", countDone);
+			}
+		}
+
 		return "mypage/sellSelectList";
 	}
 
