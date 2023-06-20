@@ -28,21 +28,25 @@
 		INSERT INTO PRODUCT
 		VALUES (product_seq.nextval,
 		#{productCategory}, #{productInfo}, #{productWriter}, #{productTitle},
-		#{productPrice}, #{productSubject}, SYSDATE, 0, '거래전', #{productImg}, #{productImgDir}, null )
+		#{productPrice}, #{productSubject}, SYSDATE, 0, '거래전', #{productImg1}, #{productImgDir1}, null )
 	</insert>
 
 	<update id="productUpdate"
 		parameterType="co.market.lemon.product.service.ProductVO">
 		UPDATE PRODUCT
 		<set>
-			<if test="productWriter != null">PRODUCT_WRITER = #{productWriter},</if>
+<!-- 			<if test="productWriter != null">PRODUCT_WRITER = #{productWriter},</if> -->
 			<if test="productTitle != null">PRODUCT_TITLE = #{productTitle},</if>
-			<if test="productWdate != null">PRODUCT_WDATE = #{productWdate},</if>
+			<if test="productWdate == null">PRODUCT_WDATE = sysdate,</if>
+			<if test="productCategory != null">PRODUCT_CATEGORY = #{productCategory},</if>
 			<if test="productPrice != null">PRODUCT_PRICE = #{productPrice},</if>
 			<if test="productSubject != null">PRODUCT_SUBJECT = #{productSubject},</if>
-			<if test="productState != null">PRODUCT_STATE = #{productState}</if>
+			<if test="productState != null">PRODUCT_STATE = #{productState},</if>
+			<if test="productInfo != null">PRODUCT_INFO = #{productInfo},</if>
+			<if test="productImg1 != null">PRODUCT_IMG1 = #{productImg1},</if>	
+			<if test="productImgDir1 != null">PRODUCT_IMG_DIR1 = #{productImgDir1},</if>	
 		</set>
-		WHERE PRODUCT_ID = #{productId}
+		WHERE PRODUCT_Id = #{productId}
 	</update>
 
 	<delete id="productDelete"

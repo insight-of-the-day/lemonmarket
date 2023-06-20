@@ -16,35 +16,35 @@
 						<div class="item">
 							<div class="active text-center">
 								<figure>
-									<img src="attach/${product.productImg}" alt="user">
+									<img src="attach/${product.productImg1}" alt="user">
 								</figure>
 							</div>
 						</div>
 						<div class="item">
 							<div class="active text-center">
 								<figure>
-									<img src="attach/${product.productImg}" alt="user">
+									<img src="attach/${product.productImg1}" alt="user">
 								</figure>
 							</div>
 						</div>
 						<div class="item">
 							<div class="active text-center">
 								<figure>
-									<img src="attach/${product.productImg}" alt="user">
+									<img src="attach/${product.productImg1}" alt="user">
 								</figure>
 							</div>
 						</div>
 						<div class="item">
 							<div class="active text-center">
 								<figure>
-									<img src="attach/${product.productImg}" alt="user">
+									<img src="attach/${product.productImg1}" alt="user">
 								</figure>
 							</div>
 						</div>
 						<div class="item">
 							<div class="active text-center">
 								<figure>
-									<img src="attach/${product.productImg}" alt="user">
+									<img src="attach/${product.productImg1}" alt="user">
 								</figure>
 							</div>
 						</div>

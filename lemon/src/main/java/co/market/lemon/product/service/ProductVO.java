@@ -30,8 +30,8 @@ public class ProductVO {
 	private Date productWdate;
 	private int productView;
 	private String productState;
-	private String productImg;
-	private String productImgDir;
+	private String productImg1;
+	private String productImgDir1;
 	private String productBuyer;
 
 }
