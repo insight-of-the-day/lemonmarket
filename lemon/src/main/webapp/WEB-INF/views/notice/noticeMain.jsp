@@ -5,6 +5,10 @@
 <html>
 <head>
 <link href="../../css/board.css" rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" />
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -18,16 +22,21 @@
 	<section class="notice" >
 		<div class="page-title">
 			<div class="container">
-				<h3>공지사항</h3>
+				<h3 style="margin-bottom:2px;">공지사항</h3>
 			</div>
 		</div>
-		<div style="margin-left: 5em">
-			<c:if test="${grade eq 'A'}">
-				<button style="margin-left: 350px; margin-bottom: 5px;"
-					type="button" onclick="location.href='noticeInsertForm.do'">
-					공지작성</button>
-			</c:if>
+<!-- 		공지글 작성 버튼 -->
+		<div align="center">
+				<c:if test="${not empty id }">
+					<p>
+						<button type="button" onclick="location.href='noticeInsertForm.do'"
+							class="btn btn-primary btn-outline btn-lg"
+							style="border-radius:0.375rem; background: transparent; width:113.906px; padding-left: 0px; margin-bottom:30px;">작성</button>
+					</p>
+				</c:if>
 		</div>
+
+		
 		<div id="board-list">
 			<div class="container">
 				<table class="board-table">

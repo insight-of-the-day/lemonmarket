@@ -25,17 +25,6 @@
 		VALUES (#{memberId}, #{memberPw}, #{memberName}, #{memberTel}, 'N', 0)
 	</insert>
 	
-<!-- 	네이버api -->
-
-
-	
-<!-- MEMBER_ID    NOT NULL VARCHAR2(50)   -->
-<!-- MEMBER_PW    NOT NULL VARCHAR2(256)  -->
-<!-- MEMBER_NAME  NOT NULL VARCHAR2(30)   -->
-<!-- MEMBER_TEL   NOT NULL VARCHAR2(20)   -->
-<!-- MEMBER_GRADE NOT NULL VARCHAR2(10)   -->
-<!-- MEMBER_COUNT          NUMBER     -->
-	
 	<update id="memberUpdate" parameterType="co.market.lemon.member.service.MemberVO">	
 		UPDATE MEMBER
 		SET MEMBER_PW = #{memberPw}, MEMBER_TEL = #{memberTel}

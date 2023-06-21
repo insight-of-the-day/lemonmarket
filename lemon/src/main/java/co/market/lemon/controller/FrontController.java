@@ -1,7 +1,6 @@
 package co.market.lemon.controller;
 
 import java.io.IOException;
-
 import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
@@ -34,7 +33,6 @@ import co.market.lemon.member.command.MemberInsertForm;
 import co.market.lemon.member.command.MemberLogin;
 import co.market.lemon.member.command.MemberLoginForm;
 import co.market.lemon.member.command.MemberLogout;
-import co.market.lemon.member.command.NaverLogin;
 import co.market.lemon.member.command.UpdateGrade;
 import co.market.lemon.mypage.command.BuySelect;
 import co.market.lemon.mypage.command.BuySelectList;
@@ -56,7 +54,6 @@ import co.market.lemon.notice.command.NoticeSelect;
 import co.market.lemon.notice.command.NoticeUpdate;
 import co.market.lemon.notice.command.NoticeUpdateForm;
 import co.market.lemon.product.command.MainPageSearch;
-
 import co.market.lemon.product.command.ProductDelete;
 import co.market.lemon.product.command.ProductInsert;
 import co.market.lemon.product.command.ProductInsertForm;
@@ -199,7 +196,6 @@ public class FrontController extends HttpServlet {
 		map.put("/noticeDelete.do", new NoticeDelete());
 		map.put("/noticeUpdateForm.do", new NoticeUpdateForm());
 		map.put("/noticeInsert.do",new NoticeInsert());
-		map.put("/naverLogin.do", new NaverLogin());
 
     
     
