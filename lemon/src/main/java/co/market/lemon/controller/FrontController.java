@@ -75,6 +75,7 @@ import co.market.lemon.product.command.guitarProductListBuy;
 import co.market.lemon.product.command.guitarProductListSell;
 import co.market.lemon.product.command.livingProductListBuy;
 import co.market.lemon.product.command.livingProductListSell;
+import co.market.lemon.product.command.productSearch;
 import co.market.lemon.reply.command.RecommentInsert;
 import co.market.lemon.reply.command.RecommentInsertForm;
 import co.market.lemon.reply.command.ReplyDelete;
@@ -155,6 +156,7 @@ public class FrontController extends HttpServlet {
 		map.put("/productUpdate.do", new ProductUpdate());
 		
 		map.put("/productDelete.do", new ProductDelete());
+		map.put("/productSearch.do", new productSearch());
 
 
 
