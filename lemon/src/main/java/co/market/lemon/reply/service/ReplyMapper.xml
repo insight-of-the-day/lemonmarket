@@ -35,7 +35,10 @@
 	
 	<delete id="replyDelete" parameterType="co.market.lemon.reply.service.ReplyVO">
 		DELETE FROM REPLY
-		WHERE REPLY_ID = #{replyId}
+		WHERE REPLY_ID IN
+		(SELECT REPLY_ID FROM REPLY
+		 START WITH REPLY_ID = #{replyId}
+		 CONNECT BY PRIOR REPLY_ID = REPLY_PARENT)
 	</delete>
 	
 	<delete id="replyNameDelete" parameterType="co.market.lemon.reply.service.ReplyVO">
