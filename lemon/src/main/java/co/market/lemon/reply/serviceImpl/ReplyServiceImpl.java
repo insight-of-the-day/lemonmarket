@@ -18,7 +18,7 @@ public class ReplyServiceImpl implements ReplyService {
 		// TODO Auto-generated method stub
 		return map.replyList(productId);
 	}
-
+	
 	@Override
 	public ReplyVO replySelect(int replyId) {
 		// TODO Auto-generated method stub
@@ -48,7 +48,7 @@ public class ReplyServiceImpl implements ReplyService {
 		
 		return map.replyNameDelete(vo);
 	}
-	
+
 
 
 }

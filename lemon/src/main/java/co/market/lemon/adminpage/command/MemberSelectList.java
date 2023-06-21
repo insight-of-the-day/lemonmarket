@@ -25,7 +25,7 @@ public class MemberSelectList implements Command {
 		String viewPageParam = request.getParameter("viewPage");
 		int viewPage = viewPageParam != null ? Integer.parseInt(viewPageParam) : 1;
 		vo.setViewPage(viewPage);
-		int startIndex = (viewPage-1) * 10 +1;
+		int startIndex = (viewPage-1) * 10 + 1;
 		int endIndex = startIndex + (10 - 1);
 		
 		vo.setStartIndex(startIndex);
