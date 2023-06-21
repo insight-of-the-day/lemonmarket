@@ -1,5 +1,7 @@
 package co.market.lemon.reply.command;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,24 +13,33 @@ import co.market.lemon.reply.serviceImpl.ReplyServiceImpl;
 public class ReplyInsert implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String exec(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		ReplyService rs = new ReplyServiceImpl();
 		ReplyVO vo = new ReplyVO();
 		vo.setProductId(Integer.valueOf(request.getParameter("productId")));
 		vo.setReplyWriter(request.getParameter("replyWriter"));
 		vo.setReplySubject(request.getParameter("replySubject"));
-		vo.setReplySecret(request.getParameter("replySecret"));
-		if (vo.getReplySecret() == null) {
+		if (request.getParameter("replySecret").equals("")) {
 			vo.setReplySecret("n");
-		} else if (vo.getReplySecret().equals("on")) {
+		} else {
 			vo.setReplySecret("y");
 		}
-
 		vo.setReplyParent(0);
 		vo.setReplyLevel(1);
-		rs.replyInsert(vo);
 		
-		return "redirect:productSelect.do";
+		int result = rs.replyInsert(vo);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
+		if (result > 0) {
+			response.getWriter().append("1");
+		} else {
+			response.getWriter().append("0");
+		}
+		
+		response.getWriter().close();
+		
+		return null;
 	}
 
 }

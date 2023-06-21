@@ -16,4 +16,6 @@ public class ReplyVO {
 	private String replySecret;
 	private int replyParent;
 	private int replyLevel;
+	
+	private String parentWriter;
 }
