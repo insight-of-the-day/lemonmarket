@@ -22,28 +22,26 @@ import co.market.lemon.product.serviceImpl.ProductServiceImpl;
 //	)
 //@WebServlet("/utils/fileUpload")
 public class ProductInsert implements Command {
-	public String exec(HttpServletRequest request, HttpServletResponse response) throws IOException  {
-		String realPath = request.getServletContext().getRealPath("attach");
+	public String exec(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		// 위 경로의 디렉토리가 존재하지 않으면 새로 생성
-		File dir = new File(realPath);
-		if (!dir.exists()) {
-			dir.mkdirs();
-		}
-		// 파일크기 제한 설정 (15mb)
-		int sizeLimit = 15 * 1024 * 1024;
+			String realPath = request.getServletContext().getRealPath("attach");
 
-		// MultipartRequest 객체를 생성하면 파일 업로드 수행
-		 MultipartRequest multpartRequest = 
-				 new MultipartRequest(request, realPath, sizeLimit, "utf-8",
+			// 위 경로의 디렉토리가 존재하지 않으면 새로 생성
+			File dir = new File(realPath);
+			if (!dir.exists()) {
+				dir.mkdirs();
+			}
+			// 파일크기 제한 설정 (15mb)
+			int sizeLimit = 15 * 1024 * 1024;
+
+			// MultipartRequest 객체를 생성하면 파일 업로드 수행
+			MultipartRequest multpartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8",
 					new DefaultFileRenamePolicy());
-
 //		// 업로드한 파일명 가져오기
 //		String fileName = multpartRequest.getFilesystemName("file");
 
-
-		ProductService ps = new ProductServiceImpl();
-		ProductVO vo = new ProductVO();
+			ProductService ps = new ProductServiceImpl();
+			ProductVO vo = new ProductVO();
 //		HashMap<String, String> map = new HashMap<>();
 
 //		
@@ -52,20 +50,19 @@ public class ProductInsert implements Command {
 //		map=f.upload(request, response, dir);
 //		
 		
-	
+
 		vo.setProductCategory(multpartRequest.getParameter("productCategory"));
 		vo.setProductInfo(multpartRequest.getParameter("productInfo"));
 		vo.setProductWriter(multpartRequest.getParameter("productWriter"));
 		vo.setProductTitle(multpartRequest.getParameter("productTitle"));
 		vo.setProductPrice(Integer.valueOf(multpartRequest.getParameter("productPrice")));
 		vo.setProductSubject(multpartRequest.getParameter("productSubject"));
+
 		vo.setProductImg1(multpartRequest.getOriginalFileName("pfile"));
 		vo.setProductImgDir1(realPath);
-		
-		
-		
+
 		int n = ps.productInsert(vo);
-		
+
 		if (n != 0)
 			request.setAttribute("message", "제품 등록이 완료되었습니다.");
 		else

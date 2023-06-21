@@ -46,9 +46,9 @@
 						<div class="owl-carousel owl-carousel-fullwidth product-carousel">
 							<div class="item">
 								<div class="active text-center">
-									<figure>
+									
 										<img src="attach/${product.productImg1}" alt="user">
-									</figure>
+									
 								</div>
 							</div>
 							<div class="item">
@@ -93,7 +93,7 @@
 									<c:if test="${name ne product.productWriter && not empty id}">
 										<c:choose>
 											<c:when test="${heartVal eq 0 }">
-												<input type="button" id="heart" class="btnHeart" value="찜하기">
+												<input type="button" id="heart" class="btnHeart" value="찜하기" style="width: 114px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px; height: 62px; padding-top: 0px;">
 											</c:when>
 											<c:otherwise>
 												<input type="button" id="heart"	class="btnHeart" value="찜취소">
@@ -123,10 +123,10 @@
 				<div class="col-md-10 col-md-offset-1">
 					<div class="fh5co-tabs animate-box">
 						<ul class="fh5co-tab-nav">
-							<li class="active"><a href="#" data-tab="1"><span
+							<li class="active"><a href="#" data-tab="1" style="margin-left: 80px;"><span
 									class="icon visible-xs"><i class="icon-file"></i></span><span
 									class="hidden-xs"> 소개</span></a></li>
-							<li><a href="#" data-tab="2"><span
+							<li><a href="#" data-tab="2" style="margin-left: 250px;"><span
 									class="icon visible-xs"><i class="icon-bar-graph"></i></span><span
 									class="hidden-xs">댓글</span></a></li>
 						</ul>
