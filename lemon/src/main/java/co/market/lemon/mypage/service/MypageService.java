@@ -20,6 +20,8 @@ public interface MypageService {
 	//판매 내역 검색 카운트용
 	List<MypageVO> sellSelectCount(@Param("memberName") String name, @Param("productSearch")String search);
 	
+	//판매 댓글 카운트
+	int sellReplyCount(@Param("memberName") String name, @Param("productId") int productId);
 	
 	//구매 내역
 	List<MypageVO> buySelectList(String name);

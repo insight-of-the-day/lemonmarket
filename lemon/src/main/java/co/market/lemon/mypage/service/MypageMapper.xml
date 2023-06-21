@@ -69,6 +69,9 @@
 		                 ORDER BY PRODUCT_WDATE DESC) p) 
 	</select>
 	
+	
+	
+	
 <!-- 	<select id="sellSelect" resultType="co.market.lemon.mypage.service.MypageVO"> -->
 <!-- 		SELECT PRODUCT_ID, PRODUCT_CATEGORY, PRODUCT_TITLE, PRODUCT_WRITER, PRODUCT_STATE, PRODUCT_WDATE -->
 <!-- 		FROM PRODUCT -->

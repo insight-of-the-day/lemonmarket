@@ -81,6 +81,7 @@
 									<th scope="col">제목</th>
 									<th scope="col">거래상태</th>
 									<th scope="col">작성일자</th>
+									<th scope="col">댓글 수</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -91,6 +92,10 @@
 										<td><div class='myDiv' onclick='productChoice(${s.productId})'>${s.productTitle}</div></td>
 										<td>${s.productState}</td>
 										<td>${s.productWdate}</td>
+										<c:if test="${s.productId equ replyList.productId }">
+											<td>${fn:length(replyList)}</td>
+										</c:if>
+										
 									</tr>
 								</c:forEach>
 								<c:if test="${empty sellList }">
