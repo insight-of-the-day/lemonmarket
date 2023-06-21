@@ -27,12 +27,12 @@
 				<tr>
 					<td colspan="2"><textarea
 							style="width: 1004px; height: 304px; margin-left: 450px;"
-							id="noticeSubject" name="noticeSubject" rows="10" cols="60" wrap=on></textarea></td>
+							id="noticeSubject" name="noticeSubject" rows="10" cols:"100"; wrap=on></textarea></td>
 				</tr>
 			</tbody>
 		</table>
 		<div align="center">
-			<button type="submit">작성완료</button>
+			<button type="submit" class="btn btn-primary btn-outline btn-lg" style="margin-top: 30px; margin-bottom:50px;">작성완료</button>
 		</div>
 	</form>
 </body>

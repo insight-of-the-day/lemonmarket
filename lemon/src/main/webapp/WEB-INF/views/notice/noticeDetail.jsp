@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html>
 <html>
@@ -16,25 +16,18 @@
 
 		<table class="table">
 			<thead>
-				<tr id= "title">
-					<th style="text-align:left; width: 200px; ">${notice.noticeId }</th>
-					<th style="text-align:center; width:400px; ">${notice.noticeTitle }</th>
-					<th style="text-align:right;width:350px;">${notice.noticeWdate }</th>
+				<tr id="title">
+					<th style="text-align: left; width: 200px;">${notice.noticeId }</th>
+					<th style="text-align: center; width: 400px;">${notice.noticeTitle }</th>
+					<th style="text-align: right; width: 216px;">${notice.noticeWdate }</th>
 				</tr>
-<!-- 				<tr id= "title" class="row"> -->
-<%-- 					<th scope="col" style="width:350; align:left;">${notice.noticeId }</th> --%>
-<%-- 					<th scope="col" style="width:370; align:center;">${notice.noticeTitle }</th> --%>
-<%-- 					<th scope="col" style="width:350; align:right;">${notice.noticeWdate }</th> --%>
-<!-- 				</tr> -->
 			</thead>
 			<tbody>
 				<tr>
-				<%
-				pageContext.setAttribute("crcn","\r\n");
-				pageContext.setAttribute("br","<br/>");%>
-				<td colspan="3" style="line-height: 35px;">${fn:replace(notice.noticeSubject, crcn,br) }
-				</td>
-				</tr>
+					<td colspan="3" style="line-height: 30px; height:250px; border:none;background-color:transparent;">
+						<div style="width: 100%; overflow-x: auto;">
+							<pre>${fn:replace(notice.noticeSubject, crcn, br)}</pre></div>
+					</td>
 			</tbody>
 		</table>
 
@@ -42,13 +35,14 @@
 			<div class="text-center">
 				<input type="hidden" name="noticeId" value="${notice.noticeId }">
 				<c:if test="${grade eq 'A'}">
-					<button type="button" onclick="callFunction('E')"
-						style="margin-top: 10px;">수정</button>
-					<button type="button" onclick="callFunction('D')"
-						style="margin-top: 10px;">삭제</button>
+					<button type="button" class="btn btn-primary btn-outline btn-lg"
+						onclick="callFunction('E')"
+						style="margin-top: 30px; margin-bottom: 50px;">수정</button>
+					<button type="button" class="btn btn-primary btn-outline btn-lg"
+						onclick="callFunction('D')"
+						style="margin-top: 30px; margin-bottom: 50px;">삭제</button>
 				</c:if>
 			</div>
-
 		</form>
 	</div>
 	<script type="text/javascript">
