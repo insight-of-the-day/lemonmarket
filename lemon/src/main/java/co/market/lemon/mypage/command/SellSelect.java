@@ -11,6 +11,7 @@ import co.market.lemon.common.Command;
 import co.market.lemon.mypage.service.MypageService;
 import co.market.lemon.mypage.service.MypageVO;
 import co.market.lemon.mypage.serviceImpl.MypageServiceImpl;
+import co.market.lemon.reply.service.ReplyService;
 
 public class SellSelect implements Command {
 
@@ -33,7 +34,6 @@ public class SellSelect implements Command {
 //		}			
 //		String productSearch = vo.getProductSearch();
 		
-		
 		String productSearch_ = request.getParameter("productSearch");	
 		String productSearch = "";
 		if(productSearch_ != null && !productSearch_.equals("")) {
@@ -52,6 +52,7 @@ public class SellSelect implements Command {
 
 		sellList2 = ms.sellSelectCount(memberName, productSearch);
 		request.setAttribute("sellList2", sellList2);	
+
 
 		return "mypage/sellSelectList";
 	}

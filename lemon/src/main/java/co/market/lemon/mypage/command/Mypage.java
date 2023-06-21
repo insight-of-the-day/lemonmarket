@@ -39,12 +39,6 @@ public class Mypage implements Command {
 				sellCountDone = sellCountDone + 1;
 				break;
 			}
-//			if(countVo.getProductState().equals("거래중")) {	
-//				sellCountIng = sellCountIng + 1;
-//				
-//			} else if(countVo.getProductState().equals("거래완료")) {
-//				sellCountDone = sellCountDone + 1;			
-//			}
 		}
 		request.setAttribute("sellCountIng", sellCountIng);
 		request.setAttribute("sellCountDone", sellCountDone);
@@ -63,13 +57,6 @@ public class Mypage implements Command {
 				buyCountDone = buyCountDone + 1;
 				break;
 			}
-//			if(countVo.getProductState().equals("거래중")) {	
-//				buyCountIng = buyCountIng + 1;
-//				
-//			} else if(countVo.getProductState().equals("거래완료")) {
-//				buyCountDone = buyCountDone + 1;
-//				System.out.println(buyCountIng);
-//			}
 		}
 		request.setAttribute("buyCountIng", buyCountIng);
 		request.setAttribute("buyCountDone", buyCountDone);
