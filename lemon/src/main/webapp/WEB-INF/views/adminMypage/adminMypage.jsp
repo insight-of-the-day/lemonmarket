@@ -54,6 +54,10 @@
 	border-radius: 30px;
 	text-align: center;
 }
+.my_img3 {
+    opacity: 0.5;
+    width: 1140px;
+}
 </style>
 </head>
 <body>
@@ -87,6 +91,10 @@
 							</div>
 
 						</div>
+						 <div>
+        <img src="images/mainrp.jpg" class="my_img3">
+
+    </div>
 					</div>
 				</div>
 			</div>
