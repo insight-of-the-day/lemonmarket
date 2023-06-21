@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="css/styles.css" rel="stylesheet" />
 <style>
 .btnHeart{
   margin-right: 4px;
@@ -34,6 +35,24 @@
   color: #fff !important;
   border: 2px solid #d1c286 !important;
 }
+.datsise{
+	font-size: 20px;
+	color: #d1c286;
+}
+
+.datsise2{
+	font-size: 20px;
+	color: #000;
+}
+
+.dat{
+	border-style: solid;
+	margin: 50px ;
+	padding: 20px;
+	border-width: 5px;
+	border-color: #d1c286;
+	width: 1000px;
+}
 
 
 </style>
@@ -46,9 +65,9 @@
 						<div class="owl-carousel owl-carousel-fullwidth product-carousel">
 							<div class="item">
 								<div class="active text-center">
-									<figure>
+									
 										<img src="attach/${product.productImg1}" alt="user">
-									</figure>
+									
 								</div>
 							</div>
 							<div class="item">
@@ -94,7 +113,7 @@
 									<c:if test="${name ne product.productWriter && not empty id}">
 										<c:choose>
 											<c:when test="${heartVal eq 0 }">
-												<input type="button" id="heart" class="btnHeart" value="찜하기">
+												<input type="button" id="heart" class="btnHeart" value="찜하기" style="width: 114px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px; height: 62px; padding-top: 0px;">
 											</c:when>
 											<c:otherwise>
 												<input type="button" id="heart"	class="btnHeart" value="찜취소">
@@ -128,10 +147,11 @@
 				<div class="col-md-10 col-md-offset-1">
 					<div class="fh5co-tabs animate-box">
 						<ul class="fh5co-tab-nav">
-							<li class="active"><a href="#" data-tab="1"><span
+							<li class="active"><a href="#" data-tab="1" style="margin-left: 80px;"><span
 									class="icon visible-xs"><i class="icon-file"></i></span><span
 									class="hidden-xs"> 상품소개</span></a></li>
 							<li><a href="#" data-tab="2"><span
+
 									class="icon visible-xs"><i class="icon-bar-graph"></i></span><span
 									class="hidden-xs">댓글</span></a></li>
 						</ul>
@@ -219,12 +239,12 @@
 											<form id="replyInsertForm">
 												<input type="hidden" id="productId" name="productId"
 													value="${product.productId}" />
-												<div>
-													<label for="replyWriter">댓글 작성자</label><input type="text"
+												<div class="dat">
+													<label for="replyWriter" class="datsise">댓글 작성자: </label><input class="datsise2" style="border:0 solid black;" type="text"
 														id="replyWriter" name="replyWriter"
 														value=${name} readonly="readonly" /> <br>
-													<label for="replySubject">댓글 내용</label>
-													<textarea rows="1" cols="100" id="replySubject"
+													<label for="replySubject" class="datsise" >댓글 내용:</label>
+													<textarea  class="datsise2" class="form-control" rows="1" cols="100" id="replySubject"
 														name="replySubject"></textarea>
 													<br> <label for="replySecret">비밀 댓글</label> <input
 														type="checkbox" id="replySecret" name="replySecret" />

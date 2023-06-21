@@ -49,7 +49,7 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${notices }" var="n">
-							<tr onclick="noticeChoice(${n.noticeId})">
+							<tr onclick="noticeChoice(${n.noticeId})" style="color:black; cursor:pointer;" class="hover">
 								<td>${n.noticeId }</td>
 								<th>${n.noticeTitle }</th>
 								<td>${n.noticeWdate }</td>

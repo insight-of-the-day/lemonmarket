@@ -24,15 +24,16 @@ public class UpdateGrade implements Command {
 		
 		int sTotalCount = ms.sellTotalCount(vo);
 		int bTotalCount = ms.buyTotalCount(vo);
+		String sGrade = (String)session.getAttribute("grade");
 		
 		int n=0;
-		if(sTotalCount>=100 && bTotalCount>=100) {
+		if(sTotalCount>=100 && bTotalCount>=100 && !sGrade.equals("T")) {
 			n = ms.updateGradeVV(vo);
 			vo = ms.memberSelect(vo);
-		} else if(sTotalCount>=10 && bTotalCount>=5) {
+		} else if(sTotalCount>=10 && bTotalCount>=5 && !sGrade.equals("T")) {
 			n = ms.updateGradeV(vo);
 			vo = ms.memberSelect(vo);
-		} else if(sTotalCount>=1) {
+		} else if(sTotalCount>=1 && !sGrade.equals("T")) {
 			n = ms.updateGradeR(vo);
 			vo = ms.memberSelect(vo);
 		}

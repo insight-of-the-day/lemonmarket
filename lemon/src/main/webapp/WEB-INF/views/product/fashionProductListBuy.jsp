@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -80,8 +80,14 @@
 								<div class="col mb-5" style="width: 830px;">
 									<div class="card h-100">
 										<!-- Product image-->
+										<c:if test="${p.productImg1  eq null}" >
+											<img class="card-img-top" src="attach/기본이미지.png"
+											alt="..." />
+										</c:if>
+										<c:if test="${p.productImg1 ne null}">
 										<img class="card-img-top" src="attach/${p.productImg1}"
 											alt="..." />
+										</c:if>
 										<!-- Product details-->
 										<div class="card-body p-4">
 											<div class="text-center">
@@ -112,11 +118,9 @@
 	<div style="display: flex; align-items: center; justify-content: center;">
 	  <form action="productSearch.do" id="search" method="post" style="magin-left:50px; display: flex;">
 			<input type="hidden" name="productCategory" id="productCategory" value="패션">
-		<div>
 			<input type="text" class="form-control" id="productTitle"
 				name="productTitle" placeholder="제목으로 검색" style="width: 680px; height: 52px; border-color:gray-light;">
 			<button type="submit" class="btn btn-default btn-block" style="margin-left:5px; width: 70px; height:52px; border-color:#ced4da; font-color:gray-dark;">찾기</button>
-		</div>
 	  </form>
   </div>
 

@@ -67,6 +67,12 @@ public class MypageServiceImpl implements MypageService {
 		return map.recentSelectList(no);
 	}
 
+	@Override
+	public int sellReplyCount(String name, int no) {
+		
+		return map.sellReplyCount(name, no);
+	}
+
 	
 
 
