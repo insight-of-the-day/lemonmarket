@@ -14,15 +14,15 @@
 	margin-bottom: 4px;
 	font-family: "Montserrat", Arial, sans-serif;
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 300;
 	padding: 18px 36px;
 	background: transparent;
 	color: #d1c286;
 	border: 2px solid #d1c286;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
 
 .btnHeart:hover {
@@ -55,32 +55,12 @@
 	border-color: #d1c286;
 	width: 1000px;
 }
-.btnself{
-display: inline-block;
-  padding: 0 30px;
-  font-size: 15px;
-  font-weight: 400;
-  background: transparent;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  text-transform: uppercase;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
+
+.fontSize{
+	font-size: 15px !important; 
+}
+.fontSize2{
+	font-size: 10px !important; 
 }
 
 </style>
@@ -143,6 +123,7 @@ display: inline-block;
 							<h3>거래 상태 : ${product.productState}</h3>
 							<h5>${product.productWriter}</h5>
 							<h5>조회수 : ${product.productView}</h5>
+
 							<form id="frm" method="post">
 								<input type="hidden" id="productId" name="productId"
 									value="${product.productId}" /> <input type="hidden"
@@ -152,7 +133,7 @@ display: inline-block;
 									<c:choose>
 										<c:when test="${heartVal eq 0 }">
 											<input type="button" id="heart" class="btnHeart" value="찜하기"
-												style="width: 114px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px; height: 62px; padding-top: 0px;">
+											 style="width: 105px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px; height: 60px; padding-top: 0px;">
 										</c:when>
 										<c:otherwise>
 											<input type="button" id="heart" class="btnHeart" value="찜취소">
@@ -189,11 +170,11 @@ display: inline-block;
 					<div class="fh5co-tabs animate-box">
 						<ul class="fh5co-tab-nav" style="text-align: center">
 							<li class="active"><a href="#" data-tab="1"
-								style="margin-left: 80px;"><span class="icon visible-xs"><i
-										class="icon-file"></i></span><span class="hidden-xs"> 상품소개</span></a></li>
-							<li><a href="#" data-tab="2"><span
+								style="margin-left: 80px;"><span class="icon visible-xs">
+                <i class="icon-file"></i></span><span class="fontSize" class="hidden-xs" > 상품소개</span></a></li>
+							<li class="active" style="margin-left:250px"><a href="#" data-tab="2"><span
 									class="icon visible-xs"><i class="icon-bar-graph"></i></span><span
-									class="hidden-xs">댓글</span></a></li>
+									class="fontSize" class="hidden-xs" >댓글</span></a></li>
 						</ul>
 
 						<!-- Tabs -->
@@ -201,7 +182,7 @@ display: inline-block;
 
 							<div class="fh5co-tab-content tab-content active"
 								data-tab-content="1">
-								<div class="col-md-10 col-md-offset-1">
+								<div style="font-size:15px; class="col-md-10 col-md-offset-1" ">
 									<span class="price">가격 : ${product.productPrice}</span>
 									<h2>${product.productTitle}</h2>
 									<div class="row">
@@ -219,7 +200,7 @@ display: inline-block;
 
 							<div class="fh5co-tab-content tab-content" data-tab-content="2">
 								<div class="col-md-10 col-md-offset-1">
-									<h3>댓글 목록</h3>
+									<h2 style="text-bold">댓글 목록</h2>
 									<div class="feed">
 										<form id="replyForm" method="post">
 											<input type="hidden" id="productId" name="productId"
@@ -239,23 +220,23 @@ display: inline-block;
 															<blockquote>
 																<p>${replyList.replySubject}</p>
 															</blockquote>
-															<h3>&mdash; ${replyList.replyWriter},
-																${replyList.replyWdate}</h3>
+															<p>&mdash; ${replyList.replyWriter},
+																${replyList.replyWdate}</p>
 															<c:if test="${not empty id && replyList.replyLevel == 1}">
-																<button type="button"
+																<button type="button" 
 																	onclick="recommentInsert('${replyList.productId}', '${replyList.replyId}')"
-																	class="btn btn-primary btn-outline btn-lg">대댓</button>
+																	class="btn btn-default btn-block" style="margin-top:5px; margin-left:5px; width: 70px; height:30px; border-color:#ced4da; font-color:gray-dark;">대댓</button>
 															</c:if>
 															<c:if test="${name eq replyList.replyWriter}">
-																<button type="button"
+																<button type="button" 
 																	onclick="replyUpdate(${replyList.replyId})"
-																	class="btn btn-primary btn-outline btn-lg">수정</button>
+																	class="btn btn-default btn-block" style="margin-left:5px; width: 70px; height:30px; border-color:#ced4da; font-color:gray-dark;">수정</button>
 															</c:if>
 															<c:if
 																test="${name eq replyList.replyWriter || grade eq 'A'}">
 																<button type="button"
 																	onclick="replyDelete(${replyList.replyId})"
-																	class="btn btn-primary btn-outline btn-lg">삭제</button>
+																	class="btn btn-default btn-block" style="margin-left:5px; width: 70px; height:30px; border-color:#ced4da; font-color:gray-dark;">삭제</button>
 															</c:if>
 															<c:if
 																test="${name eq product.productWriter && name ne replyList.replyWriter}">
@@ -279,7 +260,7 @@ display: inline-block;
 																test="${not empty id && grade ne 'A' && name ne replyList.replyWriter}">
 																<button type="button"
 																	onclick="replyReport('${replyList.replyId}')"
-																	class="btn btn-primary btn-outline btn-lg">신고</button>
+																	class="btn btn-default btn-block" style="margin-left:5px; width: 70px; height:30px; border-color:#ced4da; font-color:gray-dark;">신고</button>
 															</c:if>
 														</div>
 													</c:when>
@@ -288,7 +269,7 @@ display: inline-block;
 															<blockquote>
 																<p>비밀 댓글은 게시글, 댓글 작성자와 관리자만 볼 수 있습니다.</p>
 															</blockquote>
-															<h3>&mdash; ${replyList.replyWdate}</h3>
+															<p>&mdash; ${replyList.replyWdate}</p>
 														</div>
 													</c:otherwise>
 												</c:choose>
