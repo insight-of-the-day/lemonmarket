@@ -89,7 +89,7 @@
 									<tr>
 										<td>${s.productCategory}</td>
 										<td>
-											<div class='myDiv' onclick='productChoice(${b.productId})'>
+											<div class='myDiv' onclick='productChoice(${s.productId})'>
 												<c:if test="${s.productImg1 eq null}" >
 													<img class="selectImg" src="attach/기본이미지.png" alt="..." />
 												</c:if>
