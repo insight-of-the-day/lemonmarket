@@ -50,7 +50,7 @@
 									<td>${h.productCategory}</td>
 									<td>${h.productInfo}</td>
 									<td>
-										<div class='myDiv' onclick='productChoice(${b.productId})'>
+										<div class='myDiv' onclick='productChoice(${h.productId})'>
 											<c:if test="${h.productImg1 eq null}" >
 												<img class="selectImg" src="attach/기본이미지.png" alt="..." />
 											</c:if>

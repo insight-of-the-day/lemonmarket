@@ -55,7 +55,7 @@
 					<c:forEach items="${recentList}" var="r">	
 						<form id="frm" method="post" class="recentForm">			
 							<div align="center">
-								<div class='divImg' onclick='productChoice(${b.productId})'>
+								<div class='divImg' onclick='productChoice(${r.productId})' style="cursor:pointer;">
 									<c:if test="${r.productImg1 eq null}" >
 										<img class="recentImg" src="attach/기본이미지.png" alt="..." />
 									</c:if>
@@ -64,7 +64,7 @@
 									</c:if>
 								</div>
 <%-- 								<div class='divImg' onclick='productChoice(${r.productId})'><img class="recentImg" src="attach/${r.productImg1}"></div> --%>
-								<div class='divTitle' onclick='productChoice(${r.productId})'><p>${r.productTitle}</p></div>
+								<div class='divTitle' onclick='productChoice(${r.productId})'><p style="cursor:pointer;">${r.productTitle}</p></div>
 								
 								<input type="hidden" name="productId" value="${r.productId}" >
 								<div><button id="deleteRecent" onclick="fnDelete(this.form)"
