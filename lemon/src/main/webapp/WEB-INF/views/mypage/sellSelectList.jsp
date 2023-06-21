@@ -88,14 +88,26 @@
 								<c:forEach items="${sellList}" var="s">
 									<tr>
 										<td>${s.productCategory}</td>
-										<td><div class='myDiv' onclick='productChoice(${s.productId})'><img class="selectImg" src="attach/${s.productImg1}"></div></td>
+										<td>
+											<div class='myDiv' onclick='productChoice(${b.productId})'>
+												<c:if test="${s.productImg1 eq null}" >
+													<img class="selectImg" src="attach/기본이미지.png" alt="..." />
+												</c:if>
+												<c:if test="${s.productImg1 ne null}">
+													<img class="selectImg" src="attach/${s.productImg1}" alt="..." />
+												</c:if>
+											</div>
+										</td>
 										<td><div class='myDiv' onclick='productChoice(${s.productId})'>${s.productTitle}</div></td>
 										<td>${s.productState}</td>
 										<td>${s.productWdate}</td>
-										<c:if test="${s.productId equ replyList.productId }">
-											<td>${fn:length(replyList)}</td>
-										</c:if>
-										
+										<td>   
+											<c:forEach items="${pMap}" var="entry" varStatus="status">  
+											   <c:if test="${s.productId eq entry.key}">
+											  		${fn:length(entry.value)} 
+											   </c:if>
+											</c:forEach>
+										</td>
 									</tr>
 								</c:forEach>
 								<c:if test="${empty sellList }">

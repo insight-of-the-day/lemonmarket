@@ -25,6 +25,8 @@ public class MypageVO {
 	
 	
 	
+	//댓글수
+	private int productReply;
 
 	
 

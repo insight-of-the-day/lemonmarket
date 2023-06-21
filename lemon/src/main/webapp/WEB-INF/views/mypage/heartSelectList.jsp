@@ -49,7 +49,16 @@
 								<tr>
 									<td>${h.productCategory}</td>
 									<td>${h.productInfo}</td>
-									<td><div class='myDiv' onclick='productChoice(${h.productId})'><img class="selectImg" src="attach/${h.productImg1}"></div></td>									
+									<td>
+										<div class='myDiv' onclick='productChoice(${b.productId})'>
+											<c:if test="${h.productImg1 eq null}" >
+												<img class="selectImg" src="attach/기본이미지.png" alt="..." />
+											</c:if>
+											<c:if test="${h.productImg1 ne null}">
+												<img class="selectImg" src="attach/${h.productImg1}" alt="..." />
+											</c:if>
+										</div>
+									</td>									
 									<td><div class='myDiv' onclick='productChoice(${h.productId})'>${h.productTitle}</div></td>
 									<td>${h.productWriter}</td>
 									<td>${h.productState}</td>

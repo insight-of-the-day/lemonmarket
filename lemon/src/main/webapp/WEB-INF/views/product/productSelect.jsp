@@ -19,10 +19,8 @@
   background: transparent;
   color: #d1c286;
   border: 2px solid #d1c286;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
+  border-radius: 5px;
+  pading: 16px 30px 16px 30px;
 }
 
 .btnHeart:hover{
@@ -113,7 +111,7 @@
 									<c:if test="${name ne product.productWriter && not empty id}">
 										<c:choose>
 											<c:when test="${heartVal eq 0 }">
-												<input type="button" id="heart" class="btnHeart" value="찜하기" style="width: 114px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px; height: 62px; padding-top: 0px;">
+												<input type="button" id="heart" class="btnHeart" value="찜하기">
 											</c:when>
 											<c:otherwise>
 												<input type="button" id="heart"	class="btnHeart" value="찜취소">
@@ -121,7 +119,7 @@
 										</c:choose>
 									<c:if test="${not empty id && grade ne 'A' && name ne product.productWriter}">
 										<button type="button" onclick="productReport('${product.productId}')"
-											class="btn btn-primary btn-outline btn-lg">신고</button>
+											class="btn btn-primary btn-outline btn-lg" style="font-size: 16px;">신고</button>
 									</c:if>
 									</c:if>
 									<c:if test="${name eq product.productWriter}">
