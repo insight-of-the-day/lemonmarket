@@ -31,7 +31,7 @@
 					from product
 						where product_info=#{productInfo} and
 							  product_category=#{productCategory}
-					order by product_wdate ) a ) b
+					order by product_wdate desc ) a ) b
 					
 					where rn >= #{startIndex} and rn <= #{endIndex}
 	]]>

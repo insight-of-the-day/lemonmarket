@@ -106,10 +106,11 @@
 			</form>
 		</div>
 	</div>
-	<div>
-		<form action="" id="search" method="post">
-			<input type="text" class="form-control" placeholder="제목으로 검색" style="width: 842px; height: 52px;">
-			<button type="submit" class="btn btn-default btn-block">찾기</button>
+	<!-- 페이지하단 검색 -->
+	<div style="display: flex; align-items: center; justify-content: center;">
+		<form action="" id="search" method="post" style="magin-left:50px; display: flex;"> 
+			<input type="text" class="form-control" placeholder="제목으로 검색" style="width: 680px; height: 52px; border-color:gray-light;">
+			<button type="submit" class="btn btn-default" style="margin-left:5px; width: 70px; height:52px; border-color:#ced4da; font-color:gray-dark;">찾기</button>
 		</form>
 	</div>
 	<!-- 페이징 -->
