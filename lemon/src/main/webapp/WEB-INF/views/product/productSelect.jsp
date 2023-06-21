@@ -121,8 +121,8 @@
 						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 							<h2>${product.productTitle}</h2>
 							<h3>거래 상태 : ${product.productState}</h3>
-							<h5>${product.productWriter}</h5>
-							<h5>조회수 : ${product.productView}</h5>
+							<h3>${product.productWriter}</h3>
+							<h3>조회수 : ${product.productView}</h3>
               
 							<form id="frm" method="post">
 								<input type="hidden" id="productId" name="productId"
@@ -133,7 +133,7 @@
 									<c:choose>
 										<c:when test="${heartVal eq 0 }">
 											<input type="button" id="heart" class="btnHeart" value="찜하기"
-											 style="width: 105px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px; height: 60px; padding-top: 0px;">
+											 style="width: 105px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px; height: 63px; padding-top: 0px;">
 										</c:when>
 										<c:otherwise>
 											<input type="button" id="heart" class="btnHeart" value="찜취소">
@@ -143,7 +143,7 @@
 										test="${not empty id && grade ne 'A' && name ne product.productWriter}">
 										<button type="button"
 											onclick="productReport('${product.productId}')"
-											class="btn btn-primary btn-outline btn-lg">신고</button>
+											 style="font-size:16px;"class="btn btn-primary btn-outline btn-lg">신고</button>
 									</c:if>
 								</c:if>
 								<c:if test="${name eq product.productWriter}">
@@ -244,15 +244,15 @@
 																	<c:when test="${product.productState eq '거래중'}">
 																		<button type="button"
 																			onclick="sellCheck('${replyList.replyWriter}')"
-																			class="btn btn-primary btn-outline btn-lg">거래완료</button>
+																			class="btn btn-default btn-block" style="margin-top:5px; margin-left:5px; width: 70px; height:30px; border-color:#ced4da; font-color:gray-dark;">거래완료</button>
 																		<button type="button"
 																			onclick="sellCancel('${replyList.replyWriter}')"
-																			class="btn btn-primary btn-outline btn-lg">거래취소</button>
+																			class="btn btn-default btn-block" style="margin-top:5px; margin-left:5px; width: 70px; height:30px; border-color:#ced4da; font-color:gray-dark;">거래취소</button>
 																	</c:when>
 																	<c:when test="${product.productState eq '거래전'}">
 																		<button type="button"
 																			onclick="sellCheck('${replyList.replyWriter}')"
-																			class="btn btn-primary btn-outline btn-lg">거래하기</button>
+																			class="btn btn-default btn-block" style="margin-top:5px; margin-left:5px; width: 70px; height:30px; border-color:#ced4da; font-color:gray-dark;">거래하기</button>
 																	</c:when>
 																</c:choose>
 															</c:if>
