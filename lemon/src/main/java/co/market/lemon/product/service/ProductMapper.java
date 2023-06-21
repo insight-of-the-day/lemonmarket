@@ -39,4 +39,8 @@ public interface ProductMapper {
 	
 	List<ProductVO> selectSellListPaging(@Param("startIndex")int startIndex,@Param("endIndex")int endIndex, @Param("productInfo") String info, @Param("productCategory") String category);
 
+	
+	//전체 메뉴 조회 페이징 처리
+	int mainSearchTotal(ProductVO vo);
+	List<ProductVO> mainSearchPaging(ProductVO vo);
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import co.market.lemon.adminpage.service.AdminReportVO;
+import co.market.lemon.member.service.MemberVO;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -40,5 +41,10 @@ public interface ProductService {
 	List<ProductVO> selectBuyListPaging(@Param("startIndex")int startIndex,@Param("endIndex")int endIndex, @Param("productInfo") String info, @Param("productCategory") String category);
 	
 	List<ProductVO> selectSellListPaging(@Param("startIndex")int startIndex,@Param("endIndex")int endIndex, @Param("productInfo") String info, @Param("productCategory") String category);
+	
+	
+	//전체 메뉴 조회 페이징 처리
+	int mainSearchTotal(ProductVO vo);
+	List<ProductVO> mainSearchPaging(ProductVO vo);
 
 }

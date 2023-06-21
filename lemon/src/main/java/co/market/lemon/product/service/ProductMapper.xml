@@ -124,4 +124,28 @@
 	</insert>
 
 
+
+
+	<!-- 메인페이지서치 관련 페이징 처리 -->
+	<select id="mainSearchTotal" resultType="int">
+	SELECT COUNT(*) total
+	FROM PRODUCT
+	WHERE PRODUCT_TITLE LIKE '%' || #{productTitle} || '%'
+	ORDER BY PRODUCT_ID 
+	
+	</select>
+	
+	<select id="mainSearchPaging" resultType="co.market.lemon.product.service.ProductVO">
+	<![CDATA[
+		SELECT b.* FROM(
+			SELECT rownum rn, a.* FROM (
+				SELECT * 
+					FROM PRODUCT
+					WHERE PRODUCT_TITLE LIKE '%' || #{productTitle} || '%'
+					ORDER BY PRODUCT_ID 
+					) a ) b
+					
+					WHERE rn >= #{startIndex} AND rn <= #{endIndex}
+	]]>
+	</select>
 </mapper>
