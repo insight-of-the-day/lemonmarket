@@ -22,8 +22,9 @@ public class MemberUpdate implements Command {
 		vo.setMemberTel(request.getParameter("memberTel"));
 		vo.setMemberId((String) session.getAttribute("id"));
 		vo.setMemberName((String) session.getAttribute("name"));
+		vo.setMemberGrade((String) session.getAttribute("grade"));
 		
-		
+		System.out.println("수정" + vo.getMemberGrade());
 		int n = ms.memberUpdate(vo);
 		if(n != 0) {
 			request.setAttribute("message", "회원 정보가 수정되었습니다.");

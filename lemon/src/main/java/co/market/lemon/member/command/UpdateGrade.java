@@ -18,9 +18,12 @@ public class UpdateGrade implements Command {
 		
 		HttpSession session = request.getSession();
 		
-		vo.setMemberName((String) session.getAttribute("name"));		
 		vo.setMemberId((String) session.getAttribute("id"));
-
+		vo.setMemberName((String) session.getAttribute("name"));			
+		vo.setMemberGrade((String) session.getAttribute("grade"));
+		vo.setMemberPw((String) session.getAttribute("pw"));
+		vo.setMemberTel((String) session.getAttribute("tel"));
+		
 		
 		int sTotalCount = ms.sellTotalCount(vo);
 		int bTotalCount = ms.buyTotalCount(vo);
