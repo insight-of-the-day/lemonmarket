@@ -59,7 +59,8 @@
 								<div class='divTitle' onclick='productChoice(${r.productId})'><p>${r.productTitle}</p></div>
 								
 								<input type="hidden" name="productId" value="${r.productId}" >
-								<div><button id="deleteRecent" onclick="fnDelete(this.form)">삭제</button></div>
+								<div><button id="deleteRecent" onclick="fnDelete(this.form)"
+								class="btn btn-default btn-block" style="text-align:center;margin-left:5px;width: 92px;height:30px;border-color:#ced4da;font-color:gray-dark;">삭제</button></div>
 							</div>	
 						</form>			
 					</c:forEach>

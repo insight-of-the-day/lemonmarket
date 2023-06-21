@@ -12,7 +12,7 @@
 		resultType="co.market.lemon.product.service.ProductVO">
 		SELECT * FROM PRODUCT
 		WHERE PRODUCT_CATEGORY=#{productCategory}
-		AND PRODUCT_TITLE=#{productTitle}
+		AND PRODUCT_TITLE LIKE '%' || #{productTitle} || '%'
 	</select>
 
 
