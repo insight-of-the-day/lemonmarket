@@ -11,6 +11,8 @@ public interface ProductMapper {
 
 	List<ProductVO> productSelectListSell(@Param("productInfo") String info, @Param("productCategory") String category);
 
+	List<ProductVO> productSearch(@Param("productTitle")String productTitle, @Param("productCategory")String productCategory);
+
 	ProductVO productSelect(ProductVO vo);
 
 	int productInsert(ProductVO vo);
@@ -33,11 +35,14 @@ public interface ProductMapper {
 
 	// 페이징 처리 관련
 
-	int selectProductTotal(@Param("vo")ProductVO vo, @Param("productInfo")String productInfo,@Param("productCategory")String productCategory);
+	int selectProductTotal(@Param("vo") ProductVO vo, @Param("productInfo") String productInfo,
+			@Param("productCategory") String productCategory);
 
-	List<ProductVO> selectBuyListPaging(@Param("startIndex")int startIndex,@Param("endIndex")int endIndex, @Param("productInfo") String info, @Param("productCategory") String category);
-	
-	List<ProductVO> selectSellListPaging(@Param("startIndex")int startIndex,@Param("endIndex")int endIndex, @Param("productInfo") String info, @Param("productCategory") String category);
+	List<ProductVO> selectBuyListPaging(@Param("startIndex") int startIndex, @Param("endIndex") int endIndex,
+			@Param("productInfo") String info, @Param("productCategory") String category);
+
+	List<ProductVO> selectSellListPaging(@Param("startIndex") int startIndex, @Param("endIndex") int endIndex,
+			@Param("productInfo") String info, @Param("productCategory") String category);
 
 	
 	//전체 메뉴 조회 페이징 처리

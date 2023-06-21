@@ -14,6 +14,8 @@ public interface ProductService {
 	
 	List<ProductVO> productSelectListSell(@Param("productInfo")String info, @Param("productCategory")String category);
 
+	List<ProductVO> productSearch(@Param("productTitle")String productTitle, @Param("productCategory")String productCategory);
+	
 	ProductVO productSelect(ProductVO vo);
 
 	int productInsert(ProductVO vo);

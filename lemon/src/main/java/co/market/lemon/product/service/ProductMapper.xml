@@ -2,24 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.market.lemon.product.service.ProductMapper">
 
-	<select id="productSelectListBuy"
+	<!-- <select id="productSelectListBuy" -->
+	<!-- resultType="co.market.lemon.product.service.ProductVO"> -->
+	<!-- SELECT * FROM PRODUCT where product_info=#{productInfo} and -->
+	<!-- product_category=#{productCategory} ORDER BY 8 -->
+	<!-- DESC -->
+	<!-- </select> -->
+	<select id="productSearch"
 		resultType="co.market.lemon.product.service.ProductVO">
-		SELECT * FROM PRODUCT where product_info=#{productInfo} and
-		product_category=#{productCategory} ORDER BY 8
-		DESC
+		SELECT * FROM PRODUCT
+		WHERE PRODUCT_CATEGORY=#{productCategory}
+		AND PRODUCT_TITLE=#{productTitle}
 	</select>
 
-	<select id="productSelectListSell"
-		resultType="co.market.lemon.product.service.ProductVO">
-		SELECT * FROM PRODUCT where product_info=#{productInfo} and
-		product_category=#{productCategory} ORDER BY product_wdate
-		DESC
-	</select>
 
 	<select id="selectProductTotal" resultType="int">
 		SELECT COUNT(*) total
 		FROM PRODUCT where product_info=#{productInfo}and
-		product_category=#{productCategory} 
+		product_category=#{productCategory}
 	</select>
 
 	<select id="selectBuyListPaging"
@@ -31,7 +31,7 @@
 					from product
 						where product_info=#{productInfo} and
 							  product_category=#{productCategory}
-					order by product_wdate ) a ) b
+					order by product_wdate desc ) a ) b
 					
 					where rn >= #{startIndex} and rn <= #{endIndex}
 	]]>

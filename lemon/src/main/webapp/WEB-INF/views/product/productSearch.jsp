@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>패션상품구매</title>
+<title>상품검색</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!--         Bootstrap icons -->
@@ -20,44 +20,14 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
 <link href="css/bootstrap.css" rel="stylesheet" />
-<style>
-#box {
-	display: flex;
-	justify-content: center;
-}
-
-.pager {
-	display: flex;
-	justify-content: center;
-}
-
-.pager .pageButton {
-	display: inline-block;
-	padding: 5px 14px;
-	background-color: #fff;
-}
-
-.listCenter {
-	list-style: none;
-}
-
-.listCenter li {
-	margin-left: 5px;
-	margin-right: 5px;
-}
-</style>
-
 </head>
-
 <body>
-
 	<div id="fh5co-product">
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<span>LEMON MARKET</span>
-					<h2>패션 물품 구매</h2>
-					<p>wanna buy? seek!</p>
+					<h2>상품 검색</h2>
 				</div>
 			</div>
 
@@ -99,50 +69,14 @@
 				</div>
 			</c:forEach>
 		</div>
-
-		<div>
-			<form id="frm" action="productSelect.do" method="post">
-				<input type="hidden" id="productId" name="productId">
-			</form>
-		</div>
 	</div>
-
-
-
-	<form action="productSearch.do" id="search" method="post">
-			<input type="hidden" name="productCategory" id="productCategory" value="패션">
-		<div>
-			<input type="text" class="form-control" id="productTitle"
-				name="productTitle" placeholder="제목으로 검색"
-				style="width: 842px; height: 52px;">
-			<button type="submit" class="btn btn-default btn-block">찾기</button>
-		</div>
-	</form>
-
-
-	<!-- 페이징 -->
-
-	<div align="center" class="pager">
-		<ul class="listCenter">
-			<c:forEach var="n" begin="1" end="${totalPage }">
-				<li><a href="fashionproductListBuy.do?viewPage=${n }">${n  }
-				</a></li>
-			</c:forEach>
-		</ul>
-	</div>
-
-
-
-	<script type="text/javascript"> 
+	
+		<script type="text/javascript"> 
 			function productChoice(id) {
 			let frm = document.getElementById("frm");
 			frm.productId.value = id;
 			frm.submit();
 			}
   		</script>
-
-
-
-
 </body>
 </html>
