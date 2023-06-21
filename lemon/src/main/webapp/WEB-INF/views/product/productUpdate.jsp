@@ -29,7 +29,7 @@
 							<div class="col-md-6">
 								<!-- <label for="lname">Last Name</label> -->
 								<span>* 거래유형 선택 <select id="productInfo"
-									name="productInfo">
+									name="productInfo" >
 										<option value="삽니다">삽니다</option>
 										<option value="팝니다">팝니다</option>
 								</select></span>

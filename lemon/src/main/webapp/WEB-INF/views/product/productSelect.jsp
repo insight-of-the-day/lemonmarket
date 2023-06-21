@@ -85,6 +85,7 @@
 								<h2>${product.productTitle}</h2>
 								<h3>거래 상태 : ${product.productState}</h3>
 								<h5>${product.productWriter}</h5>
+								<h5>조회수 : ${product.productView}</h5>
 								<form id="frm" method="post">
 									<input type="hidden" id="productId" name="productId"
 										value="${product.productId}" /> <input type="hidden"
@@ -99,13 +100,17 @@
 												<input type="button" id="heart"	class="btnHeart" value="찜취소">
 											</c:otherwise>
 										</c:choose>
-										<button type="button" onclick="productReport()"
+									<c:if test="${not empty id && grade ne 'A' && name ne product.productWriter}">
+										<button type="button" onclick="productReport('${product.productId}')"
 											class="btn btn-primary btn-outline btn-lg">신고</button>
 									</c:if>
-									<c:if test="${name eq product.productWriter || grade eq 'A'}">
-										<input type="submit"
+									</c:if>
+									<c:if test="${name eq product.productWriter}">
+											<input type="submit"
 											onclick="javascript: frm.action='productUpdateForm.do'"
 											class="btn btn-primary btn-outline btn-lg" value="수정">
+									</c:if>
+									<c:if test="${name eq product.productWriter || grade eq 'A'}">
 										<input type="submit"
 											onclick="javascript: frm.action='productDelete.do'"
 											class="btn btn-primary btn-outline btn-lg" value="삭제">
@@ -125,7 +130,7 @@
 						<ul class="fh5co-tab-nav">
 							<li class="active"><a href="#" data-tab="1"><span
 									class="icon visible-xs"><i class="icon-file"></i></span><span
-									class="hidden-xs"> 소개</span></a></li>
+									class="hidden-xs"> 상품소개</span></a></li>
 							<li><a href="#" data-tab="2"><span
 									class="icon visible-xs"><i class="icon-bar-graph"></i></span><span
 									class="hidden-xs">댓글</span></a></li>
@@ -176,8 +181,10 @@
 														<c:if test="${not empty id && replyList.replyLevel == 1}">
 															<button type="button" onclick="recommentInsert('${replyList.productId}', '${replyList.replyId}')" class="btn btn-primary btn-outline btn-lg">대댓</button>
 														</c:if>
-														<c:if test="${name eq replyList.replyWriter || grade eq 'A'}">
+														<c:if test="${name eq replyList.replyWriter}">
 															<button type="button" onclick="replyUpdate(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">수정</button>
+														</c:if>
+														<c:if test="${name eq replyList.replyWriter || grade eq 'A'}">
 															<button type="button" onclick="replyDelete(${replyList.replyId})" class="btn btn-primary btn-outline btn-lg">삭제</button>
 														</c:if>
 														<c:if test="${name eq product.productWriter && name ne replyList.replyWriter}">
@@ -191,7 +198,7 @@
 																</c:when>
 															</c:choose>
 														</c:if>
-														<c:if test="${not empty id && name ne replyList.replyWriter}">
+														<c:if test="${not empty id && grade ne 'A' && name ne replyList.replyWriter}">
 															<button type="button" onclick="replyReport('${replyList.replyId}')" class="btn btn-primary btn-outline btn-lg">신고</button>
 														</c:if>
 													</div>
@@ -340,22 +347,30 @@
         }
   		
 
-		function replyUpdate(key) {
-			let frm = document.getElementById("replyForm");
-			frm.replyId.value = key;
-			frm.action = "replyUpdateForm.do";
-			frm.submit();
+		function replyUpdate(replyId) {
+			window.name = "parentForm";
+			window.open("replyUpdateForm.do?replyId=" + replyId,
+						"replyUpdateForm", "width=570, height=350, resizable = no, scrollbars = no");
 		}
 		
-		function replyDelete(key) {
+		function replyDelete(replyId) {
 			let frm = document.getElementById("replyForm");
-			frm.replyId.value = key;
-			if (confirm("정말 삭제 하시겠습니까?"))
-				frm.action = "replyDelete.do";
-			else
+			frm.replyId.value = replyId;
+			if (confirm("정말 삭제 하시겠습니까?")) {
+				var param = "replyId="+replyId;
+			
+            	httpRequest = getXMLHttpRequest();
+            	httpRequest.onreadystatechange = checkFunc;
+           		httpRequest.open("POST", "replyDelete.do", true);    
+            	httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=EUC-KR'); 
+            	httpRequest.send(param);
+			}
+			else {
 				return false;
-			frm.submit();
+			}
 		}
+		
+		
 		
 		function pullUpCheck() {
 			let frm = document.getElementById("frm");
@@ -408,18 +423,17 @@
 			
 		}
 		
-		function productReport() {
-				let frm = document.getElementById("frm");
-				frm.action = "productReportForm.do";
-				frm.submit();
+		function productReport(productId) {
+			window.name = "parentForm";
+			window.open("productReportForm.do?productId=" + productId,
+						"productReportForm", "width=800, height=800, resizable = no, scrollbars = no");
 		}
 		
 		
-		function replyReport(data) {
-				let frm = document.getElementById("replyForm");
-				frm.replyId.value = data;
-				frm.action = "replyReportForm.do";
-				frm.submit();
+		function replyReport(replyId) {
+			window.name = "parentForm";
+			window.open("replyReportForm.do?replyId=" + replyId,
+						"replyReportForm", "width=800, height=800, resizable = no, scrollbars = no");
 		}
 		
 		function recommentInsert(productId, replyId) {

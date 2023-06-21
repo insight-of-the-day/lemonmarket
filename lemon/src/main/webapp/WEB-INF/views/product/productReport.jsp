@@ -127,7 +127,7 @@ footer>p>a {
 		<h1 style="color: wheat;">신 고 하 기</h1>
 	</header>
 	<main>
-		<form id="reportForm" method="post" action="productReport.do"
+		<form id="reportForm" target="parentForm"
 			class="form_class">
 			<div class="form_div">
 				<input type="hidden" id="productId" name="productId"
@@ -157,7 +157,7 @@ footer>p>a {
 
 
 				<div align="center">
-					<button type="submit" class="submit_class">신고</button>
+					<button type="button" class="submit_class" onclick="checkValue()">신고</button>
 
 					<button class="submit_class" type="button" onclick="window.close()">취소</button>
 				</div>
@@ -167,5 +167,63 @@ footer>p>a {
 
 
 	</main>
+	 <script type="text/javascript">
+	 let frm = document.getElementById("reportForm");
+		var httpRequest = null;
+		
+	    function getXMLHttpRequest(){
+	        var httpRequest = null;
+	    
+	        if(window.ActiveXObject){
+	            try{
+	                httpRequest = new ActiveXObject("Msxml2.XMLHTTP");    
+	            } catch(e) {
+	                try{
+	                    httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+	                } catch (e2) { httpRequest = null; }
+	            }
+	        }
+	        else if(window.XMLHttpRequest){
+	            httpRequest = new window.XMLHttpRequest();
+	        }
+	        return httpRequest;    
+	    }
+	    
+	    function checkValue() {
+	        var productId = frm.productId.value;
+	        var reportReporter = frm.reportReporter.value;
+	        var reportSuspect = frm.reportSuspect.value;
+	        var reportContent = frm.reportContent.value;
+	        var reportCategory = frm.reportCategory.value;
+	        var reportReason = frm.reportReason.value;
+	        
+
+	        var param= "productId=" + productId +
+	            		"&reportReporter=" + reportReporter +
+	            		"&reportSuspect=" + reportSuspect +
+	        			"&reportContent=" + reportContent +
+	        			"&reportCategory=" + reportCategory +
+	        			"&reportReason=" + reportReason;
+	
+	            httpRequest = getXMLHttpRequest();
+	            httpRequest.onreadystatechange = checkFunc;
+	            httpRequest.open("POST", "productReport.do", true);    
+	            httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8'); 
+	            httpRequest.send(param);
+	        }
+	    
+	    function checkFunc(){
+	        if(httpRequest.readyState == 4){
+	            var resultText = httpRequest.responseText;
+	            if(resultText == 1){
+	                if (opener != null) {
+	                    window.opener.document.location.reload(); 
+	                    opener.productReportForm = null;
+	                    self.close();
+	                }
+	            }
+	        }
+	    }
+	</script>
 </body>
 </html>
