@@ -17,17 +17,29 @@
 	</select>
 	
 	<select id="sellSelectPaging" resultType="co.market.lemon.mypage.service.MypageVO">
-		SELECT PRODUCT_ID, PRODUCT_CATEGORY, PRODUCT_TITLE, PRODUCT_WRITER, PRODUCT_STATE, PRODUCT_WDATE, PRODUCT_IMG1
+		SELECT PRODUCT_ID, 
+			   PRODUCT_CATEGORY, 
+			   PRODUCT_TITLE, 
+			   PRODUCT_WRITER, 
+			   PRODUCT_STATE, 
+			   PRODUCT_WDATE, 
+			   PRODUCT_IMG1
 		  FROM (SELECT ROWNUM NUM, p.* 
 		          FROM (SELECT * 
-		                FROM PRODUCT
-		               WHERE PRODUCT_WRITER = #{memberName} AND PRODUCT_INFO='팝니다'
-		               ORDER BY PRODUCT_WDATE DESC) p)
+		                  FROM PRODUCT
+		                 WHERE PRODUCT_WRITER = #{memberName} AND PRODUCT_INFO='팝니다'
+		                 ORDER BY PRODUCT_WDATE DESC) p)
 		 WHERE NUM BETWEEN (1+(#{page}-1)*10) AND (#{page}*10) 
 	</select>
 	
 	<select id="sellSelect" resultType="co.market.lemon.mypage.service.MypageVO">
-		SELECT PRODUCT_ID, PRODUCT_CATEGORY, PRODUCT_TITLE, PRODUCT_WRITER, PRODUCT_STATE, PRODUCT_WDATE, PRODUCT_IMG1
+		SELECT PRODUCT_ID, 
+			   PRODUCT_CATEGORY, 
+			   PRODUCT_TITLE, 
+			   PRODUCT_WRITER, 
+			   PRODUCT_STATE, 
+			   PRODUCT_WDATE, 
+			   PRODUCT_IMG1
 		  FROM (SELECT ROWNUM NUM, p.* 
 		          FROM (SELECT * 
 		                  FROM PRODUCT
@@ -40,7 +52,13 @@
 	</select>
 	
 	<select id="sellSelectCount" resultType="co.market.lemon.mypage.service.MypageVO">
-		SELECT PRODUCT_ID, PRODUCT_CATEGORY, PRODUCT_TITLE, PRODUCT_WRITER, PRODUCT_STATE, PRODUCT_WDATE, PRODUCT_IMG1
+		SELECT PRODUCT_ID, 
+			   PRODUCT_CATEGORY, 
+			   PRODUCT_TITLE, 
+			   PRODUCT_WRITER, 
+			   PRODUCT_STATE, 
+			   PRODUCT_WDATE, 
+			   PRODUCT_IMG1
 		  FROM (SELECT ROWNUM NUM, p.* 
 		          FROM (SELECT * 
 		                  FROM PRODUCT
@@ -76,7 +94,13 @@
 	</select>
 	
 	<select id="buySelectPaging" resultType="co.market.lemon.mypage.service.MypageVO">
-		SELECT PRODUCT_ID, PRODUCT_CATEGORY, PRODUCT_TITLE, PRODUCT_WRITER, PRODUCT_STATE, PRODUCT_WDATE, PRODUCT_IMG1
+		SELECT PRODUCT_ID, 
+			   PRODUCT_CATEGORY, 
+			   PRODUCT_TITLE, 
+			   PRODUCT_WRITER, 
+			   PRODUCT_STATE, 
+			   PRODUCT_WDATE, 
+			   PRODUCT_IMG1
 		  FROM (SELECT ROWNUM NUM, p.* 
 		          FROM (SELECT * 
 		                  FROM PRODUCT
@@ -87,7 +111,13 @@
 	</select>
 	
 	<select id="buySelect" resultType="co.market.lemon.mypage.service.MypageVO">
-		SELECT PRODUCT_ID, PRODUCT_CATEGORY, PRODUCT_TITLE, PRODUCT_WRITER, PRODUCT_STATE, PRODUCT_WDATE, PRODUCT_IMG1
+		SELECT PRODUCT_ID, 
+			   PRODUCT_CATEGORY, 
+			   PRODUCT_TITLE, 
+			   PRODUCT_WRITER, 
+			   PRODUCT_STATE, 
+			   PRODUCT_WDATE, 
+			   PRODUCT_IMG1
 		  FROM (SELECT ROWNUM NUM, p.* 
 		          FROM (SELECT * 
 		                  FROM PRODUCT
@@ -101,7 +131,13 @@
 	</select>
 	
 	<select id="buySelectCount" resultType="co.market.lemon.mypage.service.MypageVO">
-		SELECT PRODUCT_ID, PRODUCT_CATEGORY, PRODUCT_TITLE, PRODUCT_WRITER, PRODUCT_STATE, PRODUCT_WDATE, PRODUCT_IMG1
+		SELECT PRODUCT_ID, 
+			   PRODUCT_CATEGORY, 
+			   PRODUCT_TITLE, 
+			   PRODUCT_WRITER, 
+			   PRODUCT_STATE, 
+			   PRODUCT_WDATE, 
+			   PRODUCT_IMG1
 		  FROM (SELECT ROWNUM NUM, p.* 
 		          FROM (SELECT * 
 		                  FROM PRODUCT

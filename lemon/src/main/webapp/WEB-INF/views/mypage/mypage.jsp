@@ -13,6 +13,10 @@
 	display: flex;
 	justify-content: center;
 }
+.profileIcon{
+	display: flex;
+	align-items: center;
+}
 
 .icon{
 	display: inline-block;
@@ -23,19 +27,23 @@
     text-align: center;
     font-size: 12px;
     color: #fff;
-    background: #d1c286;
     margin-right: 10px;
+    overflow: hidden;
     }
+    
+.myIcon{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
     
 .search-wrap{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
-.profileIcon{
-	display: flex;
-	align-items: center;
-}
+
+
 
 .info {
 	display: flex;
@@ -44,9 +52,6 @@
 	font-weight: bold;
 }
 
-.info a{
-	
-}
 
 
 .search-wrap .update a{
@@ -89,7 +94,21 @@
 							<div class="search-wrap" style="margin-left: 20px; width: 400px;">
 								<div class="profileIcon">
 									<span class="icon">
-										<span>레몬마켓</span>
+										<c:if test="${grade eq 'N'}">
+											<img class="myIcon"src="images/nlemon.jpg">
+										</c:if>
+										<c:if test="${grade eq 'R'}">
+											<img class="myIcon"src="images/rlemon.jpg">
+										</c:if>
+										<c:if test="${grade eq 'V'}">
+											<img class="myIcon"src="images/vlemon.PNG">
+										</c:if>
+										<c:if test="${grade eq 'VV'}">
+											<img class="myIcon"src="images/vvlemon.PNG">
+										</c:if>
+										<c:if test="${grade eq 'T'}">
+											<img class="myIcon"src="images/tlemon.jpg">
+										</c:if>
 									</span>
 									<div class="info">
 										<span>${name}</span>

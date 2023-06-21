@@ -38,13 +38,13 @@
 	
 	<update id="memberUpdate" parameterType="co.market.lemon.member.service.MemberVO">	
 		UPDATE MEMBER
-		SET MEMBER_PW = #{memberPw}, MEMBER_TEL = #{memberTel}
-		WHERE MEMBER_ID = #{memberId}
+		   SET MEMBER_PW = #{memberPw}, MEMBER_TEL = #{memberTel}
+		 WHERE MEMBER_ID = #{memberId}
 	</update>
 	
 	<delete id="memberDelete" parameterType="co.market.lemon.member.service.MemberVO">
 		DELETE FROM MEMBER
-		WHERE MEMBER_ID = #{memberId}
+		 WHERE MEMBER_ID = #{memberId}
 	</delete>
 	
 	<select id="memberLogin" resultType="co.market.lemon.member.service.MemberVO">
@@ -88,6 +88,13 @@
 		SELECT COUNT(*)
 		  FROM PRODUCT
 		 WHERE PRODUCT_WRITER = #{memberName} AND PRODUCT_INFO='팝니다'
+	</select>
+	
+	<select id="buyTotalCount" resultType="int">
+		SELECT COUNT(*)
+		  FROM PRODUCT
+		 WHERE (PRODUCT_BUYER = #{memberName} AND PRODUCT_INFO='팝니다')
+		       OR (PRODUCT_WRITER = #{memberName} AND PRODUCT_INFO='삽니다')
 	</select>
 	
 	<update id="updateGradeR" >

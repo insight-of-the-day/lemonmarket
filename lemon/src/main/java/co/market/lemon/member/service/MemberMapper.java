@@ -26,6 +26,7 @@ public interface MemberMapper {
 	
 	//회원 등급 조정
 	int sellTotalCount(MemberVO vo);
+	int buyTotalCount(MemberVO vo);
 	int updateGradeR(MemberVO vo);
 	int updateGradeV(MemberVO vo);
 	int updateGradeVV(MemberVO vo);
