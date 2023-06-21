@@ -182,16 +182,16 @@
 
 							<div class="fh5co-tab-content tab-content active"
 								data-tab-content="1">
-								<div style="font-size:15px; class="col-md-10 col-md-offset-1" ">
+								<div style="font-size:15px; class="col-md-10 col-md-offset-1">
 									<span class="price">가격 : ${product.productPrice}</span>
-									<h2>${product.productTitle}</h2>
-									<div class="row">
-										<div class="col-md-6">
+									<h1 align="center">${product.productTitle}</h1>
+									<div >
+										<div class="col-md-6" align="center" style="width: 100%;">
 											<%
 											pageContext.setAttribute("crcn", "\r\n");
 											pageContext.setAttribute("br", "<br/>");
 											%>
-											<p style="width: 800px">${fn:replace(product.productSubject, crcn,br) }</p>
+											<h2 align="center" style="width: 100%;">${fn:replace(product.productSubject, crcn,br) }</h2>
 										</div>
 									</div>
 
