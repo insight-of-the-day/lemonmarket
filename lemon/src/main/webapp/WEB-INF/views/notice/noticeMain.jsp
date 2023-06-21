@@ -19,24 +19,24 @@
 		</script>
 	</c:if>
 
-	<section class="notice" >
+	<section class="notice">
 		<div class="page-title">
 			<div class="container">
-				<h3 style="margin-bottom:2px;">공지사항</h3>
+				<h3 style="margin-bottom: 2px;">공지사항</h3>
 			</div>
 		</div>
-<!-- 		공지글 작성 버튼 -->
+		<!-- 		공지글 작성 버튼 -->
 		<div align="center">
-				<c:if test="${not empty id }">
-					<p>
-						<button type="button" onclick="location.href='noticeInsertForm.do'"
-							class="btn btn-primary btn-outline btn-lg"
-							style="border-radius:0.375rem; background: transparent; width:113.906px; padding-left: 0px; margin-bottom:30px;">작성</button>
-					</p>
-				</c:if>
+			<c:if test="${grade eq 'A'}">
+				<p>
+					<button type="button" onclick="location.href='noticeInsertForm.do'"
+						class="btn btn-primary btn-outline btn-lg"
+						style="border-radius: 0.375rem; background: transparent; width: 113.906px; padding-left: 0px; margin-bottom: 30px;">작성</button>
+				</p>
+			</c:if>
 		</div>
 
-		
+
 		<div id="board-list">
 			<div class="container">
 				<table class="board-table">
@@ -49,7 +49,8 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${notices }" var="n">
-							<tr onclick="noticeChoice(${n.noticeId})" style="color:black; cursor:pointer;" class="hover">
+							<tr onclick="noticeChoice(${n.noticeId})"
+								style="color: black; cursor: pointer;" class="hover">
 								<td>${n.noticeId }</td>
 								<th>${n.noticeTitle }</th>
 								<td>${n.noticeWdate }</td>

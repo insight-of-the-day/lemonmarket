@@ -32,7 +32,7 @@
 			</tbody>
 		</table>
 		<div align="center">
-			<button type="submit">작성완료</button>
+			<button type="submit" class="btn-primary">작성완료</button>
 		</div>
 	</form>
 </body>
