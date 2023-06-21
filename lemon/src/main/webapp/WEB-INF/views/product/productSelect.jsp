@@ -13,7 +13,7 @@
 	margin-right: 4px;
 	margin-bottom: 4px;
 	font-family: "Montserrat", Arial, sans-serif;
-	font-size: 13px;
+	font-size: 16px;
 	font-weight: 300;
 	padding: 18px 36px;
 	background: transparent;
@@ -69,54 +69,61 @@
 	<div id="fh5co-product">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-10 col-md-offset-1 animate-box">
+				<div class="col-md-10 col-md-offset-1 ">
 					<div class="owl-carousel owl-carousel-fullwidth product-carousel">
 						<div class="item">
-							<div class="active text-center">
-								<c:if test="${p.productImg1  eq null}">
-									<img class="card-img-top" src="attach/기본이미지.png" alt="..." />
+								<c:if test="${product.productImg1  eq null}">
+									<img class="card-img-top" src="attach/기본이미지.png" alt="..." style="width: 850px; height: 700px; margin-left: 150px; margin-top: 100px;"/>
 								</c:if>
-								<c:if test="${p.productImg1 ne null}">
-									<img class="card-img-top" src="attach/${p.productImg1}"
-										alt="..." />
+								<c:if test="${product.productImg1 ne null}">
+									<img class="card-img-top" src="attach/${product.productImg1}"
+										alt="..." style="width: 850px; height: 700px; margin-left: 150px; margin-top: 100px;"/>
 								</c:if>
-							</div>
 						</div>
 						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
-							</div>
+								<c:if test="${product.productImg1  eq null}">
+									<img class="card-img-top" src="attach/기본이미지.png" alt="..." style="width: 850px; height: 700px; margin-left: 150px; margin-top: 100px;"/>
+								</c:if>
+								<c:if test="${product.productImg1 ne null}">
+									<img class="card-img-top" src="attach/${product.productImg1}"
+										alt="..." style="width: 850px; height: 700px; margin-left: 150px; margin-top: 100px;"/>
+								</c:if>
 						</div>
 						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
-							</div>
+								<c:if test="${product.productImg1  eq null}">
+									<img class="card-img-top" src="attach/기본이미지.png" alt="..." style="width: 850px; height: 700px; margin-left: 150px; margin-top: 100px;"/>
+								</c:if>
+								<c:if test="${product.productImg1 ne null}">
+									<img class="card-img-top" src="attach/${product.productImg1}"
+										alt="..." style="width: 850px; height: 700px; margin-left: 150px; margin-top: 100px;"/>
+								</c:if>
 						</div>
 						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
-							</div>
+								<c:if test="${product.productImg1  eq null}">
+									<img class="card-img-top" src="attach/기본이미지.png" alt="..." style="width: 850px; height: 700px; margin-left: 150px; margin-top: 100px;"/>
+								</c:if>
+								<c:if test="${product.productImg1 ne null}">
+									<img class="card-img-top" src="attach/${product.productImg1}"
+										alt="..." style="width: 850px; height: 700px; margin-left: 150px; margin-top: 100px;"/>
+								</c:if>
 						</div>
 						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
-							</div>
+								<c:if test="${product.productImg1  eq null}">
+									<img class="card-img-top" src="attach/기본이미지.png" alt="..." style="width: 850px; height: 700px; margin-left: 150px; margin-top: 100px;"/>
+								</c:if>
+								<c:if test="${product.productImg1 ne null}">
+									<img class="card-img-top" src="attach/${product.productImg1}"
+										alt="..." style="width: 850px; height: 700px; margin-left: 150px; margin-top: 100px;"/>
+								</c:if>
 						</div>
 					</div>
 					<div class="row animate-box">
 						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-							<h1>${product.productTitle}</h1>
-							<h2>거래 상태 : ${product.productState}</h2>
-							<h2>${product.productWriter}</h2>
-							<h2>조회수 : ${product.productView}</h2>
+							<h2>${product.productTitle}</h2>
+							<h3>거래 상태 : ${product.productState}</h3>
+							<h5>${product.productWriter}</h5>
+							<h5>조회수 : ${product.productView}</h5>
+
 							<form id="frm" method="post">
 								<input type="hidden" id="productId" name="productId"
 									value="${product.productId}" /> <input type="hidden"
@@ -126,7 +133,7 @@
 									<c:choose>
 										<c:when test="${heartVal eq 0 }">
 											<input type="button" id="heart" class="btnHeart" value="찜하기"
-												style="width: 105px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px; height: 60px; padding-top: 0px;">
+											 style="width: 105px; padding-right: 0px; padding-left: 0px; padding-bottom: 0px; height: 60px; padding-top: 0px;">
 										</c:when>
 										<c:otherwise>
 											<input type="button" id="heart" class="btnHeart" value="찜취소">
@@ -163,8 +170,8 @@
 					<div class="fh5co-tabs animate-box">
 						<ul class="fh5co-tab-nav" style="text-align: center">
 							<li class="active"><a href="#" data-tab="1"
-								style="margin-left: 80px;"><span class="icon visible-xs"><i
-										class="icon-file"></i></span><span class="fontSize" class="hidden-xs" > 상품소개</span></a></li>
+								style="margin-left: 80px;"><span class="icon visible-xs">
+                <i class="icon-file"></i></span><span class="fontSize" class="hidden-xs" > 상품소개</span></a></li>
 							<li class="active" style="margin-left:250px"><a href="#" data-tab="2"><span
 									class="icon visible-xs"><i class="icon-bar-graph"></i></span><span
 									class="fontSize" class="hidden-xs" >댓글</span></a></li>

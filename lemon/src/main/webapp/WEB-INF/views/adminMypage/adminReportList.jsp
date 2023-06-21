@@ -63,7 +63,7 @@
 							<tbody>
 								<c:forEach items="${reports }" var="n">
 									<tr
-										onclick="reportChoice('${n.reportId }','${n.reportSuspect }')">
+										onclick="reportChoice('${n.reportId }','${n.reportSuspect }')" style="color:black; cursor:pointer;" class="hover">
 										<td>${n.reportId }</td>
 										<td>${n.productId }</td>
 										<td>${n.reportReporter }</td>
