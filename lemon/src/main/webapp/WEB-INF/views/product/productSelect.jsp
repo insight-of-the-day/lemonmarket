@@ -163,7 +163,8 @@
 										<input type="hidden" id="productKeepGoing" name="productKeepGoing">
 										<c:forEach items="${replyList}" var="replyList">
 											<c:choose>
-												<c:when test="${(replyList.replySecret eq 'n') || ((replyList.replySecret eq 'y') && (name eq product.productWriter || name eq replyList.replyWriter || grade eq 'A'))}">
+												<c:when test="${(replyList.replySecret eq 'n') || ((replyList.replySecret eq 'y') && (name eq product.productWriter || name eq replyList.replyWriter || grade eq 'A'
+																|| name eq replyList.parentWriter))}">
 													<div>
 														<c:if test="${replyList.replyLevel > 1}">
 															&nbsp;&nbsp;&nbsp;&nbsp;<p>Re:</p>
@@ -208,15 +209,13 @@
 									</form>
 
 										<c:if test="${not empty id}">
-											<form name="replyInsertForm" action="replyInsert.do"
-												method="post">
+											<form id="replyInsertForm">
 												<input type="hidden" id="productId" name="productId"
 													value="${product.productId}" />
 												<div>
 													<label for="replyWriter">댓글 작성자</label><input type="text"
 														id="replyWriter" name="replyWriter"
-														value=${name
-														} readonly="readonly" /> <br>
+														value=${name} readonly="readonly" /> <br>
 													<label for="replySubject">댓글 내용</label>
 													<textarea rows="1" cols="100" id="replySubject"
 														name="replySubject"></textarea>
@@ -224,7 +223,8 @@
 														type="checkbox" id="replySecret" name="replySecret" />
 												</div>
 												<div>
-													<button type="submit"
+													<button type="button"
+														onclick="replyInsert()"
 														class="btn btn-primary btn-outline btn-lg">댓글 작성</button>
 												</div>
 											</form>
@@ -240,7 +240,7 @@
 	</div>
 
 
-	<script type="text/javascript">	    
+	<script type="text/javascript">
 	    let heart = document.getElementById("heart");
 //	   	heart.addEventListener("click", clickHeart);
 		heart.addEventListener("click", heartCheck);
@@ -282,6 +282,62 @@
 			}
 		}
   		
+
+  		var httpRequest = null;
+  		
+  	    function getXMLHttpRequest(){
+  	        var httpRequest = null;
+  	    
+  	        if(window.ActiveXObject){
+  	            try{
+  	                httpRequest = new ActiveXObject("Msxml2.XMLHTTP");    
+  	            } catch(e) {
+  	                try{
+  	                    httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+  	                } catch (e2) { httpRequest = null; }
+  	            }
+  	        }
+  	        else if(window.XMLHttpRequest){
+  	            httpRequest = new window.XMLHttpRequest();
+  	        }
+  	        return httpRequest;    
+  	    }
+  		
+        function replyInsert() {
+            var form = document.getElementById("replyInsertForm");
+            
+            var productId = form.productId.value;
+            var replyWriter = form.replyWriter.value;
+            var replySubject = form.replySubject.value;
+            var replySecretCheckbox = form.replySecret;
+            var replySecret = replySecretCheckbox.checked ? "on" : "";
+            
+            if(!replySubject)
+            {
+                alert("내용을 입력하세요.");
+                return false;
+            }
+            else
+            {    
+        		var param= "productId=" + productId + "&replyWriter=" + replyWriter +
+        		"&replySubject=" + replySubject + "&replySecret=" + replySecret;
+                    
+                httpRequest = getXMLHttpRequest();
+                httpRequest.onreadystatechange = checkFunc;
+                httpRequest.open("POST", "replyInsert.do", true);    
+                httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8'); 
+                httpRequest.send(param);
+            }
+        }
+        
+        function checkFunc(){
+            if(httpRequest.readyState == 4){
+                var resultText = httpRequest.responseText;
+                if(resultText == 1){ 
+                    document.location.reload();
+                }
+            }
+        }
   		
 
 		function replyUpdate(key) {

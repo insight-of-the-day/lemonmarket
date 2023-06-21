@@ -116,7 +116,6 @@ footer > p > a {
                 <label>Password:</label>
                 <input id="pass" class="field_class" name="memberPw" type="password" required="required">
                 <button class="submit_class" type="submit">login</button>
-                <img height="38px" src="../webapp/images/kakaoLogin.png" />
             </div>
             <div class="info_div">
                 <p>아직 회원이 아니 신가요? <a href="memberInsertForm.do">회원가입 하러가기</a></p>

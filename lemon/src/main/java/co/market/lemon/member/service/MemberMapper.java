@@ -10,8 +10,7 @@ public interface MemberMapper {
 	int memberInsert(MemberVO vo);
 	int memberUpdate(MemberVO vo);
 	int memberDelete(MemberVO vo);
-	
-	int NaverApi(MemberVO vo);
+
 
 	MemberVO memberLogin(MemberVO vo); 
 	

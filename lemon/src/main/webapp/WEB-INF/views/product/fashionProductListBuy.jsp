@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Shop Homepage - Start Bootstrap Template</title>
+<title>패션상품구매</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!--         Bootstrap icons -->
@@ -106,12 +106,22 @@
 			</form>
 		</div>
 	</div>
-	<div>
-		<form action="" id="search" method="post">
-			<input type="text" class="form-control" placeholder="제목으로 검색" style="width: 842px; height: 52px;">
-			<button type="submit" class="btn btn-default btn-block">찾기</button>
-		</form>
-	</div>
+
+
+
+	<div style="display: flex; align-items: center; justify-content: center;">
+	  <form action="productSearch.do" id="search" method="post" style="magin-left:50px; display: flex;">
+			<input type="hidden" name="productCategory" id="productCategory" value="패션">
+		<div>
+			<input type="text" class="form-control" id="productTitle"
+				name="productTitle" placeholder="제목으로 검색" style="width: 680px; height: 52px; border-color:gray-light;">
+			<button type="submit" class="btn btn-default btn-block" style="margin-left:5px; width: 70px; height:52px; border-color:#ced4da; font-color:gray-dark;">찾기</button>
+		</div>
+	  </form>
+  </div>
+
+
+
 	<!-- 페이징 -->
 
 	<div align="center" class="pager">

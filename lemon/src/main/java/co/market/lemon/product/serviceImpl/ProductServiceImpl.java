@@ -15,7 +15,14 @@ public class ProductServiceImpl implements ProductService {
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	ProductMapper map = sqlSession.getMapper(ProductMapper.class);
 	
+	@Override
+	public List<ProductVO> productSearch(@Param("productTitle")String productTitle, @Param("productCategory")String productCategory) {
+		// TODO Auto-generated method stub
+		return map.productSearch(productTitle, productCategory);
+	}
 
+	
+	
 	@Override
 	public ProductVO productSelect(ProductVO vo) {
 		return map.productSelect(vo);
@@ -105,6 +112,26 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return map.selectSellListPaging(startIndex,endIndex, info, category);
 	}
+
+	
+	//메인 서치 페이징 관련 처리
+	@Override
+	public int mainSearchTotal(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.mainSearchTotal(vo);
+	}
+
+	@Override
+	public List<ProductVO> mainSearchPaging(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.mainSearchPaging(vo);
+	}
+
+
+
+
+
+
 
 
 

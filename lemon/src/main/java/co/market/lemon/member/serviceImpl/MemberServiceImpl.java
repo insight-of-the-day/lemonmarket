@@ -2,7 +2,6 @@ package co.market.lemon.member.serviceImpl;
 
 import java.util.List;
 
-
 import org.apache.ibatis.session.SqlSession;
 
 import co.market.lemon.common.DataSource;
@@ -81,12 +80,6 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> selectMemberListPaging(MemberVO vo) {
 		
 		return map.selectMemberListPaging(vo);
-	}
-	
-	@Override
-	public int NaverApi(MemberVO vo) {
-		
-		return map.NaverApi(vo);
 	}
 
 
