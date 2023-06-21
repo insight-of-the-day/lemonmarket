@@ -20,13 +20,10 @@ public class UpdateGrade implements Command {
 		
 		vo.setMemberName((String) session.getAttribute("name"));		
 		vo.setMemberId((String) session.getAttribute("id"));
-	
-		
-		
-		
+
 		
 		int sTotalCount = ms.sellTotalCount(vo);
-		int bTotalCount = ms.sellTotalCount(vo);
+		int bTotalCount = ms.buyTotalCount(vo);
 		
 		int n=0;
 		if(sTotalCount>=100 && bTotalCount>=100) {

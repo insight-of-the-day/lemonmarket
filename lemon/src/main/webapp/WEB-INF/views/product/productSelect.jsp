@@ -7,91 +7,117 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.btnHeart{
+  margin-right: 4px;
+  margin-bottom: 4px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 18px 36px;
+  background: transparent;
+  color: #d1c286;
+  border: 2px solid #d1c286;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.btnHeart:hover{
+  background: #d1c286;
+  border-color: #d1c286;
+  color: #fff
+}
+.heartActive{
+  background: #d1c286 !important;
+  color: #fff !important;
+  border: 2px solid #d1c286 !important;
+}
+
+
+</style>
 </head>
 <body>
 	<div id="fh5co-product">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-10 col-md-offset-1 animate-box">
-					<div class="owl-carousel owl-carousel-fullwidth product-carousel">
-						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
+					<div class="col-md-10 col-md-offset-1 animate-box">
+						<div class="owl-carousel owl-carousel-fullwidth product-carousel">
+							<div class="item">
+								<div class="active text-center">
+									<figure>
+										<img src="attach/${product.productImg1}" alt="user">
+									</figure>
+								</div>
+							</div>
+							<div class="item">
+								<div class="active text-center">
+									<figure>
+										<img src="attach/${product.productImg1}" alt="user">
+									</figure>
+								</div>
+							</div>
+							<div class="item">
+								<div class="active text-center">
+									<figure>
+										<img src="attach/${product.productImg1}" alt="user">
+									</figure>
+								</div>
+							</div>
+							<div class="item">
+								<div class="active text-center">
+									<figure>
+										<img src="attach/${product.productImg1}" alt="user">
+									</figure>
+								</div>
+							</div>
+							<div class="item">
+								<div class="active text-center">
+									<figure>
+										<img src="attach/${product.productImg1}" alt="user">
+									</figure>
+								</div>
 							</div>
 						</div>
-						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
+						<div class="row animate-box">
+							<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+								<h2>${product.productTitle}</h2>
+								<h3>거래 상태 : ${product.productState}</h3>
+								<h5>${product.productWriter}</h5>
+								<form id="frm" method="post">
+									<input type="hidden" id="productId" name="productId"
+										value="${product.productId}" /> <input type="hidden"
+										id="productWdate" name="productWdate"
+										value="${product.productWdate}" />
+									<c:if test="${name ne product.productWriter && not empty id}">
+										<c:choose>
+											<c:when test="${heartVal eq 0 }">
+												<input type="button" id="heart" class="btnHeart" value="찜하기">
+											</c:when>
+											<c:otherwise>
+												<input type="button" id="heart"	class="btnHeart" value="찜취소">
+											</c:otherwise>
+										</c:choose>
+										<button type="button" onclick="productReport()"
+											class="btn btn-primary btn-outline btn-lg">신고</button>
+									</c:if>
+									<c:if test="${name eq product.productWriter || grade eq 'A'}">
+										<input type="submit"
+											onclick="javascript: frm.action='productUpdateForm.do'"
+											class="btn btn-primary btn-outline btn-lg" value="수정">
+										<input type="submit"
+											onclick="javascript: frm.action='productDelete.do'"
+											class="btn btn-primary btn-outline btn-lg" value="삭제">
+									</c:if>
+									<c:if test="${name eq product.productWriter}">
+										<input type="button" onclick="pullUpCheck()"
+											class="btn btn-primary btn-outline btn-lg" value="끌올">
+									</c:if>
+								</form>
 							</div>
 						</div>
 					</div>
-					<div class="row animate-box">
-						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-							<h2>${product.productTitle}</h2>
-							<h3>거래 상태 : ${product.productState}</h3>
-							<h5>${product.productWriter}</h5>
-							<p>
-							<form id="frm" method="post">
-								<input type="hidden" id="productId" name="productId"
-									value="${product.productId}" /> <input type="hidden"
-									id="productWdate" name="productWdate"
-									value="${product.productWdate}" />
-								<c:if test="${name ne product.productWriter && not empty id}">
-									<c:choose>
-										<c:when test="${heartVal eq 0 }">
-											<input type="button" id="heart"
-												class="btn btn-primary btn-outline btn-lg" value="찜하기">
-										</c:when>
-										<c:otherwise>
-											<input type="button" id="heart"
-												class="btn btn-primary btn-outline btn-lg" value="찜취소">
-										</c:otherwise>
-									</c:choose>
-									<button type="button" onclick="productReport()"
-										class="btn btn-primary btn-outline btn-lg">신고</button>
-								</c:if>
-								<c:if test="${name eq product.productWriter || grade eq 'A'}">
-									<input type="submit"
-										onclick="javascript: frm.action='productUpdateForm.do'"
-										class="btn btn-primary btn-outline btn-lg" value="수정">
-									<input type="submit"
-										onclick="javascript: frm.action='productDelete.do'"
-										class="btn btn-primary btn-outline btn-lg" value="삭제">
-								</c:if>
-								<c:if test="${name eq product.productWriter}">
-									<input type="button" onclick="pullUpCheck()"
-										class="btn btn-primary btn-outline btn-lg" value="끌올">
-								</c:if>
-							</form>
-							</p>
-						</div>
-					</div>
-				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
@@ -210,6 +236,8 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
 
 
 	<script type="text/javascript">
@@ -241,18 +269,20 @@
   		function htmlProcess(data){
   			let frm = document.getElementById("frm");
 			if(data == 'Heart'){
-				alert("관심 이 등록되었습니다.");
-				heart.value = "찜취소";
+				alert("관심 상품이 등록되었습니다.");
+				heart.value = "찜취소";		
+				heart.classList.add("heartActive");
 // 				frm.action="addHeart.do";	
 				
 			}else{
-				alert("관심 이 해제되었습니다.")
+				alert("관심 상품이 해제되었습니다.")
 				heart.value ="찜하기";
-// 		    	frm.action="deleteHeart.do";
-				
+				heart.classList.remove("heartActive");
+// 		    	frm.action="deleteHeart.do";	
 			}
 		}
   		
+
   		var httpRequest = null;
   		
   	    function getXMLHttpRequest(){
