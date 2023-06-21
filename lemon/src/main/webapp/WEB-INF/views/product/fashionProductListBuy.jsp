@@ -85,8 +85,8 @@
 											alt="..." />
 										</c:if>
 										<c:if test="${p.productImg1 ne null}">
-										<img class="card-img-top" src="attach/${p.productImg1}"
-											alt="..." />
+											<img class="card-img-top" src="attach/${p.productImg1}"
+												alt="..." />
 										</c:if>
 										<!-- Product details-->
 										<div class="card-body p-4">
