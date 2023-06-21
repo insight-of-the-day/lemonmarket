@@ -5,7 +5,7 @@ import java.util.List;
 public interface ReplyMapper {
 	
 	List<ReplyVO> replyList(int productId);
-	
+
 	ReplyVO replySelect(int replyId);
 	
 	int replyInsert(ReplyVO vo);
@@ -15,7 +15,5 @@ public interface ReplyMapper {
 	int replyDelete(ReplyVO vo);
 	
 	int replyNameDelete(ReplyVO vo);
-	
-
 
 }

@@ -17,7 +17,7 @@
 					<td><input
 						style="width: 1004px; margin-bottom: 10px; margin-left: 450px;"
 						type="text" id="noticeTitle" name="noticeTitle" placeholder="수정할 제목을 입력하세요"
-						"></td>
+						value="${notice.noticeTitle} "></td>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,7 +25,7 @@
 				<tr>
 					<td><textarea 
 					style="width: 1004px; height: 304px; margin-left: 450px;"
-					id="noticeSubject" name="noticeSubject" rows="10" cols="60" wrap=on placeholder="공지를 입력하세요"></textarea></td>
+					id="noticeSubject" name="noticeSubject" rows="10" cols="60" wrap=on placeholder="공지를 입력하세요">${notice.noticeSubject}</textarea></td>
 				</tr>
 			</tbody>
 		</table>
