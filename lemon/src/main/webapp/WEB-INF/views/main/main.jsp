@@ -114,11 +114,11 @@
 				</li>
 			</ul>
 			<ol class="flex-control-nav flex-control-paging">
-				<li><a href="#" class="flex-active">1</a></li>
-				<li><a href="#" class="">2</a></li>
-				<li><a href="#" class="">3</a></li>
-				<li><a href="#" class="">4</a></li>
-				<li><a href="#" class="">5</a></li>
+				<li><a href="main.do" class="flex-active">1</a></li>
+				<li><a href="main.do" class="flex-active">2</a></li>
+				<li><a href="main.do" class="flex-active">3</a></li>
+				<li><a href="main.do" class="flex-active">4</a></li>
+				<li><a href="main.do" class="flex-active">5</a></li>
 			</ol>
 			<ul class="flex-direction-nav">
 				<li class="flex-nav-prev"><a class="flex-prev" href="#">Previous</a></li>

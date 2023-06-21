@@ -23,7 +23,9 @@ import co.market.lemon.product.serviceImpl.ProductServiceImpl;
 //@WebServlet("/utils/fileUpload")
 public class ProductInsert implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+		System.out.println(request.getParameter("productCategory"));
+		
+		
 			String realPath = request.getServletContext().getRealPath("attach");
 
 			// 위 경로의 디렉토리가 존재하지 않으면 새로 생성

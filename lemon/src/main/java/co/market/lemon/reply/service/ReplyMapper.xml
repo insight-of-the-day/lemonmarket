@@ -17,7 +17,7 @@
 		CONNECT BY PRIOR REPLY_ID = REPLY_PARENT
 		ORDER SIBLINGS BY REPLY_PARENT ASC, REPLY_ID ASC
 	</select>
-	
+
 	<select id="replySelect" resultType="co.market.lemon.reply.service.ReplyVO">
 		SELECT * FROM REPLY
 		WHERE REPLY_ID = #{replyId}

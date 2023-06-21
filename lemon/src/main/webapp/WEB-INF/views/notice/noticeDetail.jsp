@@ -17,22 +17,17 @@
 		<table class="table">
 			<thead>
 				<tr id= "title">
-					<th style="text-align:left; width: 200px; ">${notice.noticeId }</th>
-					<th style="text-align:center; width:400px; ">${notice.noticeTitle }</th>
-					<th style="text-align:right;width:350px;">${notice.noticeWdate }</th>
+					<th style="text-align:left; width: 400px; ">${notice.noticeId }</th>
+					<th style="text-align:center; width:400px;">${notice.noticeTitle }</th>
+					<th style="text-align:right;width: 400px;">${notice.noticeWdate }</th>
 				</tr>
-<!-- 				<tr id= "title" class="row"> -->
-<%-- 					<th scope="col" style="width:350; align:left;">${notice.noticeId }</th> --%>
-<%-- 					<th scope="col" style="width:370; align:center;">${notice.noticeTitle }</th> --%>
-<%-- 					<th scope="col" style="width:350; align:right;">${notice.noticeWdate }</th> --%>
-<!-- 				</tr> -->
 			</thead>
 			<tbody>
 				<tr>
 				<%
 				pageContext.setAttribute("crcn","\r\n");
 				pageContext.setAttribute("br","<br/>");%>
-				<td colspan="3" style="line-height: 35px;">${fn:replace(notice.noticeSubject, crcn,br) }
+				<td colspan="3" style=" line-height: 35px; height:250px; ">${fn:replace(notice.noticeSubject, crcn,br) }
 				</td>
 				</tr>
 			</tbody>
@@ -43,9 +38,9 @@
 				<input type="hidden" name="noticeId" value="${notice.noticeId }">
 				<c:if test="${grade eq 'A'}">
 					<button type="button" onclick="callFunction('E')"
-						style="margin-top: 10px;">수정</button>
+						class="btn btn-primary btn-outline btn-lg" style="margin-top: 80px; margin-bottom:60px; border-radius:5px;">수정</button>
 					<button type="button" onclick="callFunction('D')"
-						style="margin-top: 10px;">삭제</button>
+						class="btn btn-primary btn-outline btn-lg" style="margin-top: 80px; margin-bottom:60px; border-radius:5px;">삭제</button>
 				</c:if>
 			</div>
 

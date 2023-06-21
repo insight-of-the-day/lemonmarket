@@ -45,6 +45,8 @@ public class ProductUpdate implements Command {
 		vo.setProductImg1(multpartRequest.getOriginalFileName("pfile"));
 		vo.setProductImgDir1(realPath);
 
+
+
 		int n = ps.productUpdate(vo);
 
 		if (n != 0)

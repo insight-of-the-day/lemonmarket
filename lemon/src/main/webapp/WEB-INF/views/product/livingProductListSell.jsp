@@ -32,10 +32,12 @@
 			<br>
 			<div align="center">
 				<c:if test="${not empty id }">
-					<p>
-						<a href="productInsertForm.do"
-							class="btn btn-primary btn-outline btn-lg">글 작성</a>
-					</p>
+					<form id="insert" action="productInsertForm.do" method="post">
+						<input type="hidden" name="productCategory" value="리빙"> <input
+							type="hidden" name="productInfo" value="팝니다">
+						<button type="submit" class="btn btn-primary btn-outline btn-lg">
+							글 작성</button>
+					</form>
 				</c:if>
 			</div>
 			<c:forEach items="${products}" var="p">
@@ -49,8 +51,13 @@
 								<div class="col mb-5" style="width: 830px;">
 									<div class="card h-100">
 										<!-- Product image-->
-										<img class="card-img-top" src="attach/${p.productImg1}"
-											alt="..." />
+										<c:if test="${p.productImg1  eq null}">
+											<img class="card-img-top" src="attach/기본이미지.png" alt="..." />
+										</c:if>
+										<c:if test="${p.productImg1 ne null}">
+											<img class="card-img-top" src="attach/${p.productImg1}"
+												alt="..." />
+										</c:if>
 										<!-- Product details-->
 										<div class="card-body p-4">
 											<div class="text-center">
@@ -60,10 +67,10 @@
 												<h2>${p.productPrice }원</h2>
 											</div>
 										</div>
-									
+
+									</div>
 								</div>
 							</div>
-						</div>
 					</section>
 				</div>
 			</c:forEach>
@@ -80,11 +87,15 @@
 		</div>
 	</div>
 
-<!-- 페이지하단 검색 -->
-	<div style="display: flex; align-items: center; justify-content: center;">
-		<form action="productSearch.do" id="search" method="post" style="magin-left:50px; display: flex;"> 
-			<input type="text" class="form-control" placeholder="제목으로 검색" style="width: 680px; height: 52px; border-color:gray-light;">
-			<button type="submit" class="btn btn-default" style="margin-left:5px; width: 70px; height:52px; border-color:#ced4da; font-color:gray-dark;">찾기</button>
+	<!-- 페이지하단 검색 -->
+	<div
+		style="display: flex; align-items: center; justify-content: center;">
+		<form action="productSearch.do" id="search" method="post"
+			style="magin-left: 50px; display: flex;">
+			<input type="text" class="form-control" placeholder="제목으로 검색"
+				style="width: 680px; height: 52px; border-color: gray-light;">
+			<button type="submit" class="btn btn-default"
+				style="margin-left: 5px; width: 70px; height: 52px; border-color: #ced4da; font-color: gray-dark;">찾기</button>
 		</form>
 	</div>
 
