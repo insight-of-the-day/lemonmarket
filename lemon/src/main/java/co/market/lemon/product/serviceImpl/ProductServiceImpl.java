@@ -106,6 +106,20 @@ public class ProductServiceImpl implements ProductService {
 		return map.selectSellListPaging(startIndex,endIndex, info, category);
 	}
 
+	
+	//메인 서치 페이징 관련 처리
+	@Override
+	public int mainSearchTotal(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.mainSearchTotal(vo);
+	}
+
+	@Override
+	public List<ProductVO> mainSearchPaging(ProductVO vo) {
+		// TODO Auto-generated method stub
+		return map.mainSearchPaging(vo);
+	}
+
 
 
 
