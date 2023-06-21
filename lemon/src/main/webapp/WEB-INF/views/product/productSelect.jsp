@@ -123,7 +123,7 @@
 							<h3>거래 상태 : ${product.productState}</h3>
 							<h5>${product.productWriter}</h5>
 							<h5>조회수 : ${product.productView}</h5>
-
+              
 							<form id="frm" method="post">
 								<input type="hidden" id="productId" name="productId"
 									value="${product.productId}" /> <input type="hidden"

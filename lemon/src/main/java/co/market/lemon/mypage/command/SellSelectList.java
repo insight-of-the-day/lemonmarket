@@ -1,7 +1,9 @@
 package co.market.lemon.mypage.command;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,9 +39,21 @@ public class SellSelectList implements Command {
 		request.setAttribute("sellList", sellList);	
 		
 		sellList2 = ms.sellSelectList(memberName);
-		request.setAttribute("sellList2", sellList2);	
+		request.setAttribute("sellList2", sellList2);
+		
+		ReplyService rs = new ReplyServiceImpl();
+		List<ReplyVO> replyList = new ArrayList<ReplyVO>();
+		
+		HashMap<Integer, Object> pMap = new HashMap<>();
+		for(MypageVO mvo : sellList2) {
+			int pId = mvo.getProductId();
+			replyList = rs.replyList(mvo.getProductId());
+			pMap.put(pId, replyList);
+		}
+		request.setAttribute("pMap", pMap);
 
 
+		
 		return "mypage/sellSelectList";
 	}
 

@@ -81,16 +81,33 @@
 									<th scope="col">제목</th>
 									<th scope="col">거래상태</th>
 									<th scope="col">작성일자</th>
+									<th scope="col">댓글 수</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach items="${buyList}" var="b">
 									<tr>
-										<td>${b.productCategory}</td>
-										<td><div class='myDiv' onclick='productChoice(${b.productId})'><img class="selectImg" src="attach/${b.productImg1}"></div></td>
+										<td>${b.productCategory}</td>				
+										<td>
+											<div class='myDiv' onclick='productChoice(${b.productId})'>
+												<c:if test="${b.productImg1 eq null}" >
+													<img class="selectImg" src="attach/기본이미지.png" alt="..." />
+												</c:if>
+												<c:if test="${b.productImg1 ne null}">
+													<img class="selectImg" src="attach/${b.productImg1}" alt="..." />
+												</c:if>
+											</div>
+										</td>
 										<td><div class='myDiv' onclick='productChoice(${b.productId})'>${b.productTitle}</div></td>
 										<td>${b.productState}</td>
 										<td>${b.productWdate}</td>
+										<td>   
+											<c:forEach items="${pMap}" var="entry" varStatus="status">  
+											   <c:if test="${b.productId eq entry.key}">
+											  		${fn:length(entry.value)} 
+											   </c:if>
+											</c:forEach>
+										</td>
 									</tr>
 								</c:forEach>
 								<c:if test="${empty buyList}">
