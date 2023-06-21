@@ -121,7 +121,7 @@
 						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 							<h2>${product.productTitle}</h2>
 							<h3>거래 상태 : ${product.productState}</h3>
-							<h3>${product.productWriter}</h3>
+							<h3>작성자 :${product.productWriter}</h3>
 							<h3>조회수 : ${product.productView}</h3>
               
 							<form id="frm" method="post">
