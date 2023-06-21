@@ -89,7 +89,12 @@ public class MemberServiceImpl implements MemberService {
 	public int sellTotalCount(MemberVO vo) {
 		return map.sellTotalCount(vo);
 	}
-
+	
+	@Override
+	public int buyTotalCount(MemberVO vo) {		
+		return map.buyTotalCount(vo);
+	}
+	
 	@Override
 	public int updateGradeR(MemberVO vo) {
 		return map.updateGradeR(vo);
@@ -110,5 +115,7 @@ public class MemberServiceImpl implements MemberService {
 	public String passwordCheck(String id) {
 		return map.passwordCheck(id);
 	}
+
+	
 
 }

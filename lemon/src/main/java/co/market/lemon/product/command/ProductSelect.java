@@ -37,10 +37,6 @@ public class ProductSelect implements Command {
 		replyList = rs.replyList(vo.getProductId());
 		request.setAttribute("replyList", replyList);
 
-		
-		
-		
-		
 		// 찜상태 불러오기
 		HeartService hs = new HeartServiceImpl();
 		HeartVO hvo = new HeartVO();

@@ -7,91 +7,117 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+.btnHeart{
+  margin-right: 4px;
+  margin-bottom: 4px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 18px 36px;
+  background: transparent;
+  color: #d1c286;
+  border: 2px solid #d1c286;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.btnHeart:hover{
+  background: #d1c286;
+  border-color: #d1c286;
+  color: #fff
+}
+.heartActive{
+  background: #d1c286 !important;
+  color: #fff !important;
+  border: 2px solid #d1c286 !important;
+}
+
+
+</style>
 </head>
 <body>
 	<div id="fh5co-product">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-10 col-md-offset-1 animate-box">
-					<div class="owl-carousel owl-carousel-fullwidth product-carousel">
-						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
+					<div class="col-md-10 col-md-offset-1 animate-box">
+						<div class="owl-carousel owl-carousel-fullwidth product-carousel">
+							<div class="item">
+								<div class="active text-center">
+									<figure>
+										<img src="attach/${product.productImg1}" alt="user">
+									</figure>
+								</div>
+							</div>
+							<div class="item">
+								<div class="active text-center">
+									<figure>
+										<img src="attach/${product.productImg1}" alt="user">
+									</figure>
+								</div>
+							</div>
+							<div class="item">
+								<div class="active text-center">
+									<figure>
+										<img src="attach/${product.productImg1}" alt="user">
+									</figure>
+								</div>
+							</div>
+							<div class="item">
+								<div class="active text-center">
+									<figure>
+										<img src="attach/${product.productImg1}" alt="user">
+									</figure>
+								</div>
+							</div>
+							<div class="item">
+								<div class="active text-center">
+									<figure>
+										<img src="attach/${product.productImg1}" alt="user">
+									</figure>
+								</div>
 							</div>
 						</div>
-						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
-							</div>
-						</div>
-						<div class="item">
-							<div class="active text-center">
-								<figure>
-									<img src="attach/${product.productImg1}" alt="user">
-								</figure>
+						<div class="row animate-box">
+							<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+								<h2>${product.productTitle}</h2>
+								<h3>거래 상태 : ${product.productState}</h3>
+								<h5>${product.productWriter}</h5>
+								<form id="frm" method="post">
+									<input type="hidden" id="productId" name="productId"
+										value="${product.productId}" /> <input type="hidden"
+										id="productWdate" name="productWdate"
+										value="${product.productWdate}" />
+									<c:if test="${name ne product.productWriter && not empty id}">
+										<c:choose>
+											<c:when test="${heartVal eq 0 }">
+												<input type="button" id="heart" class="btnHeart" value="찜하기">
+											</c:when>
+											<c:otherwise>
+												<input type="button" id="heart"	class="btnHeart" value="찜취소">
+											</c:otherwise>
+										</c:choose>
+										<button type="button" onclick="productReport()"
+											class="btn btn-primary btn-outline btn-lg">신고</button>
+									</c:if>
+									<c:if test="${name eq product.productWriter || grade eq 'A'}">
+										<input type="submit"
+											onclick="javascript: frm.action='productUpdateForm.do'"
+											class="btn btn-primary btn-outline btn-lg" value="수정">
+										<input type="submit"
+											onclick="javascript: frm.action='productDelete.do'"
+											class="btn btn-primary btn-outline btn-lg" value="삭제">
+									</c:if>
+									<c:if test="${name eq product.productWriter}">
+										<input type="button" onclick="pullUpCheck()"
+											class="btn btn-primary btn-outline btn-lg" value="끌올">
+									</c:if>
+								</form>
 							</div>
 						</div>
 					</div>
-					<div class="row animate-box">
-						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-							<h2>${product.productTitle}</h2>
-							<h3>거래 상태 : ${product.productState}</h3>
-							<h5>${product.productWriter}</h5>
-							<p>
-							<form id="frm" method="post">
-								<input type="hidden" id="productId" name="productId"
-									value="${product.productId}" /> <input type="hidden"
-									id="productWdate" name="productWdate"
-									value="${product.productWdate}" />
-								<c:if test="${name ne product.productWriter && not empty id}">
-									<c:choose>
-										<c:when test="${heartVal eq 0 }">
-											<input type="button" id="heart"
-												class="btn btn-primary btn-outline btn-lg" value="찜하기">
-										</c:when>
-										<c:otherwise>
-											<input type="button" id="heart"
-												class="btn btn-primary btn-outline btn-lg" value="찜취소">
-										</c:otherwise>
-									</c:choose>
-									<button type="button" onclick="productReport()"
-										class="btn btn-primary btn-outline btn-lg">신고</button>
-								</c:if>
-								<c:if test="${name eq product.productWriter || grade eq 'A'}">
-									<input type="submit"
-										onclick="javascript: frm.action='productUpdateForm.do'"
-										class="btn btn-primary btn-outline btn-lg" value="수정">
-									<input type="submit"
-										onclick="javascript: frm.action='productDelete.do'"
-										class="btn btn-primary btn-outline btn-lg" value="삭제">
-								</c:if>
-								<c:if test="${name eq product.productWriter}">
-									<input type="button" onclick="pullUpCheck()"
-										class="btn btn-primary btn-outline btn-lg" value="끌올">
-								</c:if>
-							</form>
-							</p>
-						</div>
-					</div>
-				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
@@ -137,7 +163,8 @@
 										<input type="hidden" id="productKeepGoing" name="productKeepGoing">
 										<c:forEach items="${replyList}" var="replyList">
 											<c:choose>
-												<c:when test="${(replyList.replySecret eq 'n') || ((replyList.replySecret eq 'y') && (name eq product.productWriter || name eq replyList.replyWriter || grade eq 'A'))}">
+												<c:when test="${(replyList.replySecret eq 'n') || ((replyList.replySecret eq 'y') && (name eq product.productWriter || name eq replyList.replyWriter || grade eq 'A'
+																|| name eq replyList.parentWriter))}">
 													<div>
 														<c:if test="${replyList.replyLevel > 1}">
 															&nbsp;&nbsp;&nbsp;&nbsp;<p>Re:</p>
@@ -182,15 +209,13 @@
 									</form>
 
 										<c:if test="${not empty id}">
-											<form name="replyInsertForm" action="replyInsert.do"
-												method="post">
+											<form id="replyInsertForm">
 												<input type="hidden" id="productId" name="productId"
 													value="${product.productId}" />
 												<div>
 													<label for="replyWriter">댓글 작성자</label><input type="text"
 														id="replyWriter" name="replyWriter"
-														value=${name
-														} readonly="readonly" /> <br>
+														value=${name} readonly="readonly" /> <br>
 													<label for="replySubject">댓글 내용</label>
 													<textarea rows="1" cols="100" id="replySubject"
 														name="replySubject"></textarea>
@@ -198,7 +223,8 @@
 														type="checkbox" id="replySecret" name="replySecret" />
 												</div>
 												<div>
-													<button type="submit"
+													<button type="button"
+														onclick="replyInsert()"
 														class="btn btn-primary btn-outline btn-lg">댓글 작성</button>
 												</div>
 											</form>
@@ -210,9 +236,11 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
 
 
-	<script type="text/javascript">	    
+	<script type="text/javascript">
 	    let heart = document.getElementById("heart");
 //	   	heart.addEventListener("click", clickHeart);
 		heart.addEventListener("click", heartCheck);
@@ -241,17 +269,75 @@
   		function htmlProcess(data){
   			let frm = document.getElementById("frm");
 			if(data == 'Heart'){
-				alert("관심 이 등록되었습니다.");
-				heart.value = "찜취소";
+				alert("관심 상품이 등록되었습니다.");
+				heart.value = "찜취소";		
+				heart.classList.add("heartActive");
 // 				frm.action="addHeart.do";	
 				
 			}else{
-				alert("관심 이 해제되었습니다.")
+				alert("관심 상품이 해제되었습니다.")
 				heart.value ="찜하기";
-// 		    	frm.action="deleteHeart.do";
-				
+				heart.classList.remove("heartActive");
+// 		    	frm.action="deleteHeart.do";	
 			}
 		}
+  		
+
+  		var httpRequest = null;
+  		
+  	    function getXMLHttpRequest(){
+  	        var httpRequest = null;
+  	    
+  	        if(window.ActiveXObject){
+  	            try{
+  	                httpRequest = new ActiveXObject("Msxml2.XMLHTTP");    
+  	            } catch(e) {
+  	                try{
+  	                    httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+  	                } catch (e2) { httpRequest = null; }
+  	            }
+  	        }
+  	        else if(window.XMLHttpRequest){
+  	            httpRequest = new window.XMLHttpRequest();
+  	        }
+  	        return httpRequest;    
+  	    }
+  		
+        function replyInsert() {
+            var form = document.getElementById("replyInsertForm");
+            
+            var productId = form.productId.value;
+            var replyWriter = form.replyWriter.value;
+            var replySubject = form.replySubject.value;
+            var replySecretCheckbox = form.replySecret;
+            var replySecret = replySecretCheckbox.checked ? "on" : "";
+            
+            if(!replySubject)
+            {
+                alert("내용을 입력하세요.");
+                return false;
+            }
+            else
+            {    
+        		var param= "productId=" + productId + "&replyWriter=" + replyWriter +
+        		"&replySubject=" + replySubject + "&replySecret=" + replySecret;
+                    
+                httpRequest = getXMLHttpRequest();
+                httpRequest.onreadystatechange = checkFunc;
+                httpRequest.open("POST", "replyInsert.do", true);    
+                httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8'); 
+                httpRequest.send(param);
+            }
+        }
+        
+        function checkFunc(){
+            if(httpRequest.readyState == 4){
+                var resultText = httpRequest.responseText;
+                if(resultText == 1){ 
+                    document.location.reload();
+                }
+            }
+        }
   		
 
 		function replyUpdate(key) {
