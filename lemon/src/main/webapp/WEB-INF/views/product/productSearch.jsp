@@ -50,8 +50,13 @@
 								<div class="col mb-5" style="width: 830px;">
 									<div class="card h-100">
 										<!-- Product image-->
-										<img class="card-img-top" src="attach/${p.productImg1}"
-											alt="..." />
+										<c:if test="${p.productImg1  eq null}">
+											<img class="card-img-top" src="attach/기본이미지.png" alt="..." />
+										</c:if>
+										<c:if test="${p.productImg1 ne null}">
+											<img class="card-img-top" src="attach/${p.productImg1}"
+												alt="..." />
+										</c:if>
 										<!-- Product details-->
 										<div class="card-body p-4">
 											<div class="text-center">
