@@ -74,9 +74,15 @@
 				</div>
 			</c:forEach>
 		</div>
+
+		<div>
+			<form id="frm" action="productSelect.do" method="post">
+				<input type="hidden" id="productId" name="productId">
+			</form>
+		</div>
 	</div>
-	
-		<script type="text/javascript"> 
+
+	<script type="text/javascript"> 
 			function productChoice(id) {
 			let frm = document.getElementById("frm");
 			frm.productId.value = id;
