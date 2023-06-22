@@ -215,7 +215,7 @@
 																|| name eq replyList.parentWriter))}">
 														<div>
 															<c:if test="${replyList.replyLevel > 1}">
-															&nbsp;&nbsp;&nbsp;&nbsp;<p>Re:</p>
+																&nbsp;&nbsp;&nbsp;&nbsp;<p>Re:</p>
 															</c:if>
 															<blockquote>
 																<p>${replyList.replySubject}</p>
