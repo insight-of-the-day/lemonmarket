@@ -29,6 +29,7 @@ public interface MemberMapper {
 	int updateGradeR(MemberVO vo);
 	int updateGradeV(MemberVO vo);
 	int updateGradeVV(MemberVO vo);
+	int updateGradeN(MemberVO vo);
 	
 	//탈퇴시 비밀번호 확인용
 	String passwordCheck(String id);

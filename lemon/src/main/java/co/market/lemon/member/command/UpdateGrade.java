@@ -39,6 +39,9 @@ public class UpdateGrade implements Command {
 		} else if(sTotalCount>=1 && !sGrade.equals("T")) {
 			n = ms.updateGradeR(vo);
 			vo = ms.memberSelect(vo);
+		} else if(!sGrade.equals("T")){
+			n = ms.updateGradeN(vo);
+			vo = ms.memberSelect(vo);
 		}
 		
 		if(n != 0) {

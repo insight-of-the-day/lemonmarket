@@ -51,7 +51,6 @@
 	
 			<div id="board-list">
 				<div id="recentList" class="container">
-					
 					<c:forEach items="${recentList}" var="r">	
 						<form id="frm" method="post" class="recentForm">			
 							<div align="center">
