@@ -104,6 +104,12 @@
  		 WHERE MEMBER_NAME = #{memberName} AND NOT MEMBER_GRADE IN 'VV'
 	</update>
 	
+	<update id="updateGradeN" >
+ 		UPDATE MEMBER
+ 		   SET MEMBER_GRADE = 'N'
+ 		 WHERE MEMBER_NAME = #{memberName} AND NOT MEMBER_GRADE IN 'N'
+	</update>
+	
 	<!-- 탈퇴시 비밀번호 확인용 -->
 	<select id="passwordCheck" resultType="String" parameterType="String">
 		SELECT MEMBER_PW

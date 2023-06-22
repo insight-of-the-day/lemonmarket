@@ -109,6 +109,12 @@ public class MemberServiceImpl implements MemberService {
 	public int updateGradeVV(MemberVO vo) {
 		return map.updateGradeVV(vo);
 	}
+	
+	@Override
+	public int updateGradeN(MemberVO vo) {
+		return map.updateGradeN(vo);
+	}
+
 
 	//탈퇴시 비밀번호 확인용
 	@Override
@@ -116,6 +122,7 @@ public class MemberServiceImpl implements MemberService {
 		return map.passwordCheck(id);
 	}
 
+	
 	
 
 }
