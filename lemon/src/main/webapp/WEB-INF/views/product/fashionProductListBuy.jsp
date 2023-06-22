@@ -116,6 +116,7 @@
 
 
 
+	<!-- 페이지하단 검색 -->
 	<div
 		style="display: flex; align-items: center; justify-content: center;">
 		<form action="productSearch.do" id="search" method="post"
