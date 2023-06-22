@@ -241,7 +241,7 @@
 															<c:if
 																test="${name eq product.productWriter && name ne replyList.replyWriter}">
 																<c:choose>
-																	<c:when test="${product.productState eq '거래중'}">
+																	<c:when test="${product.productState eq '거래중' && replyList.replyWriter eq product.productBuyer}">
 																		<button type="button"
 																			onclick="sellCheck('${replyList.replyWriter}')"
 																			class="btn btn-default btn-block" style="margin-top:5px; margin-left:5px; width: 70px; height:30px; border-color:#ced4da; font-color:gray-dark;">거래완료</button>
