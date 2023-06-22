@@ -59,15 +59,7 @@
 					<h2>관련 게시물 전체 조회</h2>
 				</div>
 			</div>
-
-			<div align="center">
-				<c:if test="${not empty id }">
-					<p>
-						<a href="productInsertForm.do"
-							class="btn btn-primary btn-outline btn-lg">글 작성</a>
-					</p>
-				</c:if>
-			</div>
+			<h4 align="center" style="color:gray;">< 관련 게시글 수: ${total} 개 ></h4>
 			<c:forEach items="${products}" var="p">
 				<!-- 				<div class="product"> -->
 				<div onclick="productChoice(${p.productId})">
