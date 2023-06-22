@@ -92,9 +92,11 @@
 		style="display: flex; align-items: center; justify-content: center;">
 		<form action="productSearch.do" id="search" method="post"
 			style="magin-left: 50px; display: flex;">
-			<input type="text" class="form-control" placeholder="제목으로 검색"
+			<input type="hidden" name="productCategory" id="productCategory"
+				value="기타"> <input type="text" class="form-control"
+				id="productTitle" name="productTitle" placeholder="제목으로 검색"
 				style="width: 680px; height: 52px; border-color: gray-light;">
-			<button type="submit" class="btn btn-default"
+			<button type="submit" class="btn btn-default btn-block"
 				style="margin-left: 5px; width: 70px; height: 52px; border-color: #ced4da; font-color: gray-dark;">찾기</button>
 		</form>
 	</div>
@@ -104,7 +106,7 @@
 	<div align="center" class="pager">
 		<ul class="listCenter">
 			<c:forEach var="n" begin="1" end="${totalPage }">
-				<li><a href="fashionproductListBuy.do?viewPage=${n }">${n  }
+				<li><a href="guitarproductListBuy.do?viewPage=${n }">${n  }
 				</a></li>
 			</c:forEach>
 		</ul>
