@@ -66,6 +66,20 @@
 </style>
 </head>
 <body>
+<!-- 페이징 할 때 db의 실행순서에 대해 유념해야 함!!
+select *
+from( select rownum rn, e.*
+select * from 테이블이름 order by 칼럼명 asc)e)
+where rn between 1 and 10<<rownum은 마지막에 처리되어야 함 
+
+or
+
+select* from (select * from TABLENAME order by COLUMNNAME asc)
+where rownum between 1 and 10
+
+근데 위의 방법을 더 추천한댕
+ -->
+
 	<div id="fh5co-product">
 		<div class="container">
 			<div class="row">
