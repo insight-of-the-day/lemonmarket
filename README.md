@@ -7,8 +7,7 @@
 <p>VISUAL STUDIO CODE, GIT, ECLIPSE</p>
 <h3>Development</h3>
 <p>JAVA, JAVASCRIPT, ORACLE</p>
-<h3>Server</h3>
-<p>Amazon EC2</p>
+
 <hr>
 <h3>Feature</h3>
 <p>마이페이지(정보수정,거래내역보기,최근본상품)</p>
