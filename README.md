@@ -7,7 +7,7 @@
 <h3>Environment</h3>
 <p>VISUAL STUDIO CODE, GIT, ECLIPSE</p>
 <h3>Development</h3>
-<p>JAVA, JAVASCRIPT, ORACLEDB</p>
+<p>JAVA11, JAVASCRIPT, SERVLET, JSP, ORACLEDB</p>
 
 <hr>
 <h3>Feature</h3>
