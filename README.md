@@ -7,7 +7,7 @@
 <h3>Environment</h3>
 <p>VISUAL STUDIO CODE, GIT, ECLIPSE</p>
 <h3>Development</h3>
-<p>JAVA11, JAVASCRIPT, SERVLET, JSP, ORACLEDB</p>
+<p>TILES, JSP, ORACLEDB, Servlet, Java(11), Maven, ApacheTomcat, MyBatis, HTML/CSS, JavaScript</p>
 
 <hr>
 <h3>Feature</h3>
